@@ -6,6 +6,13 @@ import time
 import sys
 import os
 from datetime import datetime
+from djitellopy import Tello
+
+drone = Tello()
+drone.connect()
+print(drone.get_battery())
+
+drone.streamon()
 
 TCP_IP = "220.80.88.45"
 TCP_PORT = 8899
@@ -14,7 +21,7 @@ class ServerSocket:
     def __init__(self, ip, port):
         self.TCP_IP = ip
         self.TCP_PORT = port
-        self.createVideoDir()
+        # self.createVideoDir()
         self.socketOpen()
         
     def socketClose(self):
@@ -34,45 +41,33 @@ class ServerSocket:
     def sendVideo(self):
         cnt = 0
         startTime = time.localtime()
-        
-        capture = cv2.VideoCapture('big_buck_bunny_720p_10mb.mp4')
-        
-        if capture.isOpened():
-            fps = capture.get(cv2.CAP_PROP_FPS)
-            f_count = capture.get(cv2.CAP_PROP_FRAME_COUNT)
-            f_w = round(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
-            f_h = round(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            
-            # name = "drone_" + getDate(startTime) + '_' + getTime(startTime) +".mp4"
-            # out = cv2.VideoWriter()
-        
-        if not capture.isOpened():
-            print("Camera open failed!")
-        else:
-            capture.set(cv2.CAP_PROP_FRAME_WIDTH, f_w)
-            capture.set(cv2.CAP_PROP_FRAME_HEIGHT, f_h)
 
-            try:
-                while capture.isOpened():
-                    result, frame = capture.read()
-
-                    result, frame = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 90])
-
-                    data = numpy.array(frame)
-                    stringData = base64.b64encode(data)
-                    length = str(len(stringData))
-                    
-                    self.client_conn.sendall(length.encode('utf-8').ljust(64))
-                    self.client_conn.sendall(stringData)
-                    
-                    print(f"send image {cnt} : {length}bytes")
-                    time.sleep(0.001)
-                    cnt += 1
-            except Exception as e:
-                print(e)
-                self.socketClose()
-                time.sleep(1)
-                self.socketOpen()
+        try:
+            # while capture.isOpened():
+            while True:
+                # result, frame = capture.read()
+                frame = drone.get_frame_read().frame
+                frame = cv2.resize(frame, (1280, 720))
+                
+                # cv2.imshow("drone", frame)
+                result, frame = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 90])
+                
+                data = numpy.array(frame)
+                stringData = base64.b64encode(data)
+                length = str(len(stringData))
+                
+                self.client_conn.sendall(length.encode('utf-8').ljust(64))
+                self.client_conn.sendall(stringData)
+                
+                print(f"send image {cnt} : {length}bytes")
+                cv2.waitKey(33)
+                time.sleep(0.001)
+                cnt += 1
+        except Exception as e:
+            print(e)
+            self.socketClose()
+            time.sleep(1)
+            self.socketOpen()
     
     def createVideoDir(self):
         now = time.localtime()
