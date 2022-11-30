@@ -1,0 +1,46 @@
+{#테스트#}
+{% extends "base.html" %}
+{%  block  content %}
+<body>
+{#    <div class="main">#}
+{#        <h1 class="logo">로그인</h1>#}
+{#        <div class="container">#}
+{#        <form method="POST", action="{{url_for('singup.login_test')}}">#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            {{ msg }}#}
+{#            {{ welcome }}#}
+{#            <br>#}
+{#            <input type="text" placeholder="ID" name = "id" id="id" class="account">#}
+{#            <input type="password" placeholder="Password" name = "pw" id="password" class="account">#}
+{#            <input type="submit" name = "sumbit" value="login_test">#}
+{#            <p id="alert" class="account"> </p>#}
+{#        </form>#}
+{#        </div>#}
+{#    </div>#}
+
+    <article>
+        <div class = "login_wrapper">
+            <div class="login_logo">SkyWatch</div>
+            <form class="login_form" method="POST", action="{{url_for('singup.login_test')}}">
+                <input id="LOGIN_ID" class = "login_text" type="text" name="id" placeholder="아이디를 입력해주세요.">
+                <input  id="LOGIN_PW" class = "login_text" type="password" name="pw" placeholder="5자리이상 비밀번호를 입력해주세요.">
+                <button id="LOGIN_BTN" class = "login_btn" type="submit">로그인</button>
+                {{ msg }}
+                {{ welcome }}
+            </form>
+            <a class = "login_bottom" href="" >비밀번호를 잊으셨나요?</a>
+
+        </div>
+    </article>
+
+    <script src="/static/js/login.js" defer=""></script>
+</body>
+{%  endblock %}
