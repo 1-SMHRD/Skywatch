@@ -10,9 +10,7 @@ public class DroneViewModel extends ViewModel {
 
     public DroneViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
     }
-
     public LiveData<String> getText() {
         return mText;
     }
