@@ -5,7 +5,7 @@
     android:id="@+id/conlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.report5.report5Fragment">
+    tools:context=".DroneFragment">
 
     <Button
         android:id="@+id/btn_add"

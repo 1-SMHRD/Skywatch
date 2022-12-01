@@ -22,4 +22,9 @@
         android:name="com.moon.skywatch.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_drone"
+        android:name="com.moon.skywatch.DroneFragment"
+        android:label="@string/menu_drone"
+        tools:layout="@layout/fragment_drone" />
 </navigation>
