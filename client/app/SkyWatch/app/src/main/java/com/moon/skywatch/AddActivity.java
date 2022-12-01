@@ -23,6 +23,8 @@ public class AddActivity extends AppCompatActivity {
         edt_addres = findViewById(R.id.edt_addres);
         btn_ok = findViewById(R.id.btn_ok);
 
+        // adfasdf
+
 
 
 
