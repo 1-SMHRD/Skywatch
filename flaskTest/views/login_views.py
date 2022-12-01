@@ -29,29 +29,37 @@ logins = Blueprint('singup',__name__,url_prefix='/singup')
 # 없으면 환영합니다 반환 이것을 js로 바꾸면됨
 @logins.route('/login_singup_query',methods= ['GET','POST'])
 def login_singup_query():
-    welcome = ''
-    No_welcome = ''
-    id = request.form['sigup_id']
-    password = request.form['sigup_pw']
-    drone_name = request.form['sigup_droneName']
-    db_class = dbmodule.Database()
-    # query = f"insert into test values ({id},{password},{drone_name})"
-    # db_class.execute(query)
-    # db_class.commit()
-    query1 = f"select id from test where id = '{id}'"
-    print(query1)
-    query2 = f"insert into test values ({id},{password},{drone_name})"
-    print(query2)
-    row1 = db_class.executeOne(query1)
-    if row1['id'] == id:
-        No_welcome = '이미 있는 아이디입니다. 다시 회원가입 하세요'
-        return render_template("manager/sigup.html", No_welcome = No_welcome)
-    else:
-        welcome = '회원가입 완료되었습니다'
-        query = f"insert into test values ('{id}','{password}','{drone_name}')"
-        db_class.execute(query)
-        db_class.commit()
-        return render_template("manager/login.html", welcome = welcome)
+    if request.method == 'POST':
+        welcome = ''
+        No_welcome = ''
+        id = request.form['sigup_id']
+        password = request.form['sigup_pw']
+        drone_name = request.form['sigup_droneName']
+        db_class = dbmodule.Database()
+        # query = f"insert into test values ({id},{password},{drone_name})"
+        # db_class.execute(query)
+        # db_class.commit()
+        query1 = f"select id from test where id = '{id}'"
+        print(query1)
+        query2 = f"insert into test values ({id},{password},{drone_name})"
+        print(query2)
+        row1 = db_class.executeOne(query1)
+        print(row1)
+        print(type(row1))
+        if row1 is None:
+            welcome = '회원가입 완료되었습니다'
+            query = f"insert into test values ('{id}','{password}','{drone_name}')"
+            db_class.execute(query)
+            db_class.commit()
+            return render_template("manager/login.html", welcome=welcome)
+        elif row1['id'] == id:
+            if row1['id'] == '':
+                No_welcome = '가입할 아이디랑 비밀번호 입력하시오'
+                return render_template("manager/sigup.html", No_welcome = No_welcome)
+            else:
+                No_welcome = '이미 있는 아이디입니다. 다시 회원가입 하세요'
+                return render_template("manager/sigup.html", No_welcome=No_welcome)
+
 
     #
     # if id == 'test' and password == '1234' and drone_name == 'tello':
