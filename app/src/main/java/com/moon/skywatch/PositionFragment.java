@@ -1,4 +1,4 @@
-package com.moon.skywatch.ui.position;
+package com.moon.skywatch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

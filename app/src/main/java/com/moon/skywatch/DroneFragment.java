@@ -1,4 +1,4 @@
-package com.moon.skywatch.ui.drone;
+package com.moon.skywatch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -58,6 +58,7 @@ public class DroneFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initDataset();
+        //aa
     }
 
     private void initDataset() {

@@ -1,30 +1,29 @@
-package com.moon.skywatch.ui.report;
+package com.moon.skywatch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.moon.skywatch.databinding.FragmentReportBinding;
+import com.moon.skywatch.databinding.FragmentHomeBinding;
 
+public class HomeFragment extends Fragment {
 
-public class ReportFragment extends Fragment {
-
-    private FragmentReportBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentReportBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
 
         return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
