@@ -38,7 +38,7 @@ def login_singup_query():
     # query = f"insert into test values ({id},{password},{drone_name})"
     # db_class.execute(query)
     # db_class.commit()
-    query1 = f"select id from test whare" + str(id)
+    query1 = f"select id from test where id = '{id}'"
     print(query1)
     query2 = f"insert into test values ({id},{password},{drone_name})"
     print(query2)
