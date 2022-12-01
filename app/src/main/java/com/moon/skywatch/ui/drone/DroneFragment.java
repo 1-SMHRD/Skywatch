@@ -47,6 +47,8 @@ public class DroneFragment extends Fragment {
         rcv.setAdapter(adapter);
 
         return viewGroup;
+
+        // aaa
     }
 
     @Override
