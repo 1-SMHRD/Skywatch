@@ -20,6 +20,11 @@ public class PositionFragment extends Fragment{
         binding = FragmentPositionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //        MapView mapView = new MapView(getContext());
+//
+//        ViewGroup mapViewContainer = (ViewGroup) viewGroup.findViewById(R.id.kakao_map);
+//        mapViewContainer.addView(mapView);
+
 
         return root;
     }

@@ -9,21 +9,21 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_live"
             android:icon="@drawable/ic_baseline_video_library_24"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_live" />
         <item
             android:id="@+id/nav_position"
             android:icon="@drawable/ic_loc"
             android:title="@string/menu_position" />
         <item
-            android:id="@+id/nav_number4"
+            android:id="@+id/nav_number"
             android:icon="@drawable/ic_number"
-            android:title="@string/menu_number4" />
+            android:title="@string/menu_number" />
         <item
-            android:id="@+id/nav_report5"
+            android:id="@+id/nav_report"
             android:icon="@drawable/ic_call"
-            android:title="@string/menu_report5" />
+            android:title="@string/menu_report" />
         <item
             android:id="@+id/nav_drone"
             android:icon="@drawable/ic_d"
