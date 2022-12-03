@@ -6,25 +6,33 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_number4"
+        android:name="com.moon.skywatch.ui.number4.number4Fragment"
+        android:label="@string/menu_number4"
+        tools:layout="@layout/fragment_number4" />
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.moon.skywatch.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery" />
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.moon.skywatch.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.moon.skywatch.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.moon.skywatch.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_position"
+        android:name="com.moon.skywatch.PositionFragment"
+        android:label="@string/menu_position"
+        tools:layout="@layout/fragment_position" />
     <fragment
         android:id="@+id/nav_drone"
         android:name="com.moon.skywatch.DroneFragment"
         android:label="@string/menu_drone"
         tools:layout="@layout/fragment_drone" />
+    <fragment
+        android:id="@+id/nav_report5"
+        android:name="com.moon.skywatch.ui.report5.report5Fragment"
+        android:label="@string/menu_report5"
+        tools:layout="@layout/fragment_report5" />
 </navigation>

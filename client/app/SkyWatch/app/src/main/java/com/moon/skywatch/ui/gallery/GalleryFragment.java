@@ -8,24 +8,23 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.maps.MapView;
 import com.moon.skywatch.R;
-import com.moon.skywatch.databinding.FragmentConnection6Binding;
+import com.moon.skywatch.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
     ViewGroup viewGroup;
-    private FragmentConnection6Binding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_slideshow, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_gallery, container, false);
 
 
-        MapView mapView = new MapView(getContext());
-
-        ViewGroup mapViewContainer = (ViewGroup) viewGroup.findViewById(R.id.kakao_map);
-        mapViewContainer.addView(mapView);
+//        MapView mapView = new MapView(getContext());
+//
+//        ViewGroup mapViewContainer = (ViewGroup) viewGroup.findViewById(R.id.kakao_map);
+//        mapViewContainer.addView(mapView);
 
 
 

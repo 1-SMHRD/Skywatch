@@ -10,7 +10,7 @@
 
     <string name="menu_home">홈</string>
     <string name="menu_gallery">실시간 영상</string>
-    <string name="menu_slideshow">단속구역 위치</string>
+    <string name="menu_position">단속구역 위치</string>
     <string name="menu_number4">단속번호판</string>
     <string name="menu_report5">긴급상황 신고</string>
     <string name="menu_drone">드론관리</string>
