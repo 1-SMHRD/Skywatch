@@ -1,5 +1,6 @@
 package com.moon.skywatch;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,17 +21,8 @@ public class LiveFragment extends Fragment {
 
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_live, container, false);
 
-
-//        MapView mapView = new MapView(getContext());
-//
-//        ViewGroup mapViewContainer = (ViewGroup) viewGroup.findViewById(R.id.kakao_map);
-//        mapViewContainer.addView(mapView);
-
-
-
-
-
-
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
 
         return viewGroup;
     }

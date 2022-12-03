@@ -1,6 +1,8 @@
 package com.moon.skywatch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, Nav2Activity.class);
                     startActivity(intent);
                     finish();
-                }else {
+                } else {
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
 
         });
     }
-}
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        // 메인에서 뒤로가기 버튼시 종료해야함 !
+        }
+    }

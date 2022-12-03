@@ -1,5 +1,6 @@
 package com.moon.skywatch;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class ReportFragment extends Fragment {
 
         binding = FragmentReportBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         return root;
