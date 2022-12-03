@@ -1,4 +1,4 @@
-package com.moon.skywatch;
+package com.moon.skywatch.ui.report5;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,18 +7,21 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.moon.skywatch.databinding.FragmentReportBinding;
+import com.moon.skywatch.databinding.FragmentReport5Binding;
 
 
-public class ReportFragment extends Fragment {
+public class report5Fragment extends Fragment {
 
-    private FragmentReportBinding binding;
+    private FragmentReport5Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        report5ViewModel report5ViewModel =
+                new ViewModelProvider(this).get(report5ViewModel.class);
 
-        binding = FragmentReportBinding.inflate(inflater, container, false);
+        binding = FragmentReport5Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
