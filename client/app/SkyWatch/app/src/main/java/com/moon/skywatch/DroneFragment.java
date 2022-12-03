@@ -1,5 +1,6 @@
 package com.moon.skywatch;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,8 @@ public class DroneFragment extends Fragment {
         rcv.setLayoutManager(mLayoutManager);
         rcv.setItemAnimator(new DefaultItemAnimator());
         rcv.setAdapter(adapter);
+
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         return viewGroup;
     }

@@ -3,6 +3,7 @@ package com.moon.skywatch;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ public class PositionFragment extends Fragment{
 
         binding = FragmentPositionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //        MapView mapView = new MapView(getContext());
 //

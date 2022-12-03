@@ -1,5 +1,6 @@
-package com.moon.skywatch.ui.report5;
+package com.moon.skywatch;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,22 +8,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.moon.skywatch.databinding.FragmentReport5Binding;
+import com.moon.skywatch.databinding.FragmentReportBinding;
 
-
-public class report5Fragment extends Fragment {
-
-    private FragmentReport5Binding binding;
+public class ReportFragment extends Fragment{
+    private FragmentReportBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        report5ViewModel report5ViewModel =
-                new ViewModelProvider(this).get(report5ViewModel.class);
 
-        binding = FragmentReport5Binding.inflate(inflater, container, false);
+        binding = FragmentReportBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         return root;
