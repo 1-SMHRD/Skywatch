@@ -1,6 +1,5 @@
-package com.moon.skywatch;
+package com.moon.skywatch.ui.gallery;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,30 +8,36 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.moon.skywatch.databinding.FragmentLiveBinding;
+import com.moon.skywatch.R;
+import com.moon.skywatch.databinding.FragmentGalleryBinding;
 
-public class LiveFragment extends Fragment {
+public class GalleryFragment extends Fragment {
     ViewGroup viewGroup;
-    private FragmentLiveBinding binding;
+    private FragmentGalleryBinding binding;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_live, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_gallery, container, false);
+
 
 //        MapView mapView = new MapView(getContext());
 //
 //        ViewGroup mapViewContainer = (ViewGroup) viewGroup.findViewById(R.id.kakao_map);
 //        mapViewContainer.addView(mapView);
 
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        // 화면을 landscape(가로) 화면으로 고정하고 싶은 경우
-//        getActivity().setContentView(R.layout.fragment_live);
+
+
+
+
+
+
         return viewGroup;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 }
