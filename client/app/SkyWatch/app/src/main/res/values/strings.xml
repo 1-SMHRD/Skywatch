@@ -14,4 +14,6 @@
     <string name="menu_number">단속번호판</string>
     <string name="menu_report">긴급상황 신고</string>
     <string name="menu_drone">드론관리</string>
+    <string name="angle_0">angle : 0</string>
+    <string name="strength_0">strength : 0</string>
 </resources>

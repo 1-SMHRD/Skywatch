@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.content.pm.ActivityInfo;
+import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
         view = inflater.inflate(R.layout.fragment_position, container, false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -40,11 +43,11 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                 mMap = googleMap;
 
                 LatLng latLng = new LatLng(35.149796202004325, 126.91992834014);
-                mMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .title("스마트인재개발원"));
+                mMap.addMarker(new MarkerOptions().position(latLng).title("스마트인재개발원"));
+
 //                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,16));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,19));
+
             }
         });
 
