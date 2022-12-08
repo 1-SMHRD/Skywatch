@@ -1,23 +1,39 @@
 package com.moon.skywatch;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
-    String id = "a123";
-    String pw = "a123";
+    String ip;
+    int port;
+    String url;
 
     EditText edt_id, edt_pw;
     Button btn_login;
+
+    static RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +44,62 @@ public class MainActivity extends AppCompatActivity {
         edt_pw = findViewById(R.id.edt_pw);
         btn_login = findViewById(R.id.btn_login);
 
+
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edt_id.getText().toString().equals(id) &&
-                        edt_pw.getText().toString().equals(pw)) {
-                    Intent intent = new Intent(MainActivity.this, Nav2Activity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
-                }
+
+                makeRequest(edt_id.getText().toString(), edt_pw.getText().toString());
+
             }
 
         });
+
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+    }
+
+    public void makeRequest(String inputId, String inputPw) {
+        ip = "http://220.80.88.45";
+        port = 5000;
+
+        url = ip + ":" + port + "/singup/login_android";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("response", response);
+                        if (response.equals("true")) {
+                            Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, Nav2Activity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Response Error", error.getMessage());
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> param = new HashMap<>();
+                param.put("id", inputId);
+                param.put("pw", inputPw);
+
+                return param;
+            }
+        };
+
+        request.setShouldCache(false);
+        requestQueue.add(request);
     }
 
     @Override
