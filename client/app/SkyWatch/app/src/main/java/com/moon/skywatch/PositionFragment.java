@@ -45,7 +45,6 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                 LatLng latLng = new LatLng(35.149796202004325, 126.91992834014);
                 mMap.addMarker(new MarkerOptions().position(latLng).title("스마트인재개발원"));
 
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,19));
 
             }
@@ -59,9 +58,6 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(0, 0))
                 .title("Marker"));
-//        LatLng marker = new LatLng(37.568291,126.997780);
-//        googleMap.addMarker(new MarkerOptions().position(marker).title("여기"));
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
     }
     @Override

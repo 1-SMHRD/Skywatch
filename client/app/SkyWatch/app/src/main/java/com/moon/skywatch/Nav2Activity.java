@@ -24,12 +24,6 @@ public class Nav2Activity extends AppCompatActivity {
     private ActivityNav2Binding binding;
     ConstraintLayout conlayout;
 
-    int REQUEST_LOGIN = 1;
-    // 문자열을 저장할 수 있는 arrayList 생성하고
-    // 게시판 글 5개 저장하기!
-    ArrayList<String> data;
-    ArrayAdapter<String> adapter;
-    int REQUEST_WRITE = 2;
 
 
     @Override
@@ -44,17 +38,8 @@ public class Nav2Activity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarNav2.toolbar);
-//        binding.appBarNav2.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_live, R.id.nav_position,
                 R.id.nav_number, R.id.nav_report, R.id.nav_drone)
@@ -69,7 +54,6 @@ public class Nav2Activity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.nav2, menu);
         return true;
     }

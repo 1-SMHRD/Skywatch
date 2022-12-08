@@ -28,7 +28,6 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         Button btn_out = (Button) root.findViewById(R.id.btn_out);
-//        root.findViewById(R.id.btn_out);
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // 화면을 landscape(가로) 화면으로 고정하고 싶은 경우

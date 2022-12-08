@@ -29,7 +29,6 @@ public class LiveFragment extends Fragment {
         // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
 
         super.onCreate(savedInstanceState);
-//        this.setContentView(1300000);
         JoystickView joystickView = (JoystickView)root.findViewById(R.id.joystick);
         final TextView angleValueView = (TextView)root.findViewById(R.id.value_angle);
         final TextView strengthValueView = (TextView)root.findViewById(R.id.value_strength);
