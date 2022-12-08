@@ -10,7 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.moon.joystick1.JoystickView;
 import com.moon.skywatch.databinding.FragmentLiveBinding;
+
+import kotlin.jvm.internal.Intrinsics;
 
 
 public class LiveFragment extends Fragment {
