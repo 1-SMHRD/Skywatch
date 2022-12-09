@@ -2884,6 +2884,8 @@ id btn_go
 id btn_login
 id btn_ok
 id btn_out
+id btn_sendArea
+id btn_setArea
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3047,7 +3049,7 @@ id listMode
 id list_item
 id locale
 id ltr
-id mapView2
+id mapView
 id marquee
 id masked
 id match_constraint

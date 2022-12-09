@@ -4,6 +4,7 @@ package com.moon.skywatch.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,11 +21,20 @@ public final class FragmentPositionBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final MapView mapView2;
+  public final Button btnSendArea;
 
-  private FragmentPositionBinding(@NonNull ConstraintLayout rootView, @NonNull MapView mapView2) {
+  @NonNull
+  public final Button btnSetArea;
+
+  @NonNull
+  public final MapView mapView;
+
+  private FragmentPositionBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnSendArea,
+      @NonNull Button btnSetArea, @NonNull MapView mapView) {
     this.rootView = rootView;
-    this.mapView2 = mapView2;
+    this.btnSendArea = btnSendArea;
+    this.btnSetArea = btnSetArea;
+    this.mapView = mapView;
   }
 
   @Override
@@ -54,13 +64,26 @@ public final class FragmentPositionBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.mapView2;
-      MapView mapView2 = ViewBindings.findChildViewById(rootView, id);
-      if (mapView2 == null) {
+      id = R.id.btn_sendArea;
+      Button btnSendArea = ViewBindings.findChildViewById(rootView, id);
+      if (btnSendArea == null) {
         break missingId;
       }
 
-      return new FragmentPositionBinding((ConstraintLayout) rootView, mapView2);
+      id = R.id.btn_setArea;
+      Button btnSetArea = ViewBindings.findChildViewById(rootView, id);
+      if (btnSetArea == null) {
+        break missingId;
+      }
+
+      id = R.id.mapView;
+      MapView mapView = ViewBindings.findChildViewById(rootView, id);
+      if (mapView == null) {
+        break missingId;
+      }
+
+      return new FragmentPositionBinding((ConstraintLayout) rootView, btnSendArea, btnSetArea,
+          mapView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

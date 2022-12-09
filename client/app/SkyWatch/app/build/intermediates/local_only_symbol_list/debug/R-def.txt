@@ -39,6 +39,8 @@ id btn_go
 id btn_login
 id btn_ok
 id btn_out
+id btn_sendArea
+id btn_setArea
 id conlayout
 id drawer_layout
 id editTextDate
@@ -56,7 +58,7 @@ id imgCarParking1
 id imgCarParking2
 id imgNumPlate
 id joystick
-id mapView2
+id mapView
 id mobile_navigation
 id nav_drone
 id nav_home
