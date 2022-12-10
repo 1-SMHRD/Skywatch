@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,7 +31,7 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
     private View view;
     private GoogleMap mMap;
     private MapView mMapView;
-    Button btn_setArea;
+    ToggleButton btn_setArea;
     Button btn_sendArea;
 
     int numberOfMarker;
@@ -60,33 +62,39 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,19));
 
-                mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                btn_setArea.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onMapClick(@NonNull LatLng latLng) {
-                        if (numberOfMarker < 4) {
-                            for (int i = 0; i < 4; i++) {
-                                if (checkMarker[i] == 0) {
-                                    MarkerOptions mOptions = new MarkerOptions();
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                        if (isChecked) {
+                            mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                                @Override
+                                public void onMapClick(@NonNull LatLng latLng) {
+                                    if (numberOfMarker < 4) {
+                                        for (int i = 0; i < 4; i++) {
+                                            if (checkMarker[i] == 0) {
+                                                MarkerOptions mOptions = new MarkerOptions();
 
-                                    mOptions.title((char)(i + 65) + "구역");
-                                    Double latitude = latLng.latitude;   // 위도
-                                    Double longitude = latLng.longitude;   // 경도
+                                                mOptions.title((char)(i + 65) + "구역");
+                                                Double latitude = latLng.latitude;   // 위도
+                                                Double longitude = latLng.longitude;   // 경도
 
-                                    // 마커 간단한 설명
-                                    // mOptions.snippet(latitude.toString() + ", " + longitude.toString());
-                                    mOptions.position(new LatLng(latitude, longitude));
+                                                // 마커 간단한 설명
+                                                // mOptions.snippet(latitude.toString() + ", " + longitude.toString());
+                                                mOptions.position(new LatLng(latitude, longitude));
 
-                                    mMap.addMarker(mOptions);
-                                    checkMarker[i] = 1;
-                                    i = 4;
-                                    Log.d("numberOfMarker", numberOfMarker+"");
+                                                mMap.addMarker(mOptions);
+                                                checkMarker[i] = 1;
+                                                i = 4;
+                                                Log.d("numberOfMarker", numberOfMarker+"");
+                                            }
+                                        }
+                                        numberOfMarker++;
+                                    } else {
+                                        Toast.makeText(view.getContext(), "주차 구역 설정은 최대 4곳입니다.", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                            numberOfMarker++;
-                        } else {
-                            Toast.makeText(view.getContext(), "주차 구역 설정은 최대 4곳입니다.", Toast.LENGTH_SHORT).show();
+                            });
                         }
-                        
                     }
                 });
 

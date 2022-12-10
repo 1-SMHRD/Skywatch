@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -24,13 +25,13 @@ public final class FragmentPositionBinding implements ViewBinding {
   public final Button btnSendArea;
 
   @NonNull
-  public final Button btnSetArea;
+  public final ToggleButton btnSetArea;
 
   @NonNull
   public final MapView mapView;
 
   private FragmentPositionBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnSendArea,
-      @NonNull Button btnSetArea, @NonNull MapView mapView) {
+      @NonNull ToggleButton btnSetArea, @NonNull MapView mapView) {
     this.rootView = rootView;
     this.btnSendArea = btnSendArea;
     this.btnSetArea = btnSetArea;
@@ -71,7 +72,7 @@ public final class FragmentPositionBinding implements ViewBinding {
       }
 
       id = R.id.btn_setArea;
-      Button btnSetArea = ViewBindings.findChildViewById(rootView, id);
+      ToggleButton btnSetArea = ViewBindings.findChildViewById(rootView, id);
       if (btnSetArea == null) {
         break missingId;
       }
