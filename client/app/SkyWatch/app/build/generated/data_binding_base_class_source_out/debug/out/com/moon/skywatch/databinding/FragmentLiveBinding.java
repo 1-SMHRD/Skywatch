@@ -4,13 +4,12 @@ package com.moon.skywatch.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.moon.joystick1.JoystickView;
 import com.moon.skywatch.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,20 +20,11 @@ public final class FragmentLiveBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final JoystickView joystick;
+  public final ImageView ivDroneView;
 
-  @NonNull
-  public final TextView valueAngle;
-
-  @NonNull
-  public final TextView valueStrength;
-
-  private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @NonNull JoystickView joystick,
-      @NonNull TextView valueAngle, @NonNull TextView valueStrength) {
+  private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivDroneView) {
     this.rootView = rootView;
-    this.joystick = joystick;
-    this.valueAngle = valueAngle;
-    this.valueStrength = valueStrength;
+    this.ivDroneView = ivDroneView;
   }
 
   @Override
@@ -64,26 +54,13 @@ public final class FragmentLiveBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.joystick;
-      JoystickView joystick = ViewBindings.findChildViewById(rootView, id);
-      if (joystick == null) {
+      id = R.id.iv_droneView;
+      ImageView ivDroneView = ViewBindings.findChildViewById(rootView, id);
+      if (ivDroneView == null) {
         break missingId;
       }
 
-      id = R.id.value_angle;
-      TextView valueAngle = ViewBindings.findChildViewById(rootView, id);
-      if (valueAngle == null) {
-        break missingId;
-      }
-
-      id = R.id.value_strength;
-      TextView valueStrength = ViewBindings.findChildViewById(rootView, id);
-      if (valueStrength == null) {
-        break missingId;
-      }
-
-      return new FragmentLiveBinding((ConstraintLayout) rootView, joystick, valueAngle,
-          valueStrength);
+      return new FragmentLiveBinding((ConstraintLayout) rootView, ivDroneView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

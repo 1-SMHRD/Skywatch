@@ -8,14 +8,8 @@ import os
 from datetime import datetime
 from djitellopy import Tello
 
-""" drone = Tello()
-drone.connect()
-print(drone.get_battery())
-
-drone.streamon()
-
 TCP_IP = "220.80.88.45"
-TCP_PORT = 8089 """
+TCP_PORT = 8089
 
 class ServerSocket:
     def __init__(self, ip, port):
@@ -30,6 +24,8 @@ class ServerSocket:
         
     def socketOpen(self):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # WinError10048 해결
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.bind((self.TCP_IP, self.TCP_PORT))
         self.sock.listen(99)
         print(f"Server Socket [ TCP_IP: {self.TCP_IP}, TCP_PORT: {self.TCP_PORT} ] is open")
@@ -42,13 +38,19 @@ class ServerSocket:
         if msg == "/image":
             print("sendImage()")
             self.sendImage()
-        elif msg == "drone":
+        elif msg == "/drone":
             print("sendVideo()")
             self.sendVideo()
         else :
             print("===" + msg + "===")
 
     def sendVideo(self):
+        
+        """ drone = Tello()
+        drone.connect()
+        print(drone.get_battery())
+        drone.streamon() """
+        
         cnt = 0
         startTime = time.localtime()
 
@@ -66,10 +68,17 @@ class ServerSocket:
                 
                 data = numpy.array(frame)
                 stringData = base64.b64encode(data)
-                length = str(len(stringData))
+                length = len(stringData)
                 
-                self.client_conn.sendall(length.encode('utf-8').ljust(64))
-                self.client_conn.sendall(stringData)
+                self.client_conn.sendall(length.to_bytes(4, byteorder="big"))
+            
+                while len(stringData):
+                    if len(stringData) < 1024:
+                        self.client_conn.sendall(stringData)
+                        stringData = []
+                    else:
+                        self.client_conn.sendall(stringData[:1024])
+                        stringData = stringData[1024:]
                 
                 print(f"send image {cnt} : {length}bytes")
                 cv2.waitKey(33)
@@ -77,6 +86,7 @@ class ServerSocket:
                 cnt += 1
         except Exception as e:
             print(e)
+            self.client_conn.close()
             self.socketClose()
             time.sleep(1)
             self.socketOpen()

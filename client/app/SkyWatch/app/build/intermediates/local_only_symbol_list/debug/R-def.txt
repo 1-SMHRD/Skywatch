@@ -30,6 +30,7 @@ drawable ic_number
 drawable ima555
 drawable side_nav_bar
 drawable skyimage
+drawable smmarker
 id RecyclerView
 id action_settings
 id app_bar_nav2
@@ -58,6 +59,7 @@ id imageView4
 id imgCarParking1
 id imgCarParking2
 id imgNumPlate
+id iv_droneView
 id joystick
 id mapView
 id mobile_navigation
@@ -79,8 +81,6 @@ id tv_date
 id tv_name
 id tv_time
 id tv_title
-id value_angle
-id value_strength
 layout activity_add
 layout activity_main
 layout activity_nav2

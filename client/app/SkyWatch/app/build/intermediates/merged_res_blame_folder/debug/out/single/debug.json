@@ -192,6 +192,10 @@
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\navigation\\mobile_navigation.xml"
     },
     {
+        "merged": "com.moon.skywatch.app-merged_res-46:/layout_fragment_live.xml.flat",
+        "source": "com.moon.skywatch.app-main-48:/layout/fragment_live.xml"
+    },
+    {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
@@ -208,6 +212,10 @@
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\ic_number.xml"
     },
     {
+        "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_smmarker.png.flat",
+        "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\smmarker.png"
+    },
+    {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_ic_call.xml.flat",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\ic_call.xml"
     },
@@ -222,10 +230,6 @@
     {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_ic_menu_camera.xml.flat",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\ic_menu_camera.xml"
-    },
-    {
-        "merged": "com.moon.skywatch.app-merged_res-46:/layout_carlisttemplete.xml.flat",
-        "source": "com.moon.skywatch.app-main-48:/layout/carlisttemplete.xml"
     },
     {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\layout_carlisttemplete.xml.flat",
