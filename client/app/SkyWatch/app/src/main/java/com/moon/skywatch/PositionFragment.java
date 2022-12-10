@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -73,7 +74,6 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
         numberOfMarker = 0;
         checkMarker = new int[]{0, 0, 0, 0};
 
-        jsonArray = new JSONArray();
         mapPointList = new ArrayList<>();
 
         btn_setArea = view.findViewById(R.id.btn_setArea);
@@ -189,14 +189,31 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
         btn_sendArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (numberOfMarker == 3) {
-
+                Log.d("numberOfMarker", numberOfMarker+"");
+                if (numberOfMarker == 4) {
+                    jsonArray = new JSONArray();
+                    for (int i = 0; i < numberOfMarker; i++) {
+                        jsonObject = new JSONObject();
+                        try {
+                            jsonObject.put("point", mapPointList.get(i).getPointName());
+                            jsonObject.put("latitude", mapPointList.get(i).getLatitude());
+                            jsonObject.put("longitude", mapPointList.get(i).getLongitude());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        jsonArray.put(jsonObject);
+                    }
+                    Log.d("jsonArray", jsonArray + "");
+                    makeRequest(jsonArray);
                 } else {
                     Toast.makeText(view.getContext(), "주차 구역 4곳을 설정해 주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(view.getContext());
+        }
 
         return view;
     }
@@ -228,19 +245,19 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
         super.onDestroy();
     }
 
-    public void makeRequest(String sendDate) {
+    public void makeRequest(JSONArray jsonArray) {
         String ip = "http://220.80.88.45";
         int port = 5000;
 
-        String url = ip + ":" + port + "/features/getinfo_android";
+        String url = ip + ":" + port + "/features/getArea_android";
+        Log.d("send Data", jsonArray + "");
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d("response", response);
-
-
+                        Toast.makeText(view.getContext(), "주차 단속을 시작합니다.", Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -266,8 +283,7 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> param = new HashMap<>();
-                param.put("sendDate", sendDate);
-
+                param.put("sendArea", jsonArray + "");
                 return param;
             }
         };

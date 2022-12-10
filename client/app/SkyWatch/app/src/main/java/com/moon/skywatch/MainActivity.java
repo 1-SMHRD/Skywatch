@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         edt_pw = findViewById(R.id.edt_pw);
         btn_login = findViewById(R.id.btn_login);
 
-
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
