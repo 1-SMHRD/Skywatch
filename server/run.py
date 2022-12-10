@@ -3,6 +3,8 @@ from views.main import main as main
 from views.login_views import logins
 from views.features import features
 from views.KakaoMap_api import kakao
+from socketclass import ServerSocket
+import threading
 
 app = Flask(__name__)
 app.secret_key = 'hello'
@@ -21,5 +23,7 @@ app.register_blueprint(logins)
 app.register_blueprint(features)
 app.register_blueprint(kakao)
 if __name__ == '__main__':
+    t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
+    t.start()
     app.run(host="0.0.0.0")
 

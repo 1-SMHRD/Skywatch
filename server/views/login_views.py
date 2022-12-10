@@ -123,3 +123,33 @@ def logout():
     session.pop('loggedin',None)
     session.pop('id',None)
     return redirect(url_for('main.index'))
+
+# android
+@logins.route('/login_android',methods= ['GET','POST'])
+def login_android():
+    msg = ''
+    
+    id = request.form['id']
+    pw = request.form['pw']
+    db_class = dbmodule.Database()
+    sql = f"select * from test where id = '{id}'and password = '{pw}'"
+    print(sql)
+    row = db_class.executeOne(sql)
+    print(row)
+    
+    if row:
+        if row['id'] == '' and row['password'] == '':
+            msg = "아이디랑 비밀번호 입력하세요!"
+        else:
+            msg = "true"
+
+    else:
+        msg = "아이디 또는 비밀번호가 틀렸습니다."
+        
+    return msg
+
+        #
+        # if id == row1['id'] and pw == row1['password']:
+        #     return redirect(url_for('main.index')) # 로그아웃 만들어야함
+        # else:
+        #     return "로그인 실패!"
