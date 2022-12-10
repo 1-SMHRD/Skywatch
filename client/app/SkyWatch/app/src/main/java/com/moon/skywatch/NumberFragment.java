@@ -125,6 +125,7 @@ public class NumberFragment extends Fragment {
                 getDate = simpleDateFormat.format(setDate);
                 editTextDate.setText(getDate);
 
+                makeRequest(getDate);
             }
         }, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
 
@@ -144,7 +145,7 @@ public class NumberFragment extends Fragment {
                 datePickerDialog.show();
                 sendDate = editTextDate.getText().toString();
                 Log.d("sendDate", sendDate);
-                makeRequest(sendDate);
+
             }
         });
 

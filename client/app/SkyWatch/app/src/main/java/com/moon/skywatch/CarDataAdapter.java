@@ -34,9 +34,9 @@ public class CarDataAdapter extends RecyclerView.Adapter<CarDataViewHolder> {
     public void onBindViewHolder(@NonNull CarDataViewHolder holder, int position) {
         final int temp = position;
 
-        holder.imgCarParking1.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgParking1(), 200, 200, false));
-        holder.imgCarParking2.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgParking2(), 200, 200, false));
-        holder.imgNumPlate.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgNumPlate(), 200, 200, false));
+        holder.imgCarParking1.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgParking1(), carData.get(temp).getImgParking1().getWidth(), carData.get(temp).getImgParking1().getHeight(), false));
+        holder.imgCarParking2.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgParking2(), carData.get(temp).getImgParking2().getWidth(), carData.get(temp).getImgParking2().getHeight(), false));
+        holder.imgNumPlate.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgNumPlate(), carData.get(temp).getImgNumPlate().getWidth(), carData.get(temp).getImgNumPlate().getHeight(), false));
 
         holder.tv_date.setText(carData.get(temp).getRegulationDate());
         holder.tv_time.setText(carData.get(temp).getRegulationTime());
