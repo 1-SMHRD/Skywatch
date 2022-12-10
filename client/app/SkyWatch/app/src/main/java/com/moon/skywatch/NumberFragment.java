@@ -60,6 +60,7 @@ public class NumberFragment extends Fragment {
     private DataInputStream inStream;
 
     Button btn_date;
+    Button btn_carNum;
     TextView editTextDate;
     View view;
     Date nowDate;
@@ -133,13 +134,14 @@ public class NumberFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d("editTextDate Click", "ClickClickClickClickClick");
-                datePickerDialog.show();
+
             }
         });
 
         btn_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                datePickerDialog.show();
                 sendDate = editTextDate.getText().toString();
                 Log.d("sendDate", sendDate);
                 makeRequest(sendDate);

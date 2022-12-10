@@ -34,6 +34,7 @@ id RecyclerView
 id action_settings
 id app_bar_nav2
 id btn_add
+id btn_carNum
 id btn_date
 id btn_go
 id btn_login

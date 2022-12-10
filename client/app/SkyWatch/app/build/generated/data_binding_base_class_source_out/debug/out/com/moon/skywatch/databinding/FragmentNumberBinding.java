@@ -22,6 +22,9 @@ public final class FragmentNumberBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button btnCarNum;
+
+  @NonNull
   public final Button btnDate;
 
   @NonNull
@@ -30,9 +33,10 @@ public final class FragmentNumberBinding implements ViewBinding {
   @NonNull
   public final RecyclerView recyclerview;
 
-  private FragmentNumberBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnDate,
-      @NonNull TextView editTextDate, @NonNull RecyclerView recyclerview) {
+  private FragmentNumberBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnCarNum,
+      @NonNull Button btnDate, @NonNull TextView editTextDate, @NonNull RecyclerView recyclerview) {
     this.rootView = rootView;
+    this.btnCarNum = btnCarNum;
     this.btnDate = btnDate;
     this.editTextDate = editTextDate;
     this.recyclerview = recyclerview;
@@ -65,6 +69,12 @@ public final class FragmentNumberBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_carNum;
+      Button btnCarNum = ViewBindings.findChildViewById(rootView, id);
+      if (btnCarNum == null) {
+        break missingId;
+      }
+
       id = R.id.btn_date;
       Button btnDate = ViewBindings.findChildViewById(rootView, id);
       if (btnDate == null) {
@@ -83,8 +93,8 @@ public final class FragmentNumberBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentNumberBinding((ConstraintLayout) rootView, btnDate, editTextDate,
-          recyclerview);
+      return new FragmentNumberBinding((ConstraintLayout) rootView, btnCarNum, btnDate,
+          editTextDate, recyclerview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -32,12 +32,12 @@
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\layout\\content_nav2.xml"
     },
     {
-        "merged": "com.moon.skywatch.app-mergeDebugResources-45:/layout/fragment_position.xml",
-        "source": "com.moon.skywatch.app-main-48:/layout/fragment_position.xml"
-    },
-    {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-mergeDebugResources-45:\\layout\\fragment_live.xml",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\layout\\fragment_live.xml"
+    },
+    {
+        "merged": "com.moon.skywatch.app-mergeDebugResources-45:/layout/fragment_number.xml",
+        "source": "com.moon.skywatch.app-main-48:/layout/fragment_number.xml"
     },
     {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-mergeDebugResources-45:\\layout\\activity_add.xml",
