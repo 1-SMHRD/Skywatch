@@ -59,8 +59,8 @@ def setInfo_car():
     db_tbareatest.commit()
     
 
-@features.route("/getinfo_android", methods=['POST'])
-def getInfo_car():
+@features.route("/getDate_android", methods=['POST'])
+def getDate_car():
     data = ''
     
     getDate = request.form["sendDate"]
@@ -68,6 +68,23 @@ def getInfo_car():
     
     db_tbArea = dbmodule.Database()
     sql = f"select * from tb_area_test where regulation_date = '{getDate}'"
+    row = db_tbArea.executeAll(sql)
+    
+    print("row len", len(row))
+    print(type(row))
+    print(row)
+
+    return row
+
+@features.route("/getCarNum_android", methods=['POST'])
+def getNum_car():
+    data = ''
+    
+    getCarNum = request.form["carNum"]
+    print("getCarNum: ", getCarNum)
+    
+    db_tbArea = dbmodule.Database()
+    sql = f"select * from tb_area_test where car_num = '{getCarNum}'"
     row = db_tbArea.executeAll(sql)
     
     print("row len", len(row))

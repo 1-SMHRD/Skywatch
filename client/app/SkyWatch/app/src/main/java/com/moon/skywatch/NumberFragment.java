@@ -1,6 +1,8 @@
 package com.moon.skywatch;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -99,6 +102,7 @@ public class NumberFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_number, container, false);
 
         btn_date = view.findViewById(R.id.btn_date);
+        btn_carNum = view.findViewById(R.id.btn_carNum);
         editTextDate = view.findViewById(R.id.editTextDate);
         rcv = view.findViewById(R.id.recyclerview);
 
@@ -125,7 +129,7 @@ public class NumberFragment extends Fragment {
                 getDate = simpleDateFormat.format(setDate);
                 editTextDate.setText(getDate);
 
-                makeRequest(getDate);
+                makeRequestDate(getDate);
             }
         }, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
 
@@ -149,6 +153,24 @@ public class NumberFragment extends Fragment {
             }
         });
 
+        btn_carNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final EditText et_carNum = new EditText(view.getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle("차량번호를 입력해주세요");
+                builder.setView(et_carNum);
+                builder.setPositiveButton("입력", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        editTextDate.setText(et_carNum.getText().toString());
+                        makeRequestCarNum(et_carNum.getText().toString());
+                    }
+                });
+                builder.show();
+            }
+        });
+
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(view.getContext());
@@ -164,60 +186,62 @@ public class NumberFragment extends Fragment {
         view = null;
     }
 
-    public void makeRequest(String sendDate) {
+    public void getResponseData(String response) {
+        try {
+            carDataList.clear();
+            jsonArray = new JSONArray(response);
+            Log.d("jsonArray Length", jsonArray.length() + "");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jsonObject = jsonArray.getJSONObject(i);
+
+                regulation_date = (String) jsonObject.get("regulation_date");
+                regulation_time = (String) jsonObject.get("regulation_time");
+                regulation_area = (String) jsonObject.get("regulation_area");
+                car_num = (String) jsonObject.get("car_num");
+
+                img_parking1 = (String) jsonObject.get("imgdir_parking1");
+                img_parking2 = (String) jsonObject.get("imgdir_parking2");
+                img_numPlate = (String) jsonObject.get("imgdir_numplate");
+
+                String[] car_data = new String[]{regulation_date, regulation_time, regulation_area, car_num};
+                String[] imgDir = new String[]{img_parking1, img_parking2, img_numPlate};
+
+                if (imgDir.length != 0) {
+                    connect(imgDir);
+                }
+
+                if (check == 1) {
+                    carDataList.add(setResult(car_data, img_list));
+                    Log.d("carDataList add", "add");
+                }
+
+                Thread.sleep(100);
+            }
+
+            Log.d("carDataList size", carDataList.size() + "");
+            carDataAdapter.notifyDataSetChanged();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void makeRequestDate(String sendDate) {
         check = 0;
         String ip = "http://220.80.88.45";
         int port = 5000;
 
-        String url = ip + ":" + port + "/features/getinfo_android";
+        String url = ip + ":" + port + "/features/getDate_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d("response", response);
-
-                        try {
-                            carDataList.clear();
-                            jsonArray = new JSONArray(response);
-                            Log.d("jsonArray Length", jsonArray.length() + "");
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                jsonObject = jsonArray.getJSONObject(i);
-
-                                regulation_date = (String) jsonObject.get("regulation_date");
-                                regulation_time = (String) jsonObject.get("regulation_time");
-                                regulation_area = (String) jsonObject.get("regulation_area");
-                                car_num = (String) jsonObject.get("car_num");
-
-                                img_parking1 = (String) jsonObject.get("imgdir_parking1");
-                                img_parking2 = (String) jsonObject.get("imgdir_parking2");
-                                img_numPlate = (String) jsonObject.get("imgdir_numplate");
-
-                                String[] car_data = new String[]{regulation_date, regulation_time, regulation_area, car_num};
-                                String[] imgDir = new String[]{img_parking1, img_parking2, img_numPlate};
-
-                                if (imgDir.length != 0) {
-                                    connect(imgDir);
-                                }
-
-                                if (check == 1) {
-                                    carDataList.add(setResult(car_data, img_list));
-                                    Log.d("carDataList add", "add");
-                                }
-
-                                Thread.sleep(100);
-                            }
-
-                            Log.d("carDataList size", carDataList.size() + "");
-                            carDataAdapter.notifyDataSetChanged();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
+                        getResponseData(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -244,6 +268,54 @@ public class NumberFragment extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> param = new HashMap<>();
                 param.put("sendDate", sendDate);
+
+                return param;
+            }
+        };
+
+        request.setShouldCache(false);
+        requestQueue.add(request);
+    }
+
+    public void makeRequestCarNum(String carNum) {
+        check = 0;
+        String ip = "http://220.80.88.45";
+        int port = 5000;
+
+        String url = ip + ":" + port + "/features/getCarNum_android";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("response", response);
+                        getResponseData(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Response Error", "" + error.getMessage());
+            }
+        }) {
+            @Override //response를 UTF8로 변경해주는 소스코드
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    Log.d("utf8string", utf8String);
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> param = new HashMap<>();
+                param.put("carNum", carNum);
 
                 return param;
             }
@@ -329,8 +401,6 @@ public class NumberFragment extends Fragment {
                     img_list[i] = InPutStreamToByteArray(img_len, inStream);
                     Log.d("img receive", (i + 1) + "img receive");
                 }
-
-
 
                 try {
                     socket.close();
