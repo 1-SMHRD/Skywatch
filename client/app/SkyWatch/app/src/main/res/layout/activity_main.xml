@@ -81,24 +81,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="1.0" />
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/edt_pw"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="  PW"
-        android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
-        app:layout_constraintEnd_toEndOf="@+id/edt_id"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edt_id" />
-
-=======
->>>>>>> 7198bdf511a8daa09c244f3f78d01f84d5dea470
-
 </androidx.constraintlayout.widget.ConstraintLayout>

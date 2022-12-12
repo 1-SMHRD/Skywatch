@@ -2699,7 +2699,9 @@ int drawable ic_mtrl_chip_checked_black 0x7f0700aa
 int drawable ic_mtrl_chip_checked_circle 0x7f0700ab
 int drawable ic_mtrl_chip_close_circle 0x7f0700ac
 int drawable ic_number 0x7f0700ad
+int drawable icon 0x7f0700f9
 int drawable ima555 0x7f0700ae
+int drawable left_btn_backgound 0x7f0700fa
 int drawable m3_appbar_background 0x7f0700af
 int drawable m3_popupmenu_background_overlay 0x7f0700b0
 int drawable m3_radiobutton_ripple 0x7f0700b1
@@ -2768,6 +2770,7 @@ int drawable notification_template_icon_bg 0x7f0700ef
 int drawable notification_template_icon_low_bg 0x7f0700f0
 int drawable notification_tile_bg 0x7f0700f1
 int drawable notify_panel_notification_icon_bg 0x7f0700f2
+int drawable right_btn_backgound 0x7f0700fb
 int drawable side_nav_bar 0x7f0700f3
 int drawable skyimage 0x7f0700f4
 int drawable smmarker 0x7f0700f5
@@ -3256,6 +3259,8 @@ int id terrain 0x7f0801de
 int id text 0x7f0801df
 int id text2 0x7f0801e0
 int id textEnd 0x7f0801e1
+int id textInputLayout 0x7f080220
+int id textInputLayout2 0x7f080221
 int id textSpacerNoButtons 0x7f0801e2
 int id textSpacerNoTitle 0x7f0801e3
 int id textStart 0x7f0801e4
@@ -3720,6 +3725,7 @@ int style Animation_AppCompat_DropDownUp 0x7f120003
 int style Animation_AppCompat_Tooltip 0x7f120004
 int style Animation_Design_BottomSheetDialog 0x7f120005
 int style Animation_MaterialComponents_BottomSheetDialog 0x7f120006
+int style AppTheme 0x7f12041f
 int style Base_AlertDialog_AppCompat 0x7f120007
 int style Base_AlertDialog_AppCompat_Light 0x7f120008
 int style Base_Animation_AppCompat_Dialog 0x7f120009

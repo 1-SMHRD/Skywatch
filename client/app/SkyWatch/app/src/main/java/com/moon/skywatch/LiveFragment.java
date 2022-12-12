@@ -49,7 +49,7 @@ public class LiveFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
         // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         // super.onCreate(savedInstanceState);
         /*JoystickView joystickView = (JoystickView)view.findViewById(R.id.joystick);
