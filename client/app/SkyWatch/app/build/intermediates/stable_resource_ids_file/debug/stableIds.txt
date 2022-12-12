@@ -119,7 +119,11 @@ com.moon.skywatch:style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small = 
 com.moon.skywatch:dimen/mtrl_calendar_year_height = 0x7f0601e5
 com.moon.skywatch:style/Base.V21.Theme.AppCompat.Dialog = 0x7f120094
 com.moon.skywatch:style/ThemeOverlay.Material3.Chip = 0x7f12026a
+<<<<<<< HEAD
 com.moon.skywatch:id/wide = 0x7f080218
+=======
+com.moon.skywatch:id/wide = 0x7f080217
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:layout/abc_action_bar_up_container = 0x7f0b0001
 com.moon.skywatch:styleable/CompoundButton = 0x7f130028
 com.moon.skywatch:style/Widget.MaterialComponents.MaterialCalendar.HeaderCancelButton = 0x7f1203e0
@@ -161,7 +165,11 @@ com.moon.skywatch:id/staticLayout = 0x7f0801c9
 com.moon.skywatch:style/Widget.MaterialComponents.MaterialButtonToggleGroup = 0x7f1203d7
 com.moon.skywatch:id/transition_scene_layoutid_cache = 0x7f0801ff
 com.moon.skywatch:style/Widget.MaterialComponents.TimePicker.Clock = 0x7f120412
+<<<<<<< HEAD
 com.moon.skywatch:id/view_offset_helper = 0x7f08020f
+=======
+com.moon.skywatch:id/view_offset_helper = 0x7f08020e
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/Platform.ThemeOverlay.AppCompat = 0x7f12012c
 com.moon.skywatch:integer/m3_btn_anim_delay_ms = 0x7f09000b
 com.moon.skywatch:style/Widget.Material3.PopupMenu.Overflow = 0x7f12038a
@@ -271,7 +279,11 @@ com.moon.skywatch:dimen/sliding_pane_detail_pane_width = 0x7f060268
 com.moon.skywatch:dimen/m3_sys_state_hover_state_layer_opacity = 0x7f06016b
 com.moon.skywatch:dimen/m3_bottomappbar_horizontal_padding = 0x7f0600c3
 com.moon.skywatch:style/Widget.Material3.ExtendedFloatingActionButton.Secondary = 0x7f120352
+<<<<<<< HEAD
 com.moon.skywatch:id/visible_removing_fragment_view_tag = 0x7f080216
+=======
+com.moon.skywatch:id/visible_removing_fragment_view_tag = 0x7f080215
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:id/edt_addres = 0x7f0800be
 com.moon.skywatch:style/Base.V24.Theme.Material3.Dark = 0x7f1200a2
 com.moon.skywatch:styleable/MaterialAutoCompleteTextView = 0x7f130056
@@ -475,6 +487,10 @@ com.moon.skywatch:style/Widget.Material3.Snackbar = 0x7f12038c
 com.moon.skywatch:style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle = 0x7f1201e5
 com.moon.skywatch:dimen/m3_appbar_size_medium = 0x7f0600ae
 com.moon.skywatch:style/Theme.Material3.Dark = 0x7f120203
+<<<<<<< HEAD
+=======
+com.moon.skywatch:drawable/splash_name = 0x7f0700f9
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/Base.Widget.AppCompat.AutoCompleteTextView = 0x7f1200bd
 com.moon.skywatch:style/TextAppearance.MaterialComponents.Subtitle1 = 0x7f1201e0
 com.moon.skywatch:style/Theme.Design.Light.BottomSheetDialog = 0x7f120200
@@ -489,7 +505,11 @@ com.moon.skywatch:style/Widget.Material3.MaterialCalendar.HeaderSelection = 0x7f
 com.moon.skywatch:style/Theme.AppCompat.Light.NoActionBar = 0x7f1201fb
 com.moon.skywatch:style/Theme.AppCompat.Light.DialogWhenLarge = 0x7f1201fa
 com.moon.skywatch:style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large = 0x7f120181
+<<<<<<< HEAD
 com.moon.skywatch:id/wrap_content = 0x7f08021d
+=======
+com.moon.skywatch:id/wrap_content = 0x7f08021c
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:drawable/$mtrl_checkbox_button_icon_unchecked_indeterminate__0 = 0x7f070015
 com.moon.skywatch:id/exitUntilCollapsed = 0x7f0800c8
 com.moon.skywatch:attr/placeholderText = 0x7f030364
@@ -558,8 +578,11 @@ com.moon.skywatch:color/m3_chip_text_color = 0x7f05007c
 com.moon.skywatch:style/ShapeAppearanceOverlay.MaterialComponents.BottomSheet = 0x7f12016a
 com.moon.skywatch:styleable/CollapsingToolbarLayout_Layout = 0x7f130026
 com.moon.skywatch:id/textInputLayout2 = 0x7f0801e3
+<<<<<<< HEAD
 com.moon.skywatch:color/m3_sys_color_dynamic_light_tertiary = 0x7f05017f
 com.moon.skywatch:id/ratio = 0x7f080184
+=======
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/Base.Animation.AppCompat.Tooltip = 0x7f12000c
 com.moon.skywatch:layout/mtrl_picker_actions = 0x7f0b005f
 com.moon.skywatch:drawable/ic_mtrl_chip_checked_circle = 0x7f0700ab
@@ -597,7 +620,11 @@ com.moon.skywatch:style/Base.Widget.AppCompat.ActionMode = 0x7f1200bb
 com.moon.skywatch:string/mtrl_picker_day_of_week_column_header = 0x7f110080
 com.moon.skywatch:style/ShapeAppearance.MaterialComponents.MediumComponent = 0x7f12015e
 com.moon.skywatch:style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon = 0x7f1203d3
+<<<<<<< HEAD
 com.moon.skywatch:id/west = 0x7f080217
+=======
+com.moon.skywatch:id/west = 0x7f080216
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/MaterialAlertDialog.MaterialComponents.Picker.Date.Calendar = 0x7f12011e
 com.moon.skywatch:id/snackbar_action = 0x7f0801b4
 com.moon.skywatch:style/ShapeAppearance.Material3.SmallComponent = 0x7f12015a
@@ -635,7 +662,11 @@ com.moon.skywatch:dimen/m3_alert_dialog_action_bottom_padding = 0x7f0600a0
 com.moon.skywatch:color/mtrl_textinput_hovered_box_stroke_color = 0x7f05024e
 com.moon.skywatch:string/material_clock_display_divider = 0x7f11004f
 com.moon.skywatch:style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Title = 0x7f12013c
+<<<<<<< HEAD
 com.moon.skywatch:id/tv_title = 0x7f080208
+=======
+com.moon.skywatch:id/tv_title = 0x7f080207
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/AppTheme = 0x7f120007
 com.moon.skywatch:id/mtrl_picker_title_text = 0x7f08014d
 com.moon.skywatch:dimen/material_input_text_to_prefix_suffix_padding = 0x7f06018c
@@ -677,6 +708,11 @@ com.moon.skywatch:style/Theme.Material3.DayNight.BottomSheetDialog = 0x7f12020b
 com.moon.skywatch:style/CardView.Light = 0x7f120111
 com.moon.skywatch:dimen/mtrl_exposed_dropdown_menu_popup_vertical_padding = 0x7f0601f3
 com.moon.skywatch:id/italic = 0x7f080102
+<<<<<<< HEAD
+=======
+com.moon.skywatch:attr/layoutDescription = 0x7f03025a
+com.moon.skywatch:drawable/$mtrl_switch_thumb_unchecked_checked__0 = 0x7f070020
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/CardView = 0x7f12010f
 com.moon.skywatch:style/Theme.Material3.Light.BottomSheetDialog = 0x7f120215
 com.moon.skywatch:string/mtrl_timepicker_confirm = 0x7f1100a0
@@ -900,7 +936,11 @@ com.moon.skywatch:attr/onPositiveCross = 0x7f030345
 com.moon.skywatch:id/accessibility_custom_action_18 = 0x7f08001b
 com.moon.skywatch:style/Animation.MaterialComponents.BottomSheetDialog = 0x7f120006
 com.moon.skywatch:style/Widget.Material3.BottomAppBar = 0x7f120317
+<<<<<<< HEAD
 com.moon.skywatch:id/visible = 0x7f080215
+=======
+com.moon.skywatch:id/visible = 0x7f080214
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:color/m3_ref_palette_error100 = 0x7f0500e6
 com.moon.skywatch:style/Animation.AppCompat.Tooltip = 0x7f120004
 com.moon.skywatch:style/TextAppearance.AppCompat = 0x7f120172
@@ -1290,6 +1330,7 @@ com.moon.skywatch:dimen/mtrl_calendar_day_horizontal_padding = 0x7f0601c6
 com.moon.skywatch:style/Base.ThemeOverlay.MaterialComponents.Dialog.Alert.Framework = 0x7f12007b
 com.moon.skywatch:color/m3_ref_palette_black = 0x7f0500a2
 com.moon.skywatch:styleable/MaterialShape = 0x7f130060
+<<<<<<< HEAD
 com.moon.skywatch:id/x_left = 0x7f08021f
 com.moon.skywatch:style/Theme.MaterialComponents.Dialog.Bridge = 0x7f120232
 com.moon.skywatch:id/wrap_content_constrained = 0x7f08021e
@@ -1300,21 +1341,43 @@ com.moon.skywatch:color/m3_ref_palette_dynamic_tertiary95 = 0x7f0500e2
 com.moon.skywatch:id/with_icon = 0x7f08021a
 com.moon.skywatch:style/Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton = 0x7f1203e7
 com.moon.skywatch:id/withText = 0x7f080219
+=======
+com.moon.skywatch:id/x_left = 0x7f08021e
+com.moon.skywatch:style/Theme.MaterialComponents.Dialog.Bridge = 0x7f120232
+com.moon.skywatch:id/wrap_content_constrained = 0x7f08021d
+com.moon.skywatch:style/Base.Theme.MaterialComponents.Light.DialogWhenLarge = 0x7f12006d
+com.moon.skywatch:id/wrap = 0x7f08021b
+com.moon.skywatch:id/withinBounds = 0x7f08021a
+com.moon.skywatch:color/m3_ref_palette_dynamic_tertiary95 = 0x7f0500e2
+com.moon.skywatch:id/with_icon = 0x7f080219
+com.moon.skywatch:style/Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton = 0x7f1203e7
+com.moon.skywatch:id/withText = 0x7f080218
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/Base.Widget.AppCompat.ListMenuView = 0x7f1200d6
 com.moon.skywatch:styleable/MotionTelltales = 0x7f130070
 com.moon.skywatch:style/Widget.Material3.Chip.Input.Elevated = 0x7f12033b
 com.moon.skywatch:styleable/State = 0x7f130093
 com.moon.skywatch:color/m3_ref_palette_white = 0x7f050132
+<<<<<<< HEAD
 com.moon.skywatch:id/view_tree_view_model_store_owner = 0x7f080214
 com.moon.skywatch:style/Theme.Material3.Light = 0x7f120214
 com.moon.skywatch:id/view_tree_lifecycle_owner = 0x7f080211
 com.moon.skywatch:id/useLogo = 0x7f08020d
+=======
+com.moon.skywatch:id/view_tree_view_model_store_owner = 0x7f080213
+com.moon.skywatch:style/Theme.Material3.Light = 0x7f120214
+com.moon.skywatch:id/view_tree_lifecycle_owner = 0x7f080210
+com.moon.skywatch:id/useLogo = 0x7f08020c
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:color/common_google_signin_btn_text_dark_default = 0x7f05002f
 com.moon.skywatch:id/up = 0x7f08020c
 com.moon.skywatch:layout/design_navigation_item_subheader = 0x7f0b002e
 com.moon.skywatch:id/tv_time = 0x7f080207
 com.moon.skywatch:styleable/ExtendedFloatingActionButton = 0x7f130035
+<<<<<<< HEAD
 com.moon.skywatch:id/tv_name = 0x7f080206
+=======
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:style/Widget.Material3.MaterialCalendar.HeaderLayout = 0x7f12036d
 com.moon.skywatch:id/transition_transform = 0x7f080200
 com.moon.skywatch:id/transitionToEnd = 0x7f0801fa
@@ -1330,7 +1393,11 @@ com.moon.skywatch:id/scrollView = 0x7f080199
 com.moon.skywatch:id/textInputLayout = 0x7f0801e2
 com.moon.skywatch:style/Base.Theme.MaterialComponents.Light = 0x7f120064
 com.moon.skywatch:id/search_bar = 0x7f08019c
+<<<<<<< HEAD
 com.moon.skywatch:drawable/tooltip_frame_dark = 0x7f0700fa
+=======
+com.moon.skywatch:drawable/tooltip_frame_dark = 0x7f0700fb
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:string/nav_header_title = 0x7f1100a5
 com.moon.skywatch:id/text = 0x7f0801df
 com.moon.skywatch:style/Theme.MaterialComponents.DayNight.Dialog.FixedSize = 0x7f120228
@@ -1489,9 +1556,12 @@ com.moon.skywatch:drawable/mtrl_switch_thumb_pressed_checked = 0x7f0700e0
 com.moon.skywatch:style/Base.Widget.AppCompat.ButtonBar = 0x7f1200c4
 com.moon.skywatch:dimen/m3_appbar_scrim_height_trigger_medium = 0x7f0600ab
 com.moon.skywatch:id/material_label = 0x7f080122
+<<<<<<< HEAD
 com.moon.skywatch:id/rounded = 0x7f08018d
 com.moon.skywatch:attr/mock_diagonalsColor = 0x7f030300
 com.moon.skywatch:attr/textAppearanceListItem = 0x7f03043a
+=======
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:id/clip_horizontal = 0x7f080083
 com.moon.skywatch:integer/hide_password_duration = 0x7f09000a
 com.moon.skywatch:dimen/abc_button_inset_horizontal_material = 0x7f060012
@@ -1650,7 +1720,11 @@ com.moon.skywatch:id/bounce = 0x7f080064
 com.moon.skywatch:id/blocking = 0x7f080062
 com.moon.skywatch:attr/firstBaselineToTopHeight = 0x7f0301be
 com.moon.skywatch:id/baseline = 0x7f08005e
+<<<<<<< HEAD
 com.moon.skywatch:drawable/test_level_drawable = 0x7f0700f9
+=======
+com.moon.skywatch:drawable/test_level_drawable = 0x7f0700fa
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:id/autoCompleteToEnd = 0x7f08005b
 com.moon.skywatch:style/ThemeOverlay.MaterialComponents.Dialog.Alert.Framework = 0x7f1202a2
 com.moon.skywatch:styleable/ButtonBarLayout = 0x7f13001b
@@ -1877,8 +1951,11 @@ com.moon.skywatch:color/design_snackbar_background_color = 0x7f05005e
 com.moon.skywatch:drawable/abc_btn_borderless_material = 0x7f070025
 com.moon.skywatch:style/Widget.Design.ScrimInsetsFrameLayout = 0x7f12030a
 com.moon.skywatch:style/ThemeOverlay.Material3.Toolbar.Surface = 0x7f12028f
+<<<<<<< HEAD
 com.moon.skywatch:attr/layoutDescription = 0x7f03025a
 com.moon.skywatch:drawable/$mtrl_switch_thumb_unchecked_checked__0 = 0x7f070020
+=======
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:styleable/ViewPager2 = 0x7f1300a7
 com.moon.skywatch:style/Base.V22.Theme.AppCompat = 0x7f12009e
 com.moon.skywatch:integer/m3_sys_motion_duration_450 = 0x7f090018
@@ -3137,7 +3214,11 @@ com.moon.skywatch:dimen/disabled_alpha_material_dark = 0x7f060090
 com.moon.skywatch:color/abc_tint_spinner = 0x7f050017
 com.moon.skywatch:id/dependency_ordering = 0x7f0800a0
 com.moon.skywatch:style/ThemeOverlay.AppCompat.Dark.ActionBar = 0x7f120251
+<<<<<<< HEAD
 com.moon.skywatch:id/view_tree_on_back_pressed_dispatcher_owner = 0x7f080212
+=======
+com.moon.skywatch:id/view_tree_on_back_pressed_dispatcher_owner = 0x7f080211
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:attr/tintMode = 0x7f030477
 com.moon.skywatch:dimen/m3_btn_disabled_translation_z = 0x7f0600c7
 com.moon.skywatch:attr/tickColorInactive = 0x7f030471
@@ -3203,6 +3284,12 @@ com.moon.skywatch:attr/showAsAction = 0x7f0303b4
 com.moon.skywatch:id/dropdown_menu = 0x7f0800b7
 com.moon.skywatch:attr/textAppearanceListItemSmall = 0x7f03043c
 com.moon.skywatch:drawable/$mtrl_switch_thumb_unchecked_pressed__0 = 0x7f070022
+<<<<<<< HEAD
+=======
+com.moon.skywatch:attr/mock_diagonalsColor = 0x7f030300
+com.moon.skywatch:attr/textAppearanceListItem = 0x7f03043a
+com.moon.skywatch:id/rounded = 0x7f08018d
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:dimen/material_clock_period_toggle_height = 0x7f060177
 com.moon.skywatch:attr/textAppearanceLabelLarge = 0x7f030435
 com.moon.skywatch:styleable/ConstraintOverride = 0x7f13002d
@@ -4505,7 +4592,11 @@ com.moon.skywatch:id/snapMargins = 0x7f0801b7
 com.moon.skywatch:anim/linear_indeterminate_line2_tail_interpolator = 0x7f010020
 com.moon.skywatch:attr/autoSizeStepGranularity = 0x7f030043
 com.moon.skywatch:styleable/NavGraphNavigator = 0x7f130074
+<<<<<<< HEAD
 com.moon.skywatch:drawable/tooltip_frame_light = 0x7f0700fb
+=======
+com.moon.skywatch:drawable/tooltip_frame_light = 0x7f0700fc
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 com.moon.skywatch:dimen/highlight_alpha_material_dark = 0x7f060097
 com.moon.skywatch:dimen/compat_notification_large_icon_max_height = 0x7f06005d
 com.moon.skywatch:style/Widget.AppCompat.AutoCompleteTextView = 0x7f1202c3
@@ -4514,6 +4605,8 @@ com.moon.skywatch:id/dialog_button = 0x7f0800a6
 com.moon.skywatch:attr/colorOnBackground = 0x7f0300f8
 com.moon.skywatch:style/Widget.MaterialComponents.Chip.Entry = 0x7f1203c7
 com.moon.skywatch:attr/colorOnContainerUnchecked = 0x7f0300fa
+com.moon.skywatch:id/ratio = 0x7f080184
+com.moon.skywatch:color/m3_sys_color_dynamic_light_tertiary = 0x7f05017f
 com.moon.skywatch:attr/circleRadius = 0x7f0300cd
 com.moon.skywatch:style/Widget.AppCompat.ButtonBar = 0x7f1202ca
 com.moon.skywatch:id/anticipate = 0x7f080054

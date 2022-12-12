@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -23,14 +22,9 @@ public final class NavHeaderNav2Binding implements ViewBinding {
   @NonNull
   public final ImageView imageView;
 
-  @NonNull
-  public final TextView tvName;
-
-  private NavHeaderNav2Binding(@NonNull LinearLayout rootView, @NonNull ImageView imageView,
-      @NonNull TextView tvName) {
+  private NavHeaderNav2Binding(@NonNull LinearLayout rootView, @NonNull ImageView imageView) {
     this.rootView = rootView;
     this.imageView = imageView;
-    this.tvName = tvName;
   }
 
   @Override
@@ -66,13 +60,7 @@ public final class NavHeaderNav2Binding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tv_name;
-      TextView tvName = ViewBindings.findChildViewById(rootView, id);
-      if (tvName == null) {
-        break missingId;
-      }
-
-      return new NavHeaderNav2Binding((LinearLayout) rootView, imageView, tvName);
+      return new NavHeaderNav2Binding((LinearLayout) rootView, imageView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

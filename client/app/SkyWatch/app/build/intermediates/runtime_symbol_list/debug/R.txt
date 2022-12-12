@@ -2774,9 +2774,16 @@ int drawable right_btn_backgound 0x7f0700f5
 int drawable side_nav_bar 0x7f0700f6
 int drawable skyimage 0x7f0700f7
 int drawable smmarker 0x7f0700f8
+<<<<<<< HEAD
 int drawable test_level_drawable 0x7f0700f9
 int drawable tooltip_frame_dark 0x7f0700fa
 int drawable tooltip_frame_light 0x7f0700fb
+=======
+int drawable splash_name 0x7f0700f9
+int drawable test_level_drawable 0x7f0700fa
+int drawable tooltip_frame_dark 0x7f0700fb
+int drawable tooltip_frame_light 0x7f0700fc
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -3295,6 +3302,7 @@ int id tv_address 0x7f080202
 int id tv_area 0x7f080203
 int id tv_carNum 0x7f080204
 int id tv_date 0x7f080205
+<<<<<<< HEAD
 int id tv_name 0x7f080206
 int id tv_time 0x7f080207
 int id tv_title 0x7f080208
@@ -3322,6 +3330,34 @@ int id wrap_content 0x7f08021d
 int id wrap_content_constrained 0x7f08021e
 int id x_left 0x7f08021f
 int id x_right 0x7f080220
+=======
+int id tv_time 0x7f080206
+int id tv_title 0x7f080207
+int id unchecked 0x7f080208
+int id uniform 0x7f080209
+int id unlabeled 0x7f08020a
+int id up 0x7f08020b
+int id useLogo 0x7f08020c
+int id vertical_only 0x7f08020d
+int id view_offset_helper 0x7f08020e
+int id view_transition 0x7f08020f
+int id view_tree_lifecycle_owner 0x7f080210
+int id view_tree_on_back_pressed_dispatcher_owner 0x7f080211
+int id view_tree_saved_state_registry_owner 0x7f080212
+int id view_tree_view_model_store_owner 0x7f080213
+int id visible 0x7f080214
+int id visible_removing_fragment_view_tag 0x7f080215
+int id west 0x7f080216
+int id wide 0x7f080217
+int id withText 0x7f080218
+int id with_icon 0x7f080219
+int id withinBounds 0x7f08021a
+int id wrap 0x7f08021b
+int id wrap_content 0x7f08021c
+int id wrap_content_constrained 0x7f08021d
+int id x_left 0x7f08021e
+int id x_right 0x7f08021f
+>>>>>>> cef3617b02dfee4769e27f4c2c467fb34c79cc52
 int integer abc_config_activityDefaultDur 0x7f090000
 int integer abc_config_activityShortDur 0x7f090001
 int integer app_bar_elevation_anim_duration 0x7f090002

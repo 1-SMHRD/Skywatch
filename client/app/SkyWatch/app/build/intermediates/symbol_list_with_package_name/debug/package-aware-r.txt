@@ -2775,6 +2775,7 @@ drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
 drawable smmarker
+drawable splash_name
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3296,7 +3297,6 @@ id tv_address
 id tv_area
 id tv_carNum
 id tv_date
-id tv_name
 id tv_time
 id tv_title
 id unchecked

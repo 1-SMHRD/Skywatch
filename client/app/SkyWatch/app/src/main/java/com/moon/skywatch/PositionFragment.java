@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -87,7 +90,21 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                 mMap = googleMap;
 
                 LatLng latLng = new LatLng(35.149796202004325, 126.91992834014);
-                mMap.addMarker(new MarkerOptions().position(latLng).title("스마트인재개발원"));
+
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                markerOptions.title("스마트인재개발원");
+
+
+                BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.smmarker);
+                Bitmap b=bitmapdraw.getBitmap();
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100, 100, false);
+                markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+
+
+                mMap.addMarker(markerOptions);
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,19));
 
