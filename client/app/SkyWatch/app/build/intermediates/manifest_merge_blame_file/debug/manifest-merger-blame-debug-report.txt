@@ -45,7 +45,7 @@
 27    </queries>
 28
 29    <application
-29-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:10:5-55:19
+29-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:10:5-56:19
 30        android:allowBackup="true"
 30-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:11:9-35
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -130,11 +130,11 @@
 73        </activity>
 74
 75        <meta-data
-75-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:53:9-54:70
+75-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:9-55:70
 76            android:name="com.google.android.geo.API_KEY"
-76-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:53:20-65
+76-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:20-65
 77            android:value="AIzaSyAWi8FHRM2NwaRsJlzXmS-Chs661XreXcA" />
-77-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:13-68
+77-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:55:13-68
 78        <!-- Needs to be explicitly declared on P+ -->
 79        <uses-library
 79-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\smhrd\.gradle\caches\transforms-3\77f14a6df3d89474b2fa24a53d9c91f9\transformed\play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40

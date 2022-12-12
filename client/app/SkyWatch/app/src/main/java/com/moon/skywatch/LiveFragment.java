@@ -19,7 +19,6 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.moon.joystick1.JoystickView;
-import com.moon.skywatch.databinding.FragmentLiveBinding;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -32,8 +31,8 @@ import kotlin.jvm.internal.Intrinsics;
 
 public class LiveFragment extends Fragment {
 
-    private static final String ip = "220.80.88.45";
-    private static final int port = 8089;
+    final String ip = "220.80.88.45";
+    final int port = 8089;
 
     // about socket
     private Handler mHandler;
@@ -49,10 +48,10 @@ public class LiveFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        super.onCreate(savedInstanceState);
+        // super.onCreate(savedInstanceState);
         /*JoystickView joystickView = (JoystickView)view.findViewById(R.id.joystick);
         final TextView angleValueView = (TextView)view.findViewById(R.id.value_angle);
         final TextView strengthValueView = (TextView)view.findViewById(R.id.value_strength);
@@ -125,14 +124,24 @@ public class LiveFragment extends Fragment {
 
                         Bitmap bmp = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
                         Log.d("bmp", bmp + "");
-                        iv_droneView.setImageBitmap(Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false));
+                        // iv_droneView.setImageBitmap(Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false));
+                        iv_droneView.setImageBitmap(Bitmap.createScaledBitmap(bmp, 350, 180, false));
                         Log.d("img 불러오기", "success");
 
                         Thread.sleep(10);
 
                     } catch (Exception e) {
-
+                        Log.d("sdafas", "asdfsadf");
+                        break;
                     }
+                }
+
+                try {
+                    socket.close();
+                    Log.d("socket close", "socket close()");
+                    // connect();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         };
@@ -154,7 +163,6 @@ public class LiveFragment extends Fragment {
             Log.d("inStream", new String(resbytes));
             Log.w("resbytes len: ", Integer.toString(resbytes.length));
             Log.w("resbytes: ", new String(resbytes));
-            //Log.w("get image", "get image");
         } catch (IOException e) {
             e.printStackTrace();
         }

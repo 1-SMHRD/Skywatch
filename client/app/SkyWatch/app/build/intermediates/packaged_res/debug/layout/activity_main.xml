@@ -61,7 +61,7 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="  PW"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="@+id/edt_id"
