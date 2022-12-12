@@ -95,16 +95,12 @@ class ServerSocket:
             
     def sendImage(self):
         for i in range(3):
-            print("-------------i:", i)
             getDir = bytearray(self.client_conn.recv(1024))[2:].decode("utf-8")
-            print("-------------getDir:", getDir)
+
             print(os.getcwd() + getDir)
             img = cv2.imread(os.getcwd() + getDir)
-
-            print("read img-----------------------------")
-            result, img = cv2.imencode('.jpg', img, [cv2.IMWRITE_JPEG_QUALITY, 90])
             
-            print("encode img-----------------------------")
+            result, img = cv2.imencode('.jpg', img, [cv2.IMWRITE_JPEG_QUALITY, 90])
             
             data = numpy.array(img)
             stringData = base64.b64encode(data)
@@ -118,12 +114,9 @@ class ServerSocket:
                 if len(stringData) < 1024:
                     self.client_conn.sendall(stringData)
                     stringData = []
-                    print("********end i:", i)
                 else:
                     self.client_conn.sendall(stringData[:1024])
                     stringData = stringData[1024:]
-            
-            print("-------------end i:", i)
                     
         time.sleep(0.01)
         self.client_conn.close()
