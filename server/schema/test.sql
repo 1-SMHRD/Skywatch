@@ -1,3 +1,5 @@
+
+-- 삭제할 예정 파일임
 use sky;
 
 create table login(

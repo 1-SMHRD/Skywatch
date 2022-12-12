@@ -4,5 +4,4 @@ from flask_wtf import Form
 from wtforms import TextAreaField, IntegerField, SubmitField, RadioField, SelectField
 from wtforms import validators, ValidationError
 
-
-
+# 삭제할예정 파일임

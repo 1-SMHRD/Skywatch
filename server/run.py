@@ -1,13 +1,24 @@
 from flask import Flask, render_template
-from views.main import main as main
+from flask_socketio import *
+from views.main import main
 from views.login_views import logins
 from views.features import features
-from views.KakaoMap_api import kakao
+from views.googleMap_api import google
+from module.tello_module import Tello
+from flask_googlemaps import GoogleMaps
+from views.car_num_saveView import car_num_saveView
 from socketclass import ServerSocket
 import threading
 
 app = Flask(__name__)
 app.secret_key = 'hello'
+
+# 개인 유출 하지마세요
+GoogleMaps(app,key="AIzaSyBx6q68vuftoJ5VoCP6RjJotaUwlbNJADg")
+
+# socketio 이용하기위해서 SocketIo사용해야함
+socketio = SocketIO(app)
+
 
 # 추가할 모듈이 있다면 추가
 # config 파일이 있다면 추가
@@ -21,9 +32,18 @@ app.secret_key = 'hello'
 app.register_blueprint(main)
 app.register_blueprint(logins)
 app.register_blueprint(features)
-app.register_blueprint(kakao)
+app.register_blueprint(google)
+app.register_blueprint(car_num_saveView)
 if __name__ == '__main__':
     t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
     t.start()
     app.run(host="0.0.0.0")
+
+    # 실시간 영상 버튼 누를시 뜨는 상태
+    global tello
+    tello = Tello()
+    if not tello.streamon():
+        print("비디오 시작할 준비 되지 않았습니다.")
+    else:
+        print("비디오 시작할 준비 합니다.")
 
