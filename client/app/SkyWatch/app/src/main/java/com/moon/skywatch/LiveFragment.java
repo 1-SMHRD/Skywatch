@@ -84,77 +84,6 @@ public class LiveFragment extends Fragment {
         view = null;
     }
 
-    /*void connect() {
-        mHandler = new Handler(Looper.getMainLooper());
-        Log.w("connect", "connecting...");
-
-        iv_droneView = view.findViewById(R.id.iv_droneView);
-
-        Thread checkUpdate = new Thread() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            public void run() {
-
-                try{
-                    socket = new Socket(ip, port);
-                    Log.w("서버 접속", "서버 접속 성공");
-                } catch (IOException e1) {
-                    Log.w("서버 접속 실패", "서버 접속 실패");
-                    e1.printStackTrace();
-                }
-
-                // Log.w("edit 넘어가야 할 값", "aaabbbccc");
-
-                try {
-                    outStream = new DataOutputStream(socket.getOutputStream());
-                    inStream = new DataInputStream(socket.getInputStream());
-                    outStream.writeUTF("/drone");
-                    outStream.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.w("버퍼 생성 실패", "버퍼 생성 실패");
-                }
-
-                Log.w("버퍼 생성 성공", "버퍼 생성 성공");
-
-                while(true) {
-
-                    try {
-                        int length = inStream.readInt();
-                        Log.d("data length: ",  length + "---");
-
-                        byte[] buffer = InPutStreamToByteArray(length, inStream);
-                        Log.d("buffer", new String(buffer));
-
-                        Base64.Decoder decoder = Base64.getDecoder();
-                        byte[] decodedBytes = decoder.decode(buffer);
-
-                        Bitmap bmp = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-                        Log.d("bmp", bmp + "");
-//                        iv_droneView.setImageBitmap(bmp);
-                        iv_droneView.setImageBitmap(Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false));
-                        Log.d("img 불러오기", "success");
-
-                        Thread.sleep(10);
-
-                    } catch (Exception e) {
-                        Log.d("sdafas", "asdfsadf");
-                        break;
-                    }
-                }
-
-                try {
-                    socket.close();
-                    Log.d("socket close", "socket close()");
-                    connect();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        checkUpdate.start();
-    }*/
-
-
     void connect() {
         Log.w("connect", "connecting...");
 
@@ -182,42 +111,6 @@ public class LiveFragment extends Fragment {
                     e.printStackTrace();
                     Log.w("버퍼 생성 실패", "버퍼 생성 실패");
                 }
-
-                /*mHandler.post(new Runnable() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void run() {
-
-                        // Log.w("edit 넘어가야 할 값", "aaabbbccc");
-
-                        Log.w("버퍼 생성 성공", "버퍼 생성 성공");
-
-                        while(true) {
-                            try {
-                                int length = inStream.readInt();
-                                Log.d("data length: ",  length + "---");
-
-                                byte[] buffer = InPutStreamToByteArray(length, inStream);
-                                Log.d("buffer", new String(buffer));
-
-                                Base64.Decoder decoder = Base64.getDecoder();
-                                byte[] decodedBytes = decoder.decode(buffer);
-
-                                Bitmap bmp = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-                                Log.d("bmp", bmp + "");
-//                        iv_droneView.setImageBitmap(bmp);
-                                iv_droneView.setImageBitmap(Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false));
-                                Log.d("img 불러오기", "success");
-
-                                Thread.sleep(10);
-
-                            } catch (Exception e) {
-                                Log.d("sdafas", "asdfsadf");
-                                break;
-                            }
-                        }
-                    }
-                });*/
 
                 while (true) {
                     try {
