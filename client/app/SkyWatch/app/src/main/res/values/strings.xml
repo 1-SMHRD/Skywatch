@@ -16,4 +16,6 @@
     <string name="menu_drone">드론관리</string>
     <string name="angle_0">angle : 0</string>
     <string name="strength_0">strength : 0</string>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    </style>
 </resources>
