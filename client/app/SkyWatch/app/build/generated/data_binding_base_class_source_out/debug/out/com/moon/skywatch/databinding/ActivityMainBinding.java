@@ -5,13 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.moon.skywatch.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -25,10 +26,10 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button btnLogin;
 
   @NonNull
-  public final EditText edtId;
+  public final TextInputEditText edtId;
 
   @NonNull
-  public final EditText edtPw;
+  public final TextInputEditText edtPw;
 
   @NonNull
   public final Guideline guideline2;
@@ -36,15 +37,24 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final Guideline guideline3;
 
+  @NonNull
+  public final TextInputLayout textInputLayout;
+
+  @NonNull
+  public final TextInputLayout textInputLayout2;
+
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLogin,
-      @NonNull EditText edtId, @NonNull EditText edtPw, @NonNull Guideline guideline2,
-      @NonNull Guideline guideline3) {
+      @NonNull TextInputEditText edtId, @NonNull TextInputEditText edtPw,
+      @NonNull Guideline guideline2, @NonNull Guideline guideline3,
+      @NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2) {
     this.rootView = rootView;
     this.btnLogin = btnLogin;
     this.edtId = edtId;
     this.edtPw = edtPw;
     this.guideline2 = guideline2;
     this.guideline3 = guideline3;
+    this.textInputLayout = textInputLayout;
+    this.textInputLayout2 = textInputLayout2;
   }
 
   @Override
@@ -81,13 +91,13 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       id = R.id.edt_id;
-      EditText edtId = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText edtId = ViewBindings.findChildViewById(rootView, id);
       if (edtId == null) {
         break missingId;
       }
 
       id = R.id.edt_pw;
-      EditText edtPw = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText edtPw = ViewBindings.findChildViewById(rootView, id);
       if (edtPw == null) {
         break missingId;
       }
@@ -104,8 +114,20 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textInputLayout;
+      TextInputLayout textInputLayout = ViewBindings.findChildViewById(rootView, id);
+      if (textInputLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.textInputLayout2;
+      TextInputLayout textInputLayout2 = ViewBindings.findChildViewById(rootView, id);
+      if (textInputLayout2 == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((ConstraintLayout) rootView, btnLogin, edtId, edtPw,
-          guideline2, guideline3);
+          guideline2, guideline3, textInputLayout, textInputLayout2);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

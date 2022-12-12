@@ -94,6 +94,7 @@ def getImgDir():
     
     getData = request.form["sendArea"]
     print(getData)
+    
     msg = "success"
     
     return msg
