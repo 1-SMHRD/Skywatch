@@ -34,6 +34,7 @@ drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
 drawable smmarker
+drawable splash_name
 id RecyclerView
 id action_settings
 id app_bar_nav2
@@ -83,7 +84,6 @@ id tv_address
 id tv_area
 id tv_carNum
 id tv_date
-id tv_name
 id tv_time
 id tv_title
 layout activity_add
