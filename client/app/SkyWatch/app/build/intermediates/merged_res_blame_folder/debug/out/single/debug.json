@@ -136,10 +136,6 @@
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.moon.skywatch.app-merged_res-46:/drawable_splash_name.png.flat",
-        "source": "com.moon.skywatch.app-main-48:/drawable/splash_name.png"
-    },
-    {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_drone.png.flat",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\drone.png"
     },
@@ -178,6 +174,10 @@
     {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_icon.xml.flat",
         "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\drawable_splash_name.png.flat",
+        "source": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-main-48:\\drawable\\splash_name.png"
     },
     {
         "merged": "C:\\Users\\smhrd\\.gradle\\daemon\\7.4\\com.moon.skywatch.app-merged_res-46:\\mipmap-mdpi_ic_launcher.webp.flat",
