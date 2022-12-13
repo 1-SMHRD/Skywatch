@@ -40,10 +40,10 @@ public class CarDataAdapter extends RecyclerView.Adapter<CarDataViewHolder> {
         holder.imgCarParking2.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgParking2(), carData.get(temp).getImgParking2().getWidth(), carData.get(temp).getImgParking2().getHeight(), false));
         holder.imgNumPlate.setImageBitmap(Bitmap.createScaledBitmap(carData.get(temp).getImgNumPlate(), carData.get(temp).getImgNumPlate().getWidth(), carData.get(temp).getImgNumPlate().getHeight(), false));
 
-        holder.tv_date.setText(carData.get(temp).getRegulationDate());
-        holder.tv_time.setText(carData.get(temp).getRegulationTime());
-        holder.tv_carNum.setText(carData.get(temp).getNumPlate());
-        holder.tv_area.setText(carData.get(temp).getRegulationArea());
+        holder.tv_date.setText("날짜 : " + carData.get(temp).getRegulationDate());
+        holder.tv_time.setText("시간 : " + carData.get(temp).getRegulationTime());
+        holder.tv_carNum.setText("번호판 : " + carData.get(temp).getNumPlate());
+        holder.tv_area.setText("단속 위치 : " + carData.get(temp).getRegulationArea());
     }
 
     /*@Override
