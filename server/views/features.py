@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, flash, Flask,url_for,request,render_template, Response
-from module import dbmodule
+from module import dbmodule, Control_auto
 from socket import *
 import time
 import os
@@ -107,6 +107,10 @@ def getImgDir():
     
     msg = "success"
     
+    video_stream()
+    Control_auto.drone_control.move_A(video_camera)
+
+
     return msg
 
 """
