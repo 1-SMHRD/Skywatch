@@ -4,6 +4,7 @@ package com.moon.skywatch.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,11 +20,98 @@ public final class FragmentLiveBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final Button button;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final Button button10;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final Button button8;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final Button button9;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final ImageView imgUp;
+
   @NonNull
   public final ImageView ivDroneView;
 
-  private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivDroneView) {
+  private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @Nullable Button button,
+      @Nullable Button button10, @Nullable Button button8, @Nullable Button button9,
+      @Nullable ImageView imgUp, @NonNull ImageView ivDroneView) {
     this.rootView = rootView;
+    this.button = button;
+    this.button10 = button10;
+    this.button8 = button8;
+    this.button9 = button9;
+    this.imgUp = imgUp;
     this.ivDroneView = ivDroneView;
   }
 
@@ -54,13 +142,29 @@ public final class FragmentLiveBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.button;
+      Button button = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.button10;
+      Button button10 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.button8;
+      Button button8 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.button9;
+      Button button9 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.img_up;
+      ImageView imgUp = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.iv_droneView;
       ImageView ivDroneView = ViewBindings.findChildViewById(rootView, id);
       if (ivDroneView == null) {
         break missingId;
       }
 
-      return new FragmentLiveBinding((ConstraintLayout) rootView, ivDroneView);
+      return new FragmentLiveBinding((ConstraintLayout) rootView, button, button10, button8,
+          button9, imgUp, ivDroneView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

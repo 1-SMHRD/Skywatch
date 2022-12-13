@@ -110,7 +110,7 @@ def yolo(img=None,vid=None):
 
         for i in range(number_detection):
             row = cord[i]
-            if row[4] >= 0.5:  # threshold 조절해서 분류
+            if row[4] >= 0.4:  # threshold 조절해서 분류
 
                 x1, y1, x2, y2 = int(row[0] * x_shape), int(row[1] * y_shape), int(row[2] * x_shape), int(
                     row[3] * y_shape)  # 모델 인식부분 바운딩 박스
@@ -137,7 +137,7 @@ def yolo(img=None,vid=None):
                         cv2.imwrite(f'../drone_img/numPlate/1.jpg', roi_img)
                         # 원본 이미지 0.5배 만들고 경로에 저장
                         img = cv2.resize(img, dsize=(0, 0), fx=0.5, fy=0.5, interpolation=cv2.INTER_LINEAR)
-                        cv2.imwrite(f'../drone_img/parking/1.jp', img)
+                        cv2.imwrite(f'../drone_img/parking/1.jpg', img)
                         chars=result[0][1]
 
                         # str 변환
@@ -160,4 +160,4 @@ def yolo(img=None,vid=None):
                 # # db.close()
 
 
-#yolo(img='path/ocr1.jpg')
+yolo(img='1.png')
