@@ -2703,6 +2703,10 @@ drawable ic_number
 drawable icon
 drawable ima555
 drawable left_btn_backgound
+drawable live_a
+drawable live_d
+drawable live_s
+drawable live_w
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2779,6 +2783,7 @@ drawable splash_name
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable up
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2892,6 +2897,10 @@ id btn_ok
 id btn_out
 id btn_sendArea
 id btn_setArea
+id button
+id button10
+id button8
+id button9
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3031,6 +3040,7 @@ id imageView4
 id imgCarParking1
 id imgCarParking2
 id imgNumPlate
+id img_up
 id immediateStop
 id included
 id indeterminate

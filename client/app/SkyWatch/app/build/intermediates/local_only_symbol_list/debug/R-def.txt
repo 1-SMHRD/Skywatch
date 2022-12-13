@@ -30,11 +30,16 @@ drawable ic_number
 drawable icon
 drawable ima555
 drawable left_btn_backgound
+drawable live_a
+drawable live_d
+drawable live_s
+drawable live_w
 drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
 drawable smmarker
 drawable splash_name
+drawable up
 id RecyclerView
 id action_settings
 id app_bar_nav2
@@ -47,6 +52,10 @@ id btn_ok
 id btn_out
 id btn_sendArea
 id btn_setArea
+id button
+id button10
+id button8
+id button9
 id conlayout
 id drawer_layout
 id editTextDate
@@ -63,6 +72,7 @@ id imageView4
 id imgCarParking1
 id imgCarParking2
 id imgNumPlate
+id img_up
 id iv_droneView
 id joystick
 id mapView
