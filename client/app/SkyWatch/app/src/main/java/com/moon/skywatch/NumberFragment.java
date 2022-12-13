@@ -3,6 +3,7 @@ package com.moon.skywatch;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -99,6 +101,7 @@ public class NumberFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         view = inflater.inflate(R.layout.fragment_number, container, false);
 
         btn_date = view.findViewById(R.id.btn_date);
@@ -241,7 +244,11 @@ public class NumberFragment extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         Log.d("response", response);
-                        getResponseData(response);
+                        if (response.equals("none")) {
+                            Toast.makeText(view.getContext(), "검색 결과가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            getResponseData(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -289,7 +296,11 @@ public class NumberFragment extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         Log.d("response", response);
-                        getResponseData(response);
+                        if (response.equals("none")) {
+                            Toast.makeText(view.getContext(), "검색 결과가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            getResponseData(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override

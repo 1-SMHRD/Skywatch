@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Response Error", error.getMessage());
+                Toast.makeText(MainActivity.this, "서버와 연결이 끊겼습니다.", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Nullable

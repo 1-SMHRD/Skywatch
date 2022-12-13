@@ -68,8 +68,13 @@ def getDate_car():
     print("row len", len(row))
     print(type(row))
     print(row)
+    
+    if len(row) == 0:
+        data = "none"
+    else :
+        data = row
 
-    return row
+    return data
 
 @features.route("/getCarNum_android", methods=['POST'])
 def getNum_car():
@@ -86,7 +91,12 @@ def getNum_car():
     print(type(row))
     print(row)
 
-    return row
+    if len(row) == 0:
+        data = "none"
+    else :
+        data = row
+
+    return data
 
 @features.route("/getArea_android", methods=["POST"])
 def getImgDir():

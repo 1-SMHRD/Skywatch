@@ -66,8 +66,8 @@ public class DroneFragment extends Fragment {
 
     private void initDataset() {
         datas = new ArrayList<>();
-        DirectVO m1 = new DirectVO("네이버","https://www.naver.com");
-        DirectVO m2 = new DirectVO("다음","https://www.daum.net");
+        DirectVO m1 = new DirectVO("A 구역 드론","https://www.naver.com");
+        DirectVO m2 = new DirectVO("B 구역 드론","https://www.daum.net");
 
         datas.add(m1);
         datas.add(m2);
