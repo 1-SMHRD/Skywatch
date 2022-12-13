@@ -40,27 +40,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="173dp"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:text="TextView"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_area"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:text="TextView"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -68,22 +74,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:text="TextView"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_carNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:text="TextView"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
             </LinearLayout>
 

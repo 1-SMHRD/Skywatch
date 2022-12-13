@@ -8,8 +8,6 @@ import os
 from datetime import datetime
 from djitellopy import Tello
 
-TCP_IP = "220.80.88.45"
-TCP_PORT = 8089
 
 class ServerSocket:
     def __init__(self, ip, port):

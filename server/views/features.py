@@ -5,6 +5,7 @@ import time
 import os
 import datetime
 from module.tello_module import Tello
+import cv2
 
 
 features  = Blueprint('features',__name__,url_prefix='/features')
@@ -99,11 +100,14 @@ def getNum_car():
     return data
 
 @features.route("/getArea_android", methods=["POST"])
-def getImgDir():
+def getArea():
     msg = ''
     
     getData = request.form["sendArea"]
     print(getData)
+    
+    
+    
     
     msg = "success"
     

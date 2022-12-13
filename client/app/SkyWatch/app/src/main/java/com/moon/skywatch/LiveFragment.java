@@ -1,32 +1,28 @@
 package com.moon.skywatch;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-
-import com.moon.joystick1.JoystickView;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Base64;
-
-import kotlin.jvm.internal.Intrinsics;
 
 
 public class LiveFragment extends Fragment {
@@ -44,15 +40,28 @@ public class LiveFragment extends Fragment {
     ImageView iv_droneView;
     Bitmap bmp;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(view != null){
+            connect();
+        }
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+
         view = inflater.inflate(R.layout.fragment_live, container, false);
+
         // mHandler = new Handler(Looper.getMainLooper());
         mHandler = new Handler();
+        iv_droneView = view.findViewById(R.id.iv_droneView);
 
         // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 
 
         // super.onCreate(savedInstanceState);
@@ -72,27 +81,32 @@ public class LiveFragment extends Fragment {
 
 
         // drone 실시간 영상 받아오기
-        if (view != null){
-            connect();
-        }
+//        if(view != null){
+//            connect();
+//        }
 
-        return view;
+    return view;
+
+
     }
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        view = null;
+ //       view = null;
     }
 
     void connect() {
         Log.w("connect", "connecting...");
 
-        iv_droneView = view.findViewById(R.id.iv_droneView);
+
 
         Thread checkUpdate = new Thread(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void run() {
+
 
                 try{
                     socket = new Socket(ip, port);
@@ -138,6 +152,7 @@ public class LiveFragment extends Fragment {
                             Log.d("img 불러오기", "success");
                         }
                     });
+
 
                     try {
                         Thread.sleep(10);
