@@ -35,11 +35,6 @@ for i in datas[40:]:
 print({sq for sq in datas[40:]})
 # 주소텍스트에서 좌표 가져오기 테스트 완료
 # API_KEy는 개인용키이므로 유출하지마셈
-<<<<<<< HEAD
-# a = get_coordinates(API_KEY='AIzaSyBx6q68vuftoJ5VoCP6RjJotaUwlbNJADg',address_text=row[7]['regulation_area'])
-# print((a['lat'],a['lng'],'일곡동'))
-=======
->>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
 
 @google.route('/googleMap_api')
 def googlemap():
