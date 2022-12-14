@@ -3,6 +3,7 @@ package com.moon.skywatch;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +65,12 @@ public class ReportFragment extends Fragment implements OnMapReadyCallback{
         gmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01021628994"));
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
 
-
+                }
                 return false;
             }
         });

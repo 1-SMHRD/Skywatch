@@ -2687,6 +2687,7 @@ drawable ic_home
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_left
 drawable ic_loc
 drawable ic_log
 drawable ic_m3_chip_check
@@ -2700,6 +2701,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_number
+drawable ic_right
 drawable icon
 drawable ima555
 drawable left_btn_backgound
@@ -3040,6 +3042,8 @@ id imageView4
 id imgCarParking1
 id imgCarParking2
 id imgNumPlate
+id img_left
+id img_right
 id img_up
 id immediateStop
 id included
