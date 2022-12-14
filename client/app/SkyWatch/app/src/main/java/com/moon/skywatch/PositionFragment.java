@@ -267,7 +267,7 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
     }
 
     public void makeRequest(JSONArray jsonArray) {
-        String ip = "http://220.80.88.45";
+        String ip = "http://119.200.31.135";
         int port = 5000;
 
         String url = ip + ":" + port + "/features/getArea_android";

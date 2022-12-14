@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeRequest(String inputId, String inputPw) {
-        ip = "http://220.80.88.45";
+        ip = "http://119.200.31.135";
         port = 5000;
 
         url = ip + ":" + port + "/singup/login_android";

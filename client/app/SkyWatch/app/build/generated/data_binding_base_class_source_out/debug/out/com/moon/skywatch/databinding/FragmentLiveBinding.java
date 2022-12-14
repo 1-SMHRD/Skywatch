@@ -98,7 +98,43 @@ public final class FragmentLiveBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+<<<<<<< HEAD
   public final ImageView ivDroneCcw;
+=======
+  public final ImageView imageView5;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final ImageView imageView6;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final ImageView imgLeft;
+>>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
 
   /**
    * This binding is not available in all configurations.
@@ -116,6 +152,7 @@ public final class FragmentLiveBinding implements ViewBinding {
   @Nullable
   public final ImageView ivDroneCw;
 
+<<<<<<< HEAD
   /**
    * This binding is not available in all configurations.
    * <p>
@@ -165,6 +202,24 @@ public final class FragmentLiveBinding implements ViewBinding {
     this.ivDroneCw = ivDroneCw;
     this.ivDroneLand = ivDroneLand;
     this.ivDroneTakeOff = ivDroneTakeOff;
+=======
+  @NonNull
+  public final ImageView ivDroneView;
+
+  private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @Nullable Button button,
+      @Nullable Button button10, @Nullable Button button8, @Nullable Button button9,
+      @Nullable ImageView imageView5, @Nullable ImageView imageView6, @Nullable ImageView imgLeft,
+      @Nullable ImageView imgRight, @NonNull ImageView ivDroneView) {
+    this.rootView = rootView;
+    this.button = button;
+    this.button10 = button10;
+    this.button8 = button8;
+    this.button9 = button9;
+    this.imageView5 = imageView5;
+    this.imageView6 = imageView6;
+    this.imgLeft = imgLeft;
+    this.imgRight = imgRight;
+>>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
     this.ivDroneView = ivDroneView;
   }
 
@@ -207,27 +262,46 @@ public final class FragmentLiveBinding implements ViewBinding {
       id = R.id.btn_droneRight;
       Button btnDroneRight = ViewBindings.findChildViewById(rootView, id);
 
+<<<<<<< HEAD
       id = R.id.iv_droneCcw;
       ImageView ivDroneCcw = ViewBindings.findChildViewById(rootView, id);
+=======
+      id = R.id.imageView5;
+      ImageView imageView5 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.imageView6;
+      ImageView imageView6 = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.img_left;
+      ImageView imgLeft = ViewBindings.findChildViewById(rootView, id);
+>>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
 
       id = R.id.iv_droneCw;
       ImageView ivDroneCw = ViewBindings.findChildViewById(rootView, id);
 
+<<<<<<< HEAD
       id = R.id.iv_droneLand;
       ImageView ivDroneLand = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.iv_droneTakeOff;
       ImageView ivDroneTakeOff = ViewBindings.findChildViewById(rootView, id);
 
+=======
+>>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
       id = R.id.iv_droneView;
       ImageView ivDroneView = ViewBindings.findChildViewById(rootView, id);
       if (ivDroneView == null) {
         break missingId;
       }
 
+<<<<<<< HEAD
       return new FragmentLiveBinding((ConstraintLayout) rootView, btnDroneBack, btnDroneForward,
           btnDroneLeft, btnDroneRight, ivDroneCcw, ivDroneCw, ivDroneLand, ivDroneTakeOff,
           ivDroneView);
+=======
+      return new FragmentLiveBinding((ConstraintLayout) rootView, button, button10, button8,
+          button9, imageView5, imageView6, imgLeft, imgRight, ivDroneView);
+>>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

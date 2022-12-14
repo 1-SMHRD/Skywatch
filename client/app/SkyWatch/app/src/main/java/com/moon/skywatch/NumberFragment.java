@@ -256,7 +256,7 @@ public class NumberFragment extends Fragment {
 
     public void makeRequestDate(String sendDate) {
         check = 0;
-        String ip = "http://220.80.88.45";
+        String ip = "http://119.200.31.135";
         int port = 5000;
 
         String url = ip + ":" + port + "/features/getDate_android";
@@ -310,7 +310,7 @@ public class NumberFragment extends Fragment {
 
     public void makeRequestCarNum(String carNum) {
         check = 0;
-        String ip = "http://220.80.88.45";
+        String ip = "http://119.200.31.135";
         int port = 5000;
 
         String url = ip + ":" + port + "/features/getCarNum_android";
@@ -395,7 +395,7 @@ public class NumberFragment extends Fragment {
         Thread checkUpdate = new Thread() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             public void run() {
-                String newip = "220.80.88.45";
+                String newip = "119.200.31.135";
                 int port = 8089;
 
                 try{
