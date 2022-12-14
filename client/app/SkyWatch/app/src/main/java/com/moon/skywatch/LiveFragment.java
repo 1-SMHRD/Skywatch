@@ -165,7 +165,7 @@ public class LiveFragment extends Fragment {
 
         // drone 실시간 영상 받아오기
         if(view != null){
-            // connect();
+            connect();
         }
     }
 
