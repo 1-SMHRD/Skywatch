@@ -21,12 +21,14 @@ drawable ic_d
 drawable ic_home
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_left
 drawable ic_loc
 drawable ic_log
 drawable ic_menu_camera
 drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable ic_number
+drawable ic_right
 drawable icon
 drawable ima555
 drawable left_btn_backgound
@@ -72,6 +74,8 @@ id imageView4
 id imgCarParking1
 id imgCarParking2
 id imgNumPlate
+id img_left
+id img_right
 id img_up
 id iv_droneView
 id joystick

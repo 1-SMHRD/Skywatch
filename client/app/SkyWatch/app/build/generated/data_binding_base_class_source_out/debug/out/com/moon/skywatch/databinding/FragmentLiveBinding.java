@@ -98,6 +98,38 @@ public final class FragmentLiveBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+  public final ImageView imgLeft;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
+  public final ImageView imgRight;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final ImageView imgUp;
 
   @NonNull
@@ -105,12 +137,15 @@ public final class FragmentLiveBinding implements ViewBinding {
 
   private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @Nullable Button button,
       @Nullable Button button10, @Nullable Button button8, @Nullable Button button9,
-      @Nullable ImageView imgUp, @NonNull ImageView ivDroneView) {
+      @Nullable ImageView imgLeft, @Nullable ImageView imgRight, @Nullable ImageView imgUp,
+      @NonNull ImageView ivDroneView) {
     this.rootView = rootView;
     this.button = button;
     this.button10 = button10;
     this.button8 = button8;
     this.button9 = button9;
+    this.imgLeft = imgLeft;
+    this.imgRight = imgRight;
     this.imgUp = imgUp;
     this.ivDroneView = ivDroneView;
   }
@@ -154,6 +189,12 @@ public final class FragmentLiveBinding implements ViewBinding {
       id = R.id.button9;
       Button button9 = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.img_left;
+      ImageView imgLeft = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.img_right;
+      ImageView imgRight = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.img_up;
       ImageView imgUp = ViewBindings.findChildViewById(rootView, id);
 
@@ -164,7 +205,7 @@ public final class FragmentLiveBinding implements ViewBinding {
       }
 
       return new FragmentLiveBinding((ConstraintLayout) rootView, button, button10, button8,
-          button9, imgUp, ivDroneView);
+          button9, imgLeft, imgRight, imgUp, ivDroneView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
