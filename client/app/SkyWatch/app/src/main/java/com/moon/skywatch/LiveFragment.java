@@ -92,45 +92,9 @@ public class LiveFragment extends Fragment {
 
         mHandler = new Handler();
         iv_droneView = view.findViewById(R.id.iv_droneView);
-<<<<<<< HEAD
         condition = true;
 
     return view;
-
-=======
-
-        // 화면을 LANDSCAPE(가로) 화면으로 고정하고 싶은 경우
-
-
-
-        // super.onCreate(savedInstanceState);
-        /*JoystickView joystickView = (JoystickView)view.findViewById(R.id.joystick);
-        final TextView angleValueView = (TextView)view.findViewById(R.id.value_angle);
-        final TextView strengthValueView = (TextView)view.findViewById(R.id.value_strength);
-        joystickView.setOnMoveListener((JoystickView.OnMoveListener)(new JoystickView.OnMoveListener() {
-            public final void onMove(int angle, int strength) {
-                TextView var10000 = angleValueView;
-                Intrinsics.checkNotNullExpressionValue(var10000, "angleValueView");
-                var10000.setText((CharSequence)("angle : " + angle));
-                var10000 = strengthValueView;
-                Intrinsics.checkNotNullExpressionValue(var10000, "strengthValueView");
-                var10000.setText((CharSequence)("strength : " + strength));
-            }
-        }), 100);*/
-
-
-        // drone 실시간 영상 받아오기
-//        if(view != null){
-//            connect();
-//        }
-
-    return view;
-
-//        if (view != null){
-//            connect();
-//        }
-
->>>>>>> 778630bcfae71184fb26dd934074d10d3580c9f8
     }
 
 

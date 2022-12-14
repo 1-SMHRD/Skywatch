@@ -64,7 +64,6 @@
 38        android:roundIcon="@mipmap/ic_launcher_round"
 38-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:16:9-54
 39        android:supportsRtl="true"
-<<<<<<< HEAD
 39-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:17:9-35
 40        android:testOnly="true"
 41        android:theme="@style/Theme.SkyWatch"
@@ -136,79 +135,6 @@
 76-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:20-65
 77            android:value="AIzaSyAWi8FHRM2NwaRsJlzXmS-Chs661XreXcA" />
 77-->C:\Users\smhrd\Desktop\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:55:13-68
-=======
-39-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:17:9-35
-40        android:testOnly="true"
-41        android:theme="@style/Theme.SkyWatch"
-41-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:18:9-46
-42        android:usesCleartextTraffic="true" >
-42-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:19:9-44
-43        <activity
-43-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:22:9-35:20
-44            android:name="com.moon.skywatch.SplashActivity"
-44-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:23:13-43
-45            android:exported="true"
-45-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:24:13-36
-46            android:theme="@style/Theme.SkyWatch.NoActionBar" >
-46-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:25:13-62
-47            <meta-data
-47-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:26:13-28:36
-48                android:name="android.app.lib_name"
-48-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:27:17-52
-49                android:value="" />
-49-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:28:17-33
-50
-51            <intent-filter>
-51-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:30:13-34:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:31:17-69
-52-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:31:25-66
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:33:17-77
-54-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:33:27-74
-55            </intent-filter>
-56        </activity>
-57        <activity
-57-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:36:9-44:20
-58            android:name="com.moon.skywatch.Nav2Activity"
-58-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:37:13-41
-59            android:exported="false"
-59-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:38:13-37
-60            android:label="@string/title_activity_nav2"
-60-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:39:13-56
-61            android:theme="@style/Theme.SkyWatch.NoActionBar" >
-61-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:40:13-62
-62            <meta-data
-62-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:26:13-28:36
-63                android:name="android.app.lib_name"
-63-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:27:17-52
-64                android:value="" />
-64-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:28:17-33
-65        </activity>
-66        <activity
-66-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:45:9-52:20
-67            android:name="com.moon.skywatch.MainActivity"
-67-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:46:13-41
-68            android:exported="false"
-68-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:47:13-37
-69            android:theme="@style/Theme.SkyWatch.NoActionBar" >
-69-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:48:13-62
-70            <meta-data
-70-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:26:13-28:36
-71                android:name="android.app.lib_name"
-71-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:27:17-52
-72                android:value="" />
-72-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:28:17-33
-73        </activity>
-74
-75        <meta-data
-75-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:9-55:70
-76            android:name="com.google.android.geo.API_KEY"
-76-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:54:20-65
-77            android:value="AIzaSyAWi8FHRM2NwaRsJlzXmS-Chs661XreXcA" />
-77-->C:\Users\smhrd\AndroidStudioProjects\Skywatch\client\app\SkyWatch\app\src\main\AndroidManifest.xml:55:13-68
->>>>>>> 778630bcfae71184fb26dd934074d10d3580c9f8
 78        <!-- Needs to be explicitly declared on P+ -->
 79        <uses-library
 79-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\smhrd\.gradle\caches\transforms-3\77f14a6df3d89474b2fa24a53d9c91f9\transformed\play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
