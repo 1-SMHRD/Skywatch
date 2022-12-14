@@ -186,6 +186,8 @@ def yolo(img=None,vid=None):
     # # db.commit()
     # # db.close()
 
+count = 0
 
+yolo(img=f"/drone_img/regulation/1.jpg")
 
-yolo(img='1.png')
+count += 1
