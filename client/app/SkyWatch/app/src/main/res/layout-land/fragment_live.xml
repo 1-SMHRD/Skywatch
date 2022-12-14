@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.956"
-        app:srcCompat="@drawable/left" />
+        app:srcCompat="@drawable/ic_left" />
 
     <ImageView
         android:id="@+id/img_right"
@@ -90,6 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img_left"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/right" />
+        app:srcCompat="@drawable/ic_right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
