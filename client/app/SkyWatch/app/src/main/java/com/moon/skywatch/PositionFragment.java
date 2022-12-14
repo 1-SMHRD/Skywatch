@@ -50,6 +50,13 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class PositionFragment extends Fragment implements OnMapReadyCallback{
+    
+    /*
+    * google map 을 이용하여 주차 구역 설정
+    * 
+    * 주차 구역은 무조건 4개의 포인트을 가진다.
+    * 설정된 4곳의 위도 경도값을 서버에 전송
+    * */
 
     static RequestQueue requestQueue;
     private FragmentPositionBinding binding;
@@ -115,6 +122,12 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                                 @Override
                                 public void onMapClick(@NonNull LatLng latLng) {
                                     if (isChecked) {
+                                        /*
+                                        * 단속 구역은 4개의 포인트를 가진다.
+                                        * 4개가 넘으면 더이상 설정 불가
+                                        * 설정된 포인트를 한번 더 누를 시 삭제확인 메시지를 띄운다
+                                        * 해당 포인트는 설정된 순서대로 A, B, C, D 명칭을 가진다
+                                        * */
                                         if (numberOfMarker < 4) {
                                             for (int i = 0; i < 4; i++) {
                                                 if (checkMarker[i] == 0) {
@@ -130,16 +143,6 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                                                     mOptions.position(new LatLng(latitude, longitude));
 
                                                     mMap.addMarker(mOptions);
-
-                                                /*try {
-                                                    jsonObject.put("point", (char)(i + 65));
-                                                    jsonObject.put("latitude", latitude);
-                                                    jsonObject.put("longitude", longitude);
-
-                                                    jsonArray.put(jsonObject);
-                                                } catch (JSONException e) {
-                                                    e.printStackTrace();
-                                                }*/
 
                                                     mapPointList.add(new MapPointVO((char)(i + 65) + "", latitude, longitude));
 
@@ -203,6 +206,7 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
             }
         });
 
+        // 설정된 단속구역을 json object 로 만들어주고 서버로 전송
         btn_sendArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

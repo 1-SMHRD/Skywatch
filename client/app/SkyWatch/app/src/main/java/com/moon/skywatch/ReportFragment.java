@@ -23,10 +23,18 @@ import com.moon.skywatch.databinding.FragmentReportBinding;
 
 
 public class ReportFragment extends Fragment implements OnMapReadyCallback{
+
+    /*
+    * 현재 위치 또는 단속 구역 인근의 경찰서에
+    * 신고할 수 있는 fragment
+    *
+    * google map 활용
+    * 해당 마커에 해당하는 경찰서에 전화
+    * */
+
     private GoogleMap gmap;
     private MapView mmapView;
     private FragmentReportBinding binding;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
