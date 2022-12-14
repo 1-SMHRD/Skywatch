@@ -81,18 +81,15 @@ public class LiveFragment extends Fragment {
 
 
         // drone 실시간 영상 받아오기
-<<<<<<< HEAD
 //        if(view != null){
 //            connect();
 //        }
 
     return view;
 
-=======
 //        if (view != null){
 //            connect();
 //        }
->>>>>>> cacf5d13b3879d401d269f95cb350a26490eed59
 
     }
 
