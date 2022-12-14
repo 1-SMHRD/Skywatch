@@ -35,8 +35,8 @@ app.register_blueprint(features)
 app.register_blueprint(google)
 app.register_blueprint(car_num_saveView)
 if __name__ == '__main__':
-    t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
-    t.start()
+    # t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
+    # t.start()
     app.run(host="0.0.0.0")
 
     # 실시간 영상 버튼 누를시 뜨는 상태

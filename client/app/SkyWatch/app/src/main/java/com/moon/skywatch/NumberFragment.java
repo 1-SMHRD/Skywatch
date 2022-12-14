@@ -46,6 +46,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -82,6 +83,7 @@ public class NumberFragment extends Fragment {
     private Socket socket;
     private DataOutputStream outStream;
     private DataInputStream inStream;
+    private int timeout = 3000;
 
     Button btn_date;
     Button btn_carNum;
@@ -397,7 +399,8 @@ public class NumberFragment extends Fragment {
                 int port = 8089;
 
                 try{
-                    socket = new Socket(newip, port);
+                    socket = new Socket();
+                    socket.connect(new InetSocketAddress(newip, port), timeout);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -422,6 +425,7 @@ public class NumberFragment extends Fragment {
 
                 for (int i = 0; i < imgDir.length; i++) {
                     try {
+                        socket.setSoTimeout(timeout);
                         Log.d("imgDir", i + " : " + imgDir[i]);
                         outStream.writeUTF(imgDir[i]);
                         outStream.flush();
