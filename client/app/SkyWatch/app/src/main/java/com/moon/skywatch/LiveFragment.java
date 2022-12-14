@@ -56,7 +56,7 @@ public class LiveFragment extends Fragment {
     * 4. 이미지뷰에 적용
    * */
 
-    final String ip = "220.80.88.45";
+    final String ip = "119.200.31.135";
     final int port = 8089;
 
     // about socket
