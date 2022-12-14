@@ -2764,6 +2764,7 @@ int drawable mtrl_switch_track 0x7f0700eb
 int drawable mtrl_switch_track_decoration 0x7f0700ec
 int drawable mtrl_tabs_default_indicator 0x7f0700ed
 int drawable navigation_empty_icon 0x7f0700ee
+int drawable no_image 0x7f070104
 int drawable notification_action_background 0x7f0700ef
 int drawable notification_bg 0x7f0700f0
 int drawable notification_bg_low 0x7f0700f1

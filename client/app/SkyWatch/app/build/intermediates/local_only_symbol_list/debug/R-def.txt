@@ -36,6 +36,7 @@ drawable live_a
 drawable live_d
 drawable live_s
 drawable live_w
+drawable no_image
 drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage

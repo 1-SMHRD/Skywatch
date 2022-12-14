@@ -1,27 +1,15 @@
-<<<<<<< HEAD
-#Wed Dec 14 10:19:53 KST 2022
-=======
-#Wed Dec 14 10:34:46 KST 2022
->>>>>>> 778630bcfae71184fb26dd934074d10d3580c9f8
+#Wed Dec 14 12:48:29 KST 2022
 path.4=15/classes.dex
 path.3=13/classes.dex
 path.2=0/classes.dex
 path.1=2/classes.dex
 path.5=classes2.dex
 path.0=classes.dex
-<<<<<<< HEAD
 base.4=C\:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
 base.3=C\:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
 base.2=C\:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.1=C\:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\2\\classes.dex
 base.0=C\:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-=======
-base.4=C\:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.3=C\:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.2=C\:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=C\:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\2\\classes.dex
-base.0=C\:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
->>>>>>> 778630bcfae71184fb26dd934074d10d3580c9f8
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
