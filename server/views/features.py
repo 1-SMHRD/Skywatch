@@ -67,11 +67,22 @@ def getDate_car():
     
     print("row len", len(row))
     print(type(row))
-    print(row)
     
     if len(row) == 0:
         data = "none"
     else :
+        for i in range(len(row)):
+            # print(type(i))
+            if row[i]['imgdir_parking1'] == None:
+                row[i]['imgdir_parking1'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking1")
+            if row[i]['imgdir_parking2'] == None:
+                row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking2")
+            if row[i]['imgdir_numplate'] == None:
+                row[i]['imgdir_numplate'] = "\drone_img\parking\\no_image.png"
+                print("check img_dir_numplate")
+    
         data = row
 
     return data
@@ -94,6 +105,18 @@ def getNum_car():
     if len(row) == 0:
         data = "none"
     else :
+        for i in range(len(row)):
+            # print(type(i))
+            if row[i]['imgdir_parking1'] == None:
+                row[i]['imgdir_parking1'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking1")
+            if row[i]['imgdir_parking2'] == None:
+                row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking2")
+            if row[i]['imgdir_numplate'] == None:
+                row[i]['imgdir_numplate'] = "\drone_img\parking\\no_image.png"
+                print("check img_dir_numplate")
+    
         data = row
 
     return data

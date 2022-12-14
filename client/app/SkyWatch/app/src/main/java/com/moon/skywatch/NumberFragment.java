@@ -58,6 +58,25 @@ import java.util.Map;
 
 public class NumberFragment extends Fragment {
 
+    /*
+    * 날짜 또는 번호판 검색으로 불법주정차 리스트 출력
+    * - 사진, 날짜, 시간, 주차 구역, 차량 번호판 출력
+    *
+    * 웹과 request, response 를 단순화 하기 위해 Volley 라이브러리(Http 통신) 사용
+    * 사용법
+    * 1. request 객체를 만들고 이 request 객체를 request queue 에 넣어준다.
+    * 2. request queue 가 웹서버에 요청하고 응답까지 받아준다.
+    * 3. 응답을 받을 수 있도록 메서드를 만들어 두면 응답이 왔을때 자동으로 해당 메서드를 호출
+    *
+    * 장점
+    * 1. thread 사용 불필요
+    * 2. request queue 가 내부에서 thread 를 만들어 웹서버에 요청하고 응답받는 과정 진행
+    * 3. handler 사용 불필요 <-- 응답을 처리할 수 있는 메서드를 호출할 때는 메인 스레드에서 처리할 수 있도록 만든다.
+    *
+    * 이미지 주소값을 받으면 Tcp Socket 통신을 이용해서
+    * 이미지 정보를 가진 byte 배열 받고 출력
+    * */
+
     static RequestQueue requestQueue;
 
     private Socket socket;
@@ -119,6 +138,8 @@ public class NumberFragment extends Fragment {
         rcv.setAdapter(carDataAdapter);
         rcv.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
+        // 날짜 검색시 스피너 형태의 날짜 선택 화면 띄워주기
+        // 초기 화면에서는 현재 날짜를 기본으로 띄워준다.
         final Calendar date = Calendar.getInstance();
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -132,20 +153,14 @@ public class NumberFragment extends Fragment {
                 getDate = simpleDateFormat.format(setDate);
                 editTextDate.setText(getDate);
 
+                // 날짜 설정을 하고 확인 버튼을 누르면 해당 날짜를 서버에 request
                 makeRequestDate(getDate);
             }
         }, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
 
         datePickerDialog.getDatePicker().setSpinnersShown(true);
 
-        editTextDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("editTextDate Click", "ClickClickClickClickClick");
-
-            }
-        });
-
+        // 날짜 검색 버튼 누를 시
         btn_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,6 +171,7 @@ public class NumberFragment extends Fragment {
             }
         });
 
+        // 차량번호 검색시 입력 dialog 띄우기
         btn_carNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,6 +183,8 @@ public class NumberFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         editTextDate.setText(et_carNum.getText().toString());
+
+                        // 차량번호 서버에 request
                         makeRequestCarNum(et_carNum.getText().toString());
                     }
                 });
@@ -189,6 +207,7 @@ public class NumberFragment extends Fragment {
         view = null;
     }
 
+    // 서버로 부터 response 받은 데이터를 json 객체화
     public void getResponseData(String response) {
         try {
             carDataList.clear();
@@ -215,6 +234,7 @@ public class NumberFragment extends Fragment {
                 }
 
                 if (check == 1) {
+                    // 받은 결과값을 vo 객체에 담고 Arraylist에 담아주기
                     carDataList.add(setResult(car_data, img_list));
                     Log.d("carDataList add", "add");
                 }
@@ -247,6 +267,7 @@ public class NumberFragment extends Fragment {
                         if (response.equals("none")) {
                             Toast.makeText(view.getContext(), "검색 결과가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
                         } else {
+                            // 서버로 부터 response 받은 데이터 --> json object
                             getResponseData(response);
                         }
                     }
@@ -274,6 +295,7 @@ public class NumberFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> param = new HashMap<>();
+                // 서버로 전송해줄 데이터
                 param.put("sendDate", sendDate);
 
                 return param;
@@ -336,6 +358,7 @@ public class NumberFragment extends Fragment {
         requestQueue.add(request);
     }
 
+    // 서버로부터 받는 이미지 스트림을 byte array 로 변환해주는 함수
     public byte[] InPutStreamToByteArray(int data_len, DataInputStream in) {
         int loop = (int)(data_len / 1024);
         Log.w("loop: ", Integer.toString(loop));
@@ -359,6 +382,7 @@ public class NumberFragment extends Fragment {
         return resbytes;
     }
 
+    // 이미지가 저장되어있는 서버에 주소값을 보내주고 이미지 정보를 받는 함수 (tcp socket 이용)
     void connect(String[] imgDir) {
         Handler mHandler = new Handler(Looper.getMainLooper());
         Log.w("connect", "connecting...");
@@ -431,6 +455,7 @@ public class NumberFragment extends Fragment {
         Log.d("Thread terminated", "Thread terminated");
     }
 
+    // json object vo에 담기
     public CarDataVO setResult(String[] car_data, byte[][] img_list) {
 
         CarDataVO vo = new CarDataVO();

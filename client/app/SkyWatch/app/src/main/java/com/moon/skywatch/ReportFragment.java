@@ -3,6 +3,7 @@ package com.moon.skywatch;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +24,18 @@ import com.moon.skywatch.databinding.FragmentReportBinding;
 
 
 public class ReportFragment extends Fragment implements OnMapReadyCallback{
+
+    /*
+    * 현재 위치 또는 단속 구역 인근의 경찰서에
+    * 신고할 수 있는 fragment
+    *
+    * google map 활용
+    * 해당 마커에 해당하는 경찰서에 전화
+    * */
+
     private GoogleMap gmap;
     private MapView mmapView;
     private FragmentReportBinding binding;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,8 +65,12 @@ public class ReportFragment extends Fragment implements OnMapReadyCallback{
         gmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01021628994"));
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
 
-
+                }
                 return false;
             }
         });
