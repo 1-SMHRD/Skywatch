@@ -17,7 +17,7 @@ google = Blueprint('googleMap',__name__,'/googleMap')
 datas = []
 from module.dbmodule import Database
 a = Database()
-sql = "select * from tb_area_test"
+sql = "select * from tb_area"
 row = a.executeAll(sql)
 
 for i in row:
@@ -51,15 +51,14 @@ def googlemap():
     )
     test = []
     for r in row:
-        print(r['regulation_area'])
+
         test.append(r['regulation_area'])
     final_test = []
     for j in test[10:]:
         # 지오코딩 -> 데이터베이스의 주소를 위도,경도로 바꿀수있게 하는 라이브러리
         result = get_coordinates(API_KEY='AIzaSyBx6q68vuftoJ5VoCP6RjJotaUwlbNJADg', address_text=j)
         final_result = (result['lat'],result['lng'],j)
-        print(final_result)
-        print(type(final_result))
+
         final_test.append(final_result)
     print(final_test)
 

@@ -6,7 +6,7 @@ import dbmodule
 import datetime
 import time
 import os
-from server.views import features
+from views import features
 
 #import RRDBNet_arch as arch
 #import numpy as np
@@ -186,6 +186,8 @@ def yolo(img=None,vid=None):
     # # db.commit()
     # # db.close()
 
+count = 0
 
+yolo(img="../drone_img/regulation_img/1.jpg")
 
-yolo(img='1.png')
+count += 1
