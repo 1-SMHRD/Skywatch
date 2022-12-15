@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-{{"decoupled-map"|googlemap_js(35.149681,126.919929, varname="decoupledmap", markers=[(35.149681,126.919929)])}}{{ gmap.js }} {{ multimap.js }}
+{{"decoupled-map"|googlemap_js(35.149681,126.919929, varname="decoupledmap", markers=[(35.149681,126.919929)])}}{{clickmap.js}}
 {% endblock %}
 
 
@@ -14,7 +14,7 @@
                 <br>
                 <br>
                 <br>
-                <h2> 멀티 마커 페이지</h2>
+                <h2> 클릭 마커 페이지</h2>
 {#                googleMap_api 이런거 상관없이 그냥 출력해주는것인데 mysql 어떻게 가져올것인지#}
 
 {#                {% with multimap=googlemap_obj("another-map", 35.149681,126.91992,#}
@@ -22,8 +22,9 @@
 
 {#                전에는 with으로 인해 mysql 어떻게 가져올수있는지 이해안갔지만 이번에는 api_함수로인해 가져올수있다는 사실이 있다#}
 {#                따라서 굳이 with안써도 {{ multimap.html }} 써도 된다.#}
-                    {{multimap.html}}
-                    {{multimap.js}}
+
+                    {{clickmap.html}}
+                    {{clickmap.js}}
 
 {#                {% endwith %}#}
 {#                {{ gmap.html }}#}
