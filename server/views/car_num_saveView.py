@@ -16,8 +16,8 @@ car_num_saveView = Blueprint('car_num_saveView',__name__,url_prefix='/car_num_sa
 
 
 # 데이터베이스 테스트 완료
-maria = Database()
-query = "select * from tb_area_test where regulation_date = '2022-12-07'"
+""" maria = Database()
+query = "select * from tb_area where regulation_date = '2022-12-07'"
 row = maria.executeOne(query)
 print(row)
 print(row['imgdir_parking1'])
@@ -26,7 +26,7 @@ print(row['imgdir_numplate'])
 
 print(row['imgdir_parking1'][19:])
 print(row['imgdir_parking1'][10:])
-print(row['imgdir_numplate'][10:])
+print(row['imgdir_numplate'][10:]) """
 
 
 @car_num_saveView.route('/saveView')

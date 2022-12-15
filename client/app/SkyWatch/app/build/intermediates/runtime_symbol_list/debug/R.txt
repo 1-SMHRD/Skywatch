@@ -2779,6 +2779,7 @@ int drawable notification_template_icon_bg 0x7f0700fa
 int drawable notification_template_icon_low_bg 0x7f0700fb
 int drawable notification_tile_bg 0x7f0700fc
 int drawable notify_panel_notification_icon_bg 0x7f0700fd
+int drawable position_button 0x7f070107
 int drawable right_btn_backgound 0x7f0700fe
 int drawable side_nav_bar 0x7f0700ff
 int drawable skyimage 0x7f070100

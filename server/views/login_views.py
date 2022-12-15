@@ -28,7 +28,7 @@ def login_singup_query():
         print(type(row1))
         if row1 is None:
             welcome = '회원가입 완료되었습니다'
-            query = f"insert into test values ('{id}','{password}','{drone_name}')"
+            query = f"insert into tb_login values ('{id}','{password}','{drone_name}')"
             db_class.execute(query)
             db_class.commit()
             return render_template("manager/login.html", welcome=welcome)
@@ -48,7 +48,7 @@ def login_test():
         id = request.form['id']
         pw = request.form['pw']
         db_class = dbmodule.Database()
-        sql = f"select * from tb_login where id = '{id}'and password = '{pw}'"
+        sql = f"select * from tb_login where mb_id = '{id}'and mb_pw = '{pw}'"
         print(sql)
         row = db_class.executeAll(sql)
         row1 = db_class.executeOne(sql)
@@ -86,13 +86,13 @@ def login_android():
     id = request.form['id']
     pw = request.form['pw']
     db_class = dbmodule.Database()
-    sql = f"select * from tb_login where id = '{id}'and password = '{pw}'"
+    sql = f"select * from tb_login where mb_id = '{id}'and mb_pw = '{pw}'"
     print(sql)
     row = db_class.executeOne(sql)
     print(row)
     
     if row:
-        if row['id'] == '' and row['password'] == '':
+        if row['mb_id'] == '' and row['mb_pw'] == '':
             msg = "아이디랑 비밀번호 입력하세요!"
         else:
             msg = "true"

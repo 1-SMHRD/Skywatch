@@ -14,10 +14,10 @@ google = Blueprint('googleMap',__name__,'/googleMap')
 
 # api 실행했을때 에러가 뜨면은 데이터베이스의 area에 뭔가 잘못된 글자가 들어 있다는 뜻임
 # 데이터베이스 area 테스트 완료
-datas = []
+""" datas = []
 from module.dbmodule import Database
 a = Database()
-sql = "select * from tb_area_test"
+sql = "select * from tb_area"
 row = a.executeAll(sql)
 
 for i in row:
@@ -32,7 +32,7 @@ print(datas[10:])
 for i in datas[40:]:
     print(i)
 
-print({sq for sq in datas[40:]})
+print({sq for sq in datas[40:]}) """
 # 주소텍스트에서 좌표 가져오기 테스트 완료
 # API_KEy는 개인용키이므로 유출하지마셈
 
