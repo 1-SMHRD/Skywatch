@@ -32,6 +32,10 @@
         "source": "com.moon.skywatch.app-main-48:/layout/fragment_report.xml"
     },
     {
+        "merged": "com.moon.skywatch.app-merged_res-46:/drawable_carlist.xml.flat",
+        "source": "com.moon.skywatch.app-main-48:/drawable/carlist.xml"
+    },
+    {
         "merged": "com.moon.skywatch.app-merged_res-46:/layout_fragment_position.xml.flat",
         "source": "com.moon.skywatch.app-main-48:/layout/fragment_position.xml"
     },
