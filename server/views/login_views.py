@@ -19,9 +19,9 @@ def login_singup_query():
         # query = f"insert into test values ({id},{password},{drone_name})"
         # db_class.execute(query)
         # db_class.commit()
-        query1 = f"select id from test where id = '{id}'"
+        query1 = f"select id from tb_login where id = '{id}'"
         print(query1)
-        query2 = f"insert into test values ({id},{password},{drone_name})"
+        query2 = f"insert into tb_login values ({id},{password},{drone_name})"
         print(query2)
         row1 = db_class.executeOne(query1)
         print(row1)
@@ -48,7 +48,7 @@ def login_test():
         id = request.form['id']
         pw = request.form['pw']
         db_class = dbmodule.Database()
-        sql = f"select * from test where id = '{id}'and password = '{pw}'"
+        sql = f"select * from tb_login where id = '{id}'and password = '{pw}'"
         print(sql)
         row = db_class.executeAll(sql)
         row1 = db_class.executeOne(sql)
@@ -86,7 +86,7 @@ def login_android():
     id = request.form['id']
     pw = request.form['pw']
     db_class = dbmodule.Database()
-    sql = f"select * from test where id = '{id}'and password = '{pw}'"
+    sql = f"select * from tb_login where id = '{id}'and password = '{pw}'"
     print(sql)
     row = db_class.executeOne(sql)
     print(row)
