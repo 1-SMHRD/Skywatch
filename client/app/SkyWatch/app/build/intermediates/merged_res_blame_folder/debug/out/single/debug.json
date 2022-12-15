@@ -32,6 +32,10 @@
         "source": "com.moon.skywatch.app-main-48:/layout/fragment_report.xml"
     },
     {
+        "merged": "com.moon.skywatch.app-merged_res-46:/drawable_carlist.xml.flat",
+        "source": "com.moon.skywatch.app-main-48:/drawable/carlist.xml"
+    },
+    {
         "merged": "com.moon.skywatch.app-merged_res-46:/layout_fragment_position.xml.flat",
         "source": "com.moon.skywatch.app-main-48:/layout/fragment_position.xml"
     },
@@ -142,6 +146,10 @@
     {
         "merged": "com.moon.skywatch.app-merged_res-46:/xml_backup_rules.xml.flat",
         "source": "com.moon.skywatch.app-main-48:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.moon.skywatch.app-merged_res-46:/drawable_position_button.xml.flat",
+        "source": "com.moon.skywatch.app-main-48:/drawable/position_button.xml"
     },
     {
         "merged": "com.moon.skywatch.app-merged_res-46:/layout_nav_header_nav2.xml.flat",

@@ -4,7 +4,7 @@
             "outputFile": "com.moon.skywatch.app-mergeDebugResources-44:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\smhrd\\Desktop\\Skywatch\\client\\app\\SkyWatch\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "source": "C:\\Users\\smhrd\\AndroidStudioProjects\\Skywatch\\client\\app\\SkyWatch\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
