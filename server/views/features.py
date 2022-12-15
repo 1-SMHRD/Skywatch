@@ -50,7 +50,7 @@ def setInfo_car():
     imgdir_numPlate = "/drone_img/numPlate/" + "2022-12-03_15.09.00" + ".jpg"
     
     db_tbareatest = dbmodule.Database()
-    query_insert = f"insert into tb_area_test values ('{regulation_date}', '{regulation_time}', '{car_num}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
+    query_insert = f"insert into tb_area values ('{regulation_date}', '{regulation_time}', '{car_num}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
     db_tbareatest.execute(query_insert)
     db_tbareatest.commit()
     
@@ -63,7 +63,7 @@ def getDate_car():
     print("getDate: ", getDate)
     
     db_tbArea = dbmodule.Database()
-    sql = f"select * from tb_area_test where regulation_date = '{getDate}'"
+    sql = f"select * from tb_area where regulation_date = '{getDate}'"
     row = db_tbArea.executeAll(sql)
     
     print("row len", len(row))
@@ -96,7 +96,7 @@ def getNum_car():
     print("getCarNum: ", getCarNum)
     
     db_tbArea = dbmodule.Database()
-    sql = f"select * from tb_area_test where car_num = '{getCarNum}'"
+    sql = f"select * from tb_area where car_num = '{getCarNum}'"
     row = db_tbArea.executeAll(sql)
     
     print("row len", len(row))

@@ -2,6 +2,12 @@ import torch
 import cv2
 import easyocr
 import pymysql
+import dbmodule
+import datetime
+import time
+import os
+from server.views import features
+
 #import RRDBNet_arch as arch
 #import numpy as np
 db = pymysql.connect(
@@ -12,6 +18,7 @@ db = pymysql.connect(
     db='sky',
     charset='utf8'
 )
+
 
 # list => string
 def listToString(str_list):
@@ -26,8 +33,8 @@ def yolo(img=None,vid=None):
     # 커스텀 데이터 load
     model = torch.hub.load('ultralytics/yolov5', 'custom', path='v5s_b64_e150.pt',
                            force_reload=True)
-
-
+    str_list=''
+    count = 0
 
     if vid != None:
         cap = cv2.VideoCapture(F'{vid}')
@@ -110,7 +117,7 @@ def yolo(img=None,vid=None):
 
         for i in range(number_detection):
             row = cord[i]
-            if row[4] >= 0.5:  # threshold 조절해서 분류
+            if row[4] >= 0.4:  # threshold 조절해서 분류
 
                 x1, y1, x2, y2 = int(row[0] * x_shape), int(row[1] * y_shape), int(row[2] * x_shape), int(
                     row[3] * y_shape)  # 모델 인식부분 바운딩 박스
@@ -134,10 +141,10 @@ def yolo(img=None,vid=None):
                         result = reader.readtext(gray)
 
                         # 잘린 사진 경로에 저장
-                        cv2.imwrite(f'../drone_img/numPlate/1.jpg', roi_img)
+                        cv2.imwrite(f'../drone_img/numPlate/{count}.jpg', roi_img)
                         # 원본 이미지 0.5배 만들고 경로에 저장
                         img = cv2.resize(img, dsize=(0, 0), fx=0.5, fy=0.5, interpolation=cv2.INTER_LINEAR)
-                        cv2.imwrite(f'../drone_img/parking/1.jp', img)
+                        cv2.imwrite(f'../drone_img/parking/{count}.jpg', img)
                         chars=result[0][1]
 
                         # str 변환
@@ -145,19 +152,42 @@ def yolo(img=None,vid=None):
 
                         # 번호판 리스트 형태에 최소 8개들어가있음
                         print(str_list)
+                        count+=1
+                        now = time.localtime()
+
+                        regulation_date = features.getDate(now)
+                        regulation_time = features.getTime(now)
+
+                        os.chdir("../")
+                        imgdir_parking = f"/drone_img/numPlate/{count}.jpg"
+                        imgdir_numPlate = f"/drone_img/parking/{count}.jpg"
+
+
+                        regulation_area = str("abc abc")
+
+                        # db_tbareatest = dbmodule.Database()
+                        # query_insert = f"insert into tb_area_test values ('{regulation_date}', '{regulation_time}', '{str_list}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
+                        # db_tbareatest.execute(query_insert,)
+                        cur = db.cursor()
+                        sql = "insert into tb_area_test(car_num,regulation_area,regulation_date,regulation_time,imgdir_parking1,imgdir_numPlate) values (%s,%s,%s,%s,%s,%s)"
+                        cur.execute(sql,(str_list,'지역',regulation_date,regulation_time,imgdir_parking,imgdir_numPlate))
+                        db.commit()
 
                     if cv2.waitKey(5) & 0xFF == ord('q'):
                         break
-                # # cur = db.cursor()
-                # #번호판 insert문
-                # # sql = "insert into tb_area_test(car_num,regulation_area,regulation_date,regulation_time) values (%s,%s,%s,%s)"
-                # # cur.execute(sql,(str_list,'지역','날짜','시간'))
-                #
-                # #번호판 update문
-                # # sql = "update tb_area_test set car_num = %s where regulation_time = %s"
-                # # cur.execute(sql,str_list,'지역')
-                # # db.commit()
-                # # db.close()
+    # # cur = db.cursor()
+    # #번호판 insert문
+    # # sql = "insert into tb_area_test(car_num,regulation_area,regulation_date,regulation_time) values (%s,%s,%s,%s)"
+    # # cur.execute(sql,(str_list,'지역','날짜','시간'))
+    #
+    # #번호판 update문
+    # # sql = "update tb_area_test set car_num = %s where regulation_time = %s"
+    # # cur.execute(sql,str_list,'지역')
+    # # db.commit()
+    # # db.close()
 
+count = 0
 
-#yolo(img='path/ocr1.jpg')
+yolo(img=f"/drone_img/regulation/1.jpg")
+
+count += 1

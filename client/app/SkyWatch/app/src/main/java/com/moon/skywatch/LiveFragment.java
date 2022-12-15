@@ -9,17 +9,34 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class LiveFragment extends Fragment {
@@ -58,6 +75,8 @@ public class LiveFragment extends Fragment {
 
     final String ip = "220.80.88.45";
     final int port = 8089;
+    private int timeout = 3000;
+    static RequestQueue requestQueue;
 
     // about socket
     private Handler mHandler;
@@ -72,10 +91,77 @@ public class LiveFragment extends Fragment {
     View view;
     ImageView iv_droneView;
     Bitmap bmp;
+    Button[] btn_drone;
+    ImageView[] iv_drone;
+    int[] btn_resID;
+    int[] iv_resID;
 
     @Override
     public void onResume() {
         super.onResume();
+
+        /*
+         * 0 - forward   /   takeoff
+         * 1 - back      /   land
+         * 2 - left      /   cw (clock wise)
+         * 3 - right     /   ccw (counter clock wise)
+         * */
+        btn_drone = new Button[]{view.findViewById(R.id.btn_droneForward), view.findViewById(R.id.btn_droneBack),
+                view.findViewById(R.id.btn_droneLeft), view.findViewById(R.id.btn_droneRight)};
+
+        iv_drone = new ImageView[]{view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand),
+                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw)};
+
+        Log.d("btn1", btn_drone[0] + "");
+
+        for (int i = 0; i < btn_drone.length; i++) {
+            final int temp = i;
+            btn_drone[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String commend = null;
+                    switch (temp) {
+                        case 0:
+                            commend = "forward";
+                            break;
+                        case 1:
+                            commend = "back";
+                            break;
+                        case 2:
+                            commend = "Left";
+                            break;
+                        case 3:
+                            commend = "Right";
+                            break;
+                    }
+
+                    makeRequestCommend(commend);
+                }
+            });
+
+            iv_drone[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String commend = null;
+                    switch (temp) {
+                        case 0:
+                            commend = "takeOff";
+                            break;
+                        case 1:
+                            commend = "Land";
+                            break;
+                        case 2:
+                            commend = "cw";
+                            break;
+                        case 3:
+                            commend = "ccw";
+                            break;
+                    }
+                    makeRequestCommend(commend);
+
+                }
+            });
+        }
 
         // drone 실시간 영상 받아오기
         if(view != null){
@@ -86,15 +172,13 @@ public class LiveFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
-
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
+        condition = true;
         mHandler = new Handler();
         iv_droneView = view.findViewById(R.id.iv_droneView);
-        condition = true;
 
-    return view;
+        return view;
     }
 
 
@@ -116,6 +200,7 @@ public class LiveFragment extends Fragment {
                 try{
                     // 소켓 선언
                     socket = new Socket(ip, port);
+                    // socket.connect(new InetSocketAddress(ip, port), timeout);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -138,6 +223,7 @@ public class LiveFragment extends Fragment {
                 // fragment를 종료하기 전까지 thread 열어두고 데이터 받기
                 while (condition) {
                     try {
+                        // socket.setSoTimeout(timeout);
                         // 이미지 길이 받기
                         int length = inStream.readInt();
                         Log.d("data length: ",  length + "---");
@@ -213,6 +299,55 @@ public class LiveFragment extends Fragment {
         }
 
         return resbytes;
+    }
+
+    public void makeRequestCommend(String commend) {
+        String ip = "http://220.80.88.45";
+        int port = 5000;
+
+        String url = ip + ":" + port + "/features/" + commend;
+        Log.d("commend", commend);
+        Log.d("url", url);
+
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("response", response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Response Error", "" + error.getMessage());
+            }
+        }) {
+            @Override //response를 UTF8로 변경해주는 소스코드
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    Log.d("utf8string", utf8String);
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> param = new HashMap<>();
+                // param.put("carNum", commend);
+
+                return param;
+            }
+        };
+
+        request.setShouldCache(false);
+        requestQueue = Volley.newRequestQueue(view.getContext());
+        requestQueue.add(request);
     }
 
 }

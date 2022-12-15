@@ -19,9 +19,9 @@ def login_singup_query():
         # query = f"insert into test values ({id},{password},{drone_name})"
         # db_class.execute(query)
         # db_class.commit()
-        query1 = f"select id from test where id = '{id}'"
+        query1 = f"select id from tb_login where id = '{id}'"
         print(query1)
-        query2 = f"insert into test values ({id},{password},{drone_name})"
+        query2 = f"insert into tb_login values ({id},{password},{drone_name})"
         print(query2)
         row1 = db_class.executeOne(query1)
         print(row1)
