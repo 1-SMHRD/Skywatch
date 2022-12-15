@@ -4,7 +4,7 @@ from socket import *
 import time
 import os
 import datetime
-from module.tello_module import Tello
+from djitellopy import Tello
 import cv2
 
 

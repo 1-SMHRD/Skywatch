@@ -73,7 +73,7 @@ public class LiveFragment extends Fragment {
     * 4. 이미지뷰에 적용
    * */
 
-    final String ip = "119.200.31.135";
+    final String ip = "220.80.88.45";
     final int port = 8089;
     private int timeout = 3000;
     static RequestQueue requestQueue;
@@ -200,7 +200,7 @@ public class LiveFragment extends Fragment {
                 try{
                     // 소켓 선언
                     socket = new Socket(ip, port);
-                    socket.connect(new InetSocketAddress(ip, port), timeout);
+                    // socket.connect(new InetSocketAddress(ip, port), timeout);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -223,7 +223,7 @@ public class LiveFragment extends Fragment {
                 // fragment를 종료하기 전까지 thread 열어두고 데이터 받기
                 while (condition) {
                     try {
-                        socket.setSoTimeout(timeout);
+                        // socket.setSoTimeout(timeout);
                         // 이미지 길이 받기
                         int length = inStream.readInt();
                         Log.d("data length: ",  length + "---");
@@ -309,7 +309,7 @@ public class LiveFragment extends Fragment {
         Log.d("commend", commend);
         Log.d("url", url);
 
-        StringRequest request = new StringRequest(Request.Method.POST, url,
+        StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -339,7 +339,7 @@ public class LiveFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> param = new HashMap<>();
-                param.put("carNum", commend);
+                // param.put("carNum", commend);
 
                 return param;
             }
