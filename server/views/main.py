@@ -5,7 +5,7 @@ main = Blueprint('main',__name__,url_prefix='/')
 @main.route('/')
 def index(): # 처음은 로그인
     # return render_template("main_content.html")
-    return render_template("manager/login.html")
+    return render_template("/manager/login.html")
 @main.route('/mains')
 def mains():# 로그인 한 후에 메인 페이지
     return render_template("main_content.html")

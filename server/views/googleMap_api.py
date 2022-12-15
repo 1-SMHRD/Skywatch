@@ -17,26 +17,24 @@ google = Blueprint('googleMap',__name__,'/googleMap')
 datas = []
 from module.dbmodule import Database
 a = Database()
-sql = "select * from tb_area_test"
+sql = "select * from tb_area"
 row = a.executeAll(sql)
-
-for i in row:
-    print(i['regulation_area'])
-    datas.append(i['regulation_area'])
-
-
-print(datas)
-
-print(datas[10:])
-
-for i in datas[10:]:
-    print(i)
-
-print({sq for sq in datas[10:]})
+#
+# for i in row:
+#     print(i['regulation_area'])
+#     datas.append(i['regulation_area'])
+#
+#
+# print(datas)
+#
+# print(datas[10:])
+#
+# for i in datas[10:]:
+#     print(i)
+#
+# print({sq for sq in datas[10:]})
 # 주소텍스트에서 좌표 가져오기 테스트 완료
 # API_KEy는 개인용키이므로 유출하지마셈
-a = get_coordinates(API_KEY='AIzaSyBx6q68vuftoJ5VoCP6RjJotaUwlbNJADg',address_text=row[7]['regulation_area'])
-print((a['lat'],a['lng'],'일곡동'))
 
 @google.route('/googleMap_api')
 def googlemap():
@@ -56,7 +54,7 @@ def googlemap():
         print(r['regulation_area'])
         test.append(r['regulation_area'])
     final_test = []
-    for j in test[10:]:
+    for j in test[40:]:
         # 지오코딩 -> 데이터베이스의 주소를 위도,경도로 바꿀수있게 하는 라이브러리
         result = get_coordinates(API_KEY='AIzaSyBx6q68vuftoJ5VoCP6RjJotaUwlbNJADg', address_text=j)
         final_result = (result['lat'],result['lng'],j)
