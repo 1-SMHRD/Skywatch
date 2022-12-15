@@ -2895,16 +2895,16 @@ int id bounceStart 0x7f080067
 int id btn_add 0x7f080068
 int id btn_carNum 0x7f080069
 int id btn_date 0x7f08006a
-int id btn_droneBack 0x7f080228
-int id btn_droneForward 0x7f080229
-int id btn_droneLeft 0x7f08022a
-int id btn_droneRight 0x7f08022b
-int id btn_go 0x7f08006b
-int id btn_login 0x7f08006c
-int id btn_ok 0x7f08006d
-int id btn_out 0x7f08006e
-int id btn_sendArea 0x7f08006f
-int id btn_setArea 0x7f080070
+int id btn_droneBack 0x7f08006b
+int id btn_droneForward 0x7f08006c
+int id btn_droneLeft 0x7f08006d
+int id btn_droneRight 0x7f08006e
+int id btn_go 0x7f08006f
+int id btn_login 0x7f080070
+int id btn_ok 0x7f080071
+int id btn_out 0x7f080072
+int id btn_sendArea 0x7f080073
+int id btn_setArea 0x7f080074
 int id buttonPanel 0x7f080075
 int id cache_measures 0x7f080076
 int id callMeasure 0x7f080077
@@ -3041,34 +3041,21 @@ int id imageView 0x7f0800f9
 int id imageView2 0x7f0800fa
 int id imageView3 0x7f0800fb
 int id imageView4 0x7f0800fc
-<<<<<<< HEAD
-int id imgCarParking1 0x7f0800ff
-int id imgCarParking2 0x7f080100
-int id imgNumPlate 0x7f080101
-=======
-int id imageView5 0x7f0800fd
-int id imageView6 0x7f0800fe
-int id imgCarParking1 0x7f0800ff
-int id imgCarParking2 0x7f080100
-int id imgNumPlate 0x7f080101
-int id img_left 0x7f080102
-int id img_right 0x7f080103
->>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
-int id immediateStop 0x7f080104
-int id included 0x7f080105
-int id indeterminate 0x7f080106
-int id info 0x7f080107
-int id invisible 0x7f080108
-int id inward 0x7f080109
-int id italic 0x7f08010a
-int id item_touch_helper_previous_elevation 0x7f08010b
-<<<<<<< HEAD
-int id iv_droneCcw 0x7f08022c
-int id iv_droneCw 0x7f08022d
-int id iv_droneLand 0x7f08022e
-int id iv_droneTakeOff 0x7f08022f
-=======
->>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
+int id imgCarParking1 0x7f0800fd
+int id imgCarParking2 0x7f0800fe
+int id imgNumPlate 0x7f0800ff
+int id immediateStop 0x7f080100
+int id included 0x7f080101
+int id indeterminate 0x7f080102
+int id info 0x7f080103
+int id invisible 0x7f080104
+int id inward 0x7f080105
+int id italic 0x7f080106
+int id item_touch_helper_previous_elevation 0x7f080107
+int id iv_droneCcw 0x7f080108
+int id iv_droneCw 0x7f080109
+int id iv_droneLand 0x7f08010a
+int id iv_droneTakeOff 0x7f08010b
 int id iv_droneView 0x7f08010c
 int id joystick 0x7f08010d
 int id jumpToEnd 0x7f08010e

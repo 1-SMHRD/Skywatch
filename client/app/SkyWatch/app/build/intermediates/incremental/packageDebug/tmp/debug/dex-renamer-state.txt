@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#Wed Dec 14 17:27:37 KST 2022
-=======
-#Wed Dec 14 16:16:52 KST 2022
->>>>>>> c797bffceb3e5ac33efc9e67849a2a531588bf60
+#Thu Dec 15 16:15:07 KST 2022
 path.4=15/classes.dex
 path.3=13/classes.dex
 path.2=0/classes.dex
