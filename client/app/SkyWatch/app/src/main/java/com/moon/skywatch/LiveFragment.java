@@ -138,8 +138,6 @@ public class LiveFragment extends Fragment {
                             commend = "Right";
                             break;
                     }
-
-                    // makeRequestCommend(commend);
                 }
             });
 
@@ -161,8 +159,6 @@ public class LiveFragment extends Fragment {
                             commend = "ccw";
                             break;
                     }
-                    // makeRequestCommend(commend);
-
                 }
             });
         }
@@ -313,52 +309,4 @@ public class LiveFragment extends Fragment {
 
         return resbytes;
     }
-
-    public void makeRequestCommend(String commend) {
-        url = "http://" + ip + ":" + flask_port + "/features/" + commend;
-
-        Log.d("commend", commend);
-        Log.d("url", url);
-
-        StringRequest request = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("response", response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("Response Error", "" + error.getMessage());
-            }
-        }) {
-            @Override //response를 UTF8로 변경해주는 소스코드
-            protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                try {
-                    String utf8String = new String(response.data, "UTF-8");
-                    Log.d("utf8string", utf8String);
-                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
-                } catch (UnsupportedEncodingException e) {
-                    // log error
-                    return Response.error(new ParseError(e));
-                } catch (Exception e) {
-                    // log error
-                    return Response.error(new ParseError(e));
-                }
-            }
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> param = new HashMap<>();
-                // param.put("carNum", commend);
-
-                return param;
-            }
-        };
-
-        request.setShouldCache(false);
-        requestQueue = Volley.newRequestQueue(view.getContext());
-        requestQueue.add(request);
-    }
-
 }
