@@ -1,16 +1,18 @@
 package com.moon.skywatch;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,6 +23,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.moon.skywatch.databinding.FragmentReportBinding;
+
+import java.util.Iterator;
 
 
 public class ReportFragment extends Fragment implements OnMapReadyCallback{
@@ -62,18 +66,37 @@ public class ReportFragment extends Fragment implements OnMapReadyCallback{
 
                 gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,19));
 
-        gmap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(@NonNull Marker marker) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:01021628994"));
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
-                    startActivity(intent);
+                gmap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(@NonNull Marker marker) {
+                        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
+                        String markerArea = marker.getTitle();
+                        builder.setTitle(markerArea);
+                        builder.setMessage("관할 지역으로 신고 하시겠습니까?");
 
-                }
-                return false;
-            }
-        });
+                        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Intent.ACTION_DIAL);
+                                intent.setData(Uri.parse("tel:01021628994"));
+                                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                                    startActivity(intent);
+
+                                }
+                            }
+                        });
+
+                        builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                });
             }
         });
 

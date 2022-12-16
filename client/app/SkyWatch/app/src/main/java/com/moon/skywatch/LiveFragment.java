@@ -98,6 +98,8 @@ public class LiveFragment extends Fragment {
     int[] btn_resID;
     int[] iv_resID;
 
+    String commend;
+
     @Override
     public void onResume() {
         super.onResume();
@@ -121,7 +123,7 @@ public class LiveFragment extends Fragment {
             btn_drone[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String commend = null;
+                    // String commend = null;
                     switch (temp) {
                         case 0:
                             commend = "forward";
@@ -137,14 +139,14 @@ public class LiveFragment extends Fragment {
                             break;
                     }
 
-                    makeRequestCommend(commend);
+                    // makeRequestCommend(commend);
                 }
             });
 
             iv_drone[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String commend = null;
+                    // String commend = null;
                     switch (temp) {
                         case 0:
                             commend = "takeOff";
@@ -159,7 +161,7 @@ public class LiveFragment extends Fragment {
                             commend = "ccw";
                             break;
                     }
-                    makeRequestCommend(commend);
+                    // makeRequestCommend(commend);
 
                 }
             });
@@ -193,6 +195,7 @@ public class LiveFragment extends Fragment {
 
     void connect() {
         Log.w("connect", "connecting...");
+        commend = null;
 
         checkUpdate = new Thread(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -225,6 +228,7 @@ public class LiveFragment extends Fragment {
                 // fragment를 종료하기 전까지 thread 열어두고 데이터 받기
                 while (condition) {
                     try {
+
                         // socket.setSoTimeout(timeout);
                         // 이미지 길이 받기
                         int length = inStream.readInt();
@@ -240,6 +244,13 @@ public class LiveFragment extends Fragment {
 
                         // Bitmap 저장
                         bmp = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+
+                        if (commend != null) {
+                            Log.d("commend", commend);
+                            outStream.writeUTF(commend);
+                            outStream.flush();
+                            commend = null;
+                        }
 
                     } catch (Exception e) {
                         Log.d("sdafas", "asdfsadf");
