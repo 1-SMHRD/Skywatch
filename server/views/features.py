@@ -108,12 +108,12 @@ def getNum_car():
     else :
         for i in range(len(row)):
             # print(type(i))
-            if row[i]['imgdir_parking1'] == None:
-                row[i]['imgdir_parking1'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking1")
-            if row[i]['imgdir_parking2'] == None:
+            if row[i]['imgdir_parking'] == None:
+                row[i]['imgdir_parking'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking")
+            """ if row[i]['imgdir_parking2'] == None:
                 row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking2")
+                print("check imgdir_parking2") """
             if row[i]['imgdir_numplate'] == None:
                 row[i]['imgdir_numplate'] = "\drone_img\parking\\no_image.png"
                 print("check img_dir_numplate")
@@ -142,13 +142,24 @@ def getArea():
 
 """
     플라스크-드론 실시간 영상, 동작 조작 기능
+    
+    
+    # 텔로포트 소켓 오류 난 경우에는 텔로 포트 죽이고나서 수동으로 해야함
+    # 텔로포트 찾게해줌
+    netstat -ano|findstr 8889
+    # 텔로포트 죽어야함
+    taskkill /f /pid 
 """
+
+
+
+
 
 video_camera = None
 global_frame = None
 camera_frame = None
-tello = None
-tello = Tello()
+# tello = None
+# tello = Tello()
 
 # FPS
 FPS = 25
@@ -159,29 +170,41 @@ def video_stream():
     global video_camera
     global global_frame
     global camera_frame
-
+    # video_camera = tello
     if video_camera == None:
-        video_camera = tello
-        if not video_camera.connect():
-            content = '텔로 연결 하십시오'
-            print(content)
-            return
-        if not video_camera.set_speed(10):
-            content = '속도를 가능한 낮게 설정하지 마십시오.'
-            print(content)
-            return
-        if not video_camera.streamoff():
-            content = '비디오 끄지 않았습니다.'
-            print(content)
-            return
-        if not video_camera.streamon():
-            content = '비디오 시작하지 않았습니다.'
-            print(content)
-            return
 
+        """
+        이것은 파이참 환경에서 실행했을경우에는 자동적으로 돌아가는데 
+        터미널에서 하면 아예 못 돌아간다는 단점이다.
+        """
+        # if not video_camera.connect():
+        #     print("Tello not connected")
+        #     return video_camera.connect()
+        #
+        # if not video_camera.set_speed(10):
+        #     print("Not set speed to lowest possible")
+        #     return video_camera.set_speed(10)
+        #
+        # # In case streaming is on. This happens when we quit this program without the escape key.
+        # if not video_camera.streamoff():
+        #     print("Could not stop video stream")
+        #     return video_camera.streamoff()
+        #
+        # if not video_camera.streamon():
+        #     print("Could not start video stream")
+        #     return video_camera.streamon()
+
+        """
+        따라서 터미널환경 실행할꺼면 이거하는게 좋다.
+        """
+        video_camera = Tello()
+        video_camera.connect()
+        video_camera.set_speed(10)
+        video_camera.streamoff()
+        video_camera.streamon()
     while True:
         frame_read = video_camera.get_frame_read()
-
+        print(frame_read)
         should_stop = False
         video_camera.get_battery()
 

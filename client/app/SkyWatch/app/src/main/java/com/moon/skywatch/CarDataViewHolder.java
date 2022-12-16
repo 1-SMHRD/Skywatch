@@ -21,7 +21,7 @@ public class CarDataViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         imgCarParking1 = (ImageView) itemView.findViewById(R.id.imgCarParking1);
-        imgCarParking2 = (ImageView) itemView.findViewById(R.id.imgCarParking2);
+        // imgCarParking2 = (ImageView) itemView.findViewById(R.id.imgCarParking2);
         imgNumPlate = (ImageView) itemView.findViewById(R.id.imgNumPlate);
 
         tv_date = (TextView) itemView.findViewById(R.id.tv_date);

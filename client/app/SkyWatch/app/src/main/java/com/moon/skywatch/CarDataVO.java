@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 public class CarDataVO {
     private Bitmap imgParking1;
-    private Bitmap imgParking2;
+    // private Bitmap imgParking2;
     private Bitmap imgNumPlate;
 
     private String regulationDate;
@@ -16,9 +16,9 @@ public class CarDataVO {
 
     }
 
-    public CarDataVO(Bitmap imgParking1, Bitmap imgParking2, Bitmap imgNumPlate, String regulationDate, String regulationTime, String numPlate, String regulationArea) {
+    public CarDataVO(Bitmap imgParking1, /*Bitmap imgParking2,*/ Bitmap imgNumPlate, String regulationDate, String regulationTime, String numPlate, String regulationArea) {
         this.imgParking1 = imgParking1;
-        this.imgParking2 = imgParking2;
+        // this.imgParking2 = imgParking2;
         this.imgNumPlate = imgNumPlate;
         this.regulationDate = regulationDate;
         this.regulationTime = regulationTime;
@@ -34,13 +34,13 @@ public class CarDataVO {
         this.imgParking1 = imgParking1;
     }
 
-    public Bitmap getImgParking2() {
+    /*public Bitmap getImgParking2() {
         return imgParking2;
     }
 
     public void setImgParking2(Bitmap imgParking2) {
         this.imgParking2 = imgParking2;
-    }
+    }*/
 
     public Bitmap getImgNumPlate() {
         return imgNumPlate;
@@ -86,7 +86,7 @@ public class CarDataVO {
     public String toString() {
         final StringBuffer sb = new StringBuffer("CarDataVO{");
         sb.append("imgParking1=").append(imgParking1);
-        sb.append(", imgParking2=").append(imgParking2);
+        // sb.append(", imgParking2=").append(imgParking2);
         sb.append(", imgNumPlate=").append(imgNumPlate);
         sb.append(", regulationDate='").append(regulationDate).append('\'');
         sb.append(", regulationTime='").append(regulationTime).append('\'');
