@@ -73,9 +73,11 @@ public class LiveFragment extends Fragment {
     * 4. 이미지뷰에 적용
    * */
 
-    final String ip = "220.80.88.45";
-    final int port = 8089;
-    private int timeout = 3000;
+    String ip = ((MainActivity)MainActivity.context_main).ip;
+    int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
+    int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
+    String url;
+
     static RequestQueue requestQueue;
 
     // about socket
@@ -199,7 +201,7 @@ public class LiveFragment extends Fragment {
 
                 try{
                     // 소켓 선언
-                    socket = new Socket(ip, port);
+                    socket = new Socket(ip, socket_port);
                     // socket.connect(new InetSocketAddress(ip, port), timeout);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
@@ -302,10 +304,8 @@ public class LiveFragment extends Fragment {
     }
 
     public void makeRequestCommend(String commend) {
-        String ip = "http://220.80.88.45";
-        int port = 5000;
+        url = "http://" + ip + ":" + flask_port + "/features/" + commend;
 
-        String url = ip + ":" + port + "/features/" + commend;
         Log.d("commend", commend);
         Log.d("url", url);
 

@@ -21,12 +21,12 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/no_image" />
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/imgCarParking2"
                 android:layout_width="match_parent"
                 android:layout_height="114dp"
                 android:layout_weight="1"
-                tools:srcCompat="@drawable/no_image" />
+                tools:srcCompat="@drawable/no_image" />-->
 
             <ImageView
                 android:id="@+id/imgNumPlate"

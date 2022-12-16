@@ -3045,7 +3045,6 @@ id imageView2
 id imageView3
 id imageView4
 id imgCarParking1
-id imgCarParking2
 id imgNumPlate
 id immediateStop
 id included

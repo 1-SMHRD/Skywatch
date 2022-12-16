@@ -85,6 +85,11 @@ public class NumberFragment extends Fragment {
     private DataInputStream inStream;
     private int timeout = 3000;
 
+    String ip = ((MainActivity)MainActivity.context_main).ip;
+    int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
+    int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
+    String url;
+
     Button btn_date;
     Button btn_carNum;
     TextView editTextDate;
@@ -106,11 +111,11 @@ public class NumberFragment extends Fragment {
     String regulation_area;
     String car_num;
     String img_parking1;
-    String img_parking2;
+    // String img_parking2;
     String img_numPlate;
 
     Bitmap bmp_parking1;
-    Bitmap bmp_parking2;
+    // Bitmap bmp_parking2;
     Bitmap bmp_numPlate;
 
     byte[][] img_list;
@@ -224,12 +229,12 @@ public class NumberFragment extends Fragment {
                 regulation_area = (String) jsonObject.get("regulation_area");
                 car_num = (String) jsonObject.get("car_num");
 
-                img_parking1 = (String) jsonObject.get("imgdir_parking1");
-                img_parking2 = (String) jsonObject.get("imgdir_parking2");
+                img_parking1 = (String) jsonObject.get("imgdir_parking");
+                // img_parking2 = (String) jsonObject.get("imgdir_parking2");
                 img_numPlate = (String) jsonObject.get("imgdir_numplate");
 
                 String[] car_data = new String[]{regulation_date, regulation_time, regulation_area, car_num};
-                String[] imgDir = new String[]{img_parking1, img_parking2, img_numPlate};
+                String[] imgDir = new String[]{img_parking1, /*img_parking2,*/ img_numPlate};
 
                 if (imgDir.length != 0) {
                     connect(imgDir);
@@ -256,10 +261,8 @@ public class NumberFragment extends Fragment {
 
     public void makeRequestDate(String sendDate) {
         check = 0;
-        String ip = "http://220.80.88.45";
-        int port = 5000;
 
-        String url = ip + ":" + port + "/features/getDate_android";
+        url = "http://" + ip + ":" + flask_port + "/features/getDate_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -310,10 +313,8 @@ public class NumberFragment extends Fragment {
 
     public void makeRequestCarNum(String carNum) {
         check = 0;
-        String ip = "http://220.80.88.45";
-        int port = 5000;
 
-        String url = ip + ":" + port + "/features/getCarNum_android";
+        url = "http://" + ip + ":" + flask_port + "/features/getCarNum_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -395,12 +396,9 @@ public class NumberFragment extends Fragment {
         Thread checkUpdate = new Thread() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             public void run() {
-                String newip = "220.80.88.45";
-                int port = 8089;
 
                 try{
-                    socket = new Socket();
-                    socket.connect(new InetSocketAddress(newip, port), timeout);
+                    socket = new Socket(ip, socket_port);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -425,7 +423,7 @@ public class NumberFragment extends Fragment {
 
                 for (int i = 0; i < imgDir.length; i++) {
                     try {
-                        socket.setSoTimeout(timeout);
+                        // socket.setSoTimeout(timeout);
                         Log.d("imgDir", i + " : " + imgDir[i]);
                         outStream.writeUTF(imgDir[i]);
                         outStream.flush();
@@ -481,10 +479,10 @@ public class NumberFragment extends Fragment {
                     case 0:
                         bmp_parking1 = bmp;
                         break;
-                    case 1:
+                    /*case 1:
                         bmp_parking2 = bmp;
-                        break;
-                    case 2:
+                        break;*/
+                    case 1:
                         bmp_numPlate = bmp;
                         break;
                 }
@@ -493,7 +491,7 @@ public class NumberFragment extends Fragment {
         }
 
         vo.setImgParking1(bmp_parking1);
-        vo.setImgParking2(bmp_parking2);
+        // vo.setImgParking2(bmp_parking2);
         vo.setImgNumPlate(bmp_numPlate);
 
         return vo;

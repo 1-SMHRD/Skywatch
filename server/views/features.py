@@ -108,12 +108,12 @@ def getNum_car():
     else :
         for i in range(len(row)):
             # print(type(i))
-            if row[i]['imgdir_parking1'] == None:
-                row[i]['imgdir_parking1'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking1")
-            if row[i]['imgdir_parking2'] == None:
+            if row[i]['imgdir_parking'] == None:
+                row[i]['imgdir_parking'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking")
+            """ if row[i]['imgdir_parking2'] == None:
                 row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking2")
+                print("check imgdir_parking2") """
             if row[i]['imgdir_numplate'] == None:
                 row[i]['imgdir_numplate'] = "\drone_img\parking\\no_image.png"
                 print("check img_dir_numplate")
