@@ -4,11 +4,11 @@ from views.main import main
 from views.login_views import logins
 from views.features import features
 from views.googleMap_api import google
+from djitellopy import Tello
 from flask_googlemaps import GoogleMaps
 from views.car_num_saveView import car_num_saveView
 from socketclass import ServerSocket
 import threading
-from djitellopy import Tello
 
 app = Flask(__name__)
 app.secret_key = 'hello'

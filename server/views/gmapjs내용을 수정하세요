@@ -1,3 +1,9 @@
+만약 아나콘다 환경쓴경우에는
+경로 참고해서 찾아가서 수정하세요
+C:\Users\smhrd\anaconda3\envs\...\Lib\site-packages\flask_googlemaps\templates\googlemaps\gmapjs.html
+
+파이참 자체 환경인경우에는 venv 폴더에서 gmapjs.html 으로 찾아가서 수정하세요
+
 <!--and not gmap.heatmap_layer -->
 {%  if not is_googlemaps_loaded() and not gmap.heatmap_layer %}
     {% if GOOGLEMAPS_KEY %}
