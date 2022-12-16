@@ -13,30 +13,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class LiveFragment extends Fragment {
@@ -95,8 +81,6 @@ public class LiveFragment extends Fragment {
     Bitmap bmp;
     Button[] btn_drone;
     ImageView[] iv_drone;
-    int[] btn_resID;
-    int[] iv_resID;
 
     String commend;
 
@@ -113,8 +97,8 @@ public class LiveFragment extends Fragment {
         btn_drone = new Button[]{view.findViewById(R.id.btn_droneForward), view.findViewById(R.id.btn_droneBack),
                 view.findViewById(R.id.btn_droneLeft), view.findViewById(R.id.btn_droneRight)};
 
-        iv_drone = new ImageView[]{view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand),
-                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw)};
+        iv_drone = new ImageView[]{view.findViewById(R.id.iv_droneUp), view.findViewById(R.id.iv_droneDown),
+                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw), view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand)};
 
         Log.d("btn1", btn_drone[0] + "");
 
@@ -140,23 +124,32 @@ public class LiveFragment extends Fragment {
                     }
                 }
             });
+        }
 
+        for (int i = 0; i < iv_drone.length; i++) {
+            int temp = i;
             iv_drone[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // String commend = null;
                     switch (temp) {
                         case 0:
-                            commend = "takeOff";
+                            commend = "up";
                             break;
                         case 1:
-                            commend = "Land";
+                            commend = "down";
                             break;
                         case 2:
                             commend = "cw";
                             break;
                         case 3:
                             commend = "ccw";
+                            break;
+                        case 4:
+                            commend = "takeOff";
+                            break;
+                        case 5:
+                            commend = "land";
                             break;
                     }
                 }

@@ -183,14 +183,16 @@ class ServerSocket:
         
     def droneCommend(self, commend):
         dict_commend = {
-            "takeOff" : self.drone.move_up(),
-            "Land" : self.drone.move_down(),
+            "takeOff" : self.drone.takeoff(),
+            "land" : self.drone.land(),
             "cw" : self.drone.rotate_clockwise(),
             "ccw" : self.drone.rotate_counter_clockwise(),
             "forward" : self.drone.move_forward(),
             "back" : self.drone.move_back(),
             "Left" : self.drone.move_left(),
-            "Right" : self.drone.move_right()
+            "Right" : self.drone.move_right(),
+            "up" : self.drone.move_up(),
+            "down" : self.drone.move_down()
         }
         
         dict_commend.get(commend, None)
