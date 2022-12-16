@@ -34,11 +34,11 @@ def yolo(img=None,vid=None):
     model = torch.hub.load('ultralytics/yolov5', 'custom', path='v5s_b64_e150.pt',
                            force_reload=True)
     str_list=''
-    count = 0
+    count = 1
 
     if vid != None:
         cap = cv2.VideoCapture(f'{vid}')
-        count = 0
+
         while cap.isOpened():
             # 이미지 읽어옴
 
@@ -104,7 +104,6 @@ def yolo(img=None,vid=None):
 
     # ocr 적용 2
     elif img!=None:
-        count = 0
         # 사진경로
         img=cv2.imread(img)
         results = model(img)
@@ -152,7 +151,7 @@ def yolo(img=None,vid=None):
 
                         # 번호판 리스트 형태에 최소 8개들어가있음
                         print(str_list)
-                        count+=1
+
                         now = time.localtime()
 
                         regulation_date = features.getDate(now)
@@ -163,7 +162,7 @@ def yolo(img=None,vid=None):
                         imgdir_numPlate = f"/drone_img/parking/{count}.jpg"
 
 
-                        regulation_area = str("동명동")
+                        regulation_area = str("황금동")
 
                         # db_tbareatest = dbmodule.Database()
                         # query_insert = f"insert into tb_area_test values ('{regulation_date}', '{regulation_time}', '{str_list}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
@@ -172,7 +171,7 @@ def yolo(img=None,vid=None):
                         sql = "insert into tb_area(car_num,regulation_area,regulation_date,regulation_time,imgdir_parking,imgdir_numPlate) values (%s,%s,%s,%s,%s,%s)"
                         cur.execute(sql,(str_list,regulation_area,regulation_date,regulation_time,imgdir_parking,imgdir_numPlate))
                         db.commit()
-
+                        count += 1
                     if cv2.waitKey(5) & 0xFF == ord('q'):
                         break
     # # cur = db.cursor()
@@ -186,8 +185,7 @@ def yolo(img=None,vid=None):
     # # db.commit()
     # # db.close()
 
-count = 0
+
 
 yolo(img="../drone_img/regulation_img/")
 
-count += 1
