@@ -2,6 +2,7 @@
 
 {% block head %}
 {{"decoupled-map"|googlemap_js(35.149681,126.919929, varname="decoupledmap", markers=[(35.149681,126.919929)])}}{{clickmap.js}}
+<meta http-equiv="refresh" content = "2">
 {% endblock %}
 
 
@@ -25,6 +26,11 @@
 
                     {{clickmap.html}}
                     {{clickmap.js}}
+
+                    {% for i in message_results%}
+                        {{i}}
+                    {% endfor %}
+                <input type="submit" value="단속 구역 시작">
 
 {#                {% endwith %}#}
 {#                {{ gmap.html }}#}
