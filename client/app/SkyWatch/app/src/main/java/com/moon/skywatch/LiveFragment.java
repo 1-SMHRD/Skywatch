@@ -161,11 +161,11 @@ public class LiveFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
-        condition = true;
         mHandler = new Handler();
         iv_droneView = view.findViewById(R.id.iv_droneView);
+        condition = true;
 
-        return view;
+    return view;
     }
 
 
@@ -188,6 +188,7 @@ public class LiveFragment extends Fragment {
                 try{
                     // 소켓 선언
                     socket = new Socket(ip, socket_port);
+
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");

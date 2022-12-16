@@ -3,8 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="wrap_content"
     android:background="@drawable/carlist">
+=======
+    android:layout_height="wrap_content">
+>>>>>>> abb560956dc77404960aed493e287b0a8400e738
 
     <TableLayout
         android:layout_width="match_parent"

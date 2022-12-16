@@ -109,11 +109,11 @@ public class NumberFragment extends Fragment {
     String regulation_area;
     String car_num;
     String img_parking1;
-    // String img_parking2;
+//    String img_parking2;
     String img_numPlate;
 
     Bitmap bmp_parking1;
-    // Bitmap bmp_parking2;
+//    Bitmap bmp_parking2;
     Bitmap bmp_numPlate;
 
     byte[][] img_list;
@@ -228,7 +228,7 @@ public class NumberFragment extends Fragment {
                 car_num = (String) jsonObject.get("car_num");
 
                 img_parking1 = (String) jsonObject.get("imgdir_parking");
-                // img_parking2 = (String) jsonObject.get("imgdir_parking2");
+//                img_parking2 = (String) jsonObject.get("imgdir_parking2");
                 img_numPlate = (String) jsonObject.get("imgdir_numplate");
 
                 String[] car_data = new String[]{regulation_date, regulation_time, regulation_area, car_num};
@@ -260,7 +260,7 @@ public class NumberFragment extends Fragment {
     public void makeRequestDate(String sendDate) {
         check = 0;
 
-        url = "http://" + ip + ":" + flask_port + "/features/getDate_android";
+        String url = ip + ":" + flask_port + "/features/getDate_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -312,7 +312,7 @@ public class NumberFragment extends Fragment {
     public void makeRequestCarNum(String carNum) {
         check = 0;
 
-        url = "http://" + ip + ":" + flask_port + "/features/getCarNum_android";
+        String url = ip + ":" + flask_port + "/features/getCarNum_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -488,7 +488,6 @@ public class NumberFragment extends Fragment {
         }
 
         vo.setImgParking1(bmp_parking1);
-        // vo.setImgParking2(bmp_parking2);
         vo.setImgNumPlate(bmp_numPlate);
 
         return vo;

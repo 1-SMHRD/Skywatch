@@ -2,8 +2,6 @@ package com.moon.skywatch;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
 
     public static Context context_main;
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void makeRequest(String inputId, String inputPw) {
 
-        url = "http://" + ip + ":" + flask_port + "/singup/login_android";
+        url = ip + ":" + flask_port + "/singup/login_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

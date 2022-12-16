@@ -50,6 +50,10 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/left_btn_backgound"
+<<<<<<< HEAD
+=======
+                android:drawableLeft="@drawable/icon"
+>>>>>>> abb560956dc77404960aed493e287b0a8400e738
                 android:text="날짜 조회"
                 android:textSize="17dp" />
 
@@ -63,6 +67,10 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/right_btn_backgound"
+<<<<<<< HEAD
+=======
+                android:drawableLeft="@drawable/icon"
+>>>>>>> abb560956dc77404960aed493e287b0a8400e738
                 android:paddingLeft="20dp"
                 android:text="번호판 조회"
                 android:textSize="17dp" />
