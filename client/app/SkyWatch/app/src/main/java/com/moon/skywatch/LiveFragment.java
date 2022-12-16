@@ -16,8 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.RequestQueue;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -64,8 +62,6 @@ public class LiveFragment extends Fragment {
     int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
     String url;
 
-    static RequestQueue requestQueue;
-
     // about socket
     private Handler mHandler;
     private Socket socket;
@@ -107,7 +103,6 @@ public class LiveFragment extends Fragment {
             btn_drone[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // String commend = null;
                     switch (temp) {
                         case 0:
                             commend = "forward";
@@ -131,7 +126,6 @@ public class LiveFragment extends Fragment {
             iv_drone[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // String commend = null;
                     switch (temp) {
                         case 0:
                             commend = "up";
@@ -194,7 +188,6 @@ public class LiveFragment extends Fragment {
                 try{
                     // 소켓 선언
                     socket = new Socket(ip, socket_port);
-                    // socket.connect(new InetSocketAddress(ip, port), timeout);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -218,7 +211,6 @@ public class LiveFragment extends Fragment {
                 while (condition) {
                     try {
 
-                        // socket.setSoTimeout(timeout);
                         // 이미지 길이 받기
                         int length = inStream.readInt();
                         Log.d("data length: ",  length + "---");

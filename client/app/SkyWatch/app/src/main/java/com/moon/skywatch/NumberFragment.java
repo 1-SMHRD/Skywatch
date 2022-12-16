@@ -46,7 +46,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -83,7 +82,6 @@ public class NumberFragment extends Fragment {
     private Socket socket;
     private DataOutputStream outStream;
     private DataInputStream inStream;
-    private int timeout = 3000;
 
     String ip = ((MainActivity)MainActivity.context_main).ip;
     int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
@@ -423,7 +421,6 @@ public class NumberFragment extends Fragment {
 
                 for (int i = 0; i < imgDir.length; i++) {
                     try {
-                        // socket.setSoTimeout(timeout);
                         Log.d("imgDir", i + " : " + imgDir[i]);
                         outStream.writeUTF(imgDir[i]);
                         outStream.flush();

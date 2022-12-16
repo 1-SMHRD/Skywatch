@@ -90,7 +90,7 @@ class ServerSocket:
                     self.sendVideoThread.start()
                 else :
                     print("===" + msg + "===")
-                    self.droneCommend(msg)
+                    # self.droneCommend(msg)
                     
                     
                     
@@ -134,7 +134,7 @@ class ServerSocket:
                         self.client_conn.sendall(stringData[:1024])
                         stringData = stringData[1024:]
                 
-                print(f"send image {cnt} : {length}bytes")
+                # print(f"send image {cnt} : {length}bytes")
                 
                 cv2.waitKey(33)
                 time.sleep(0.001)
