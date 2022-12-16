@@ -142,7 +142,18 @@ def getArea():
 
 """
     플라스크-드론 실시간 영상, 동작 조작 기능
+    
+    
+    # 텔로포트 소켓 오류 난 경우에는 텔로 포트 죽이고나서 수동으로 해야함
+    # 텔로포트 찾게해줌
+    netstat -ano|findstr 8889
+    # 텔로포트 죽어야함
+    taskkill /f /pid 
 """
+
+
+
+
 
 video_camera = None
 global_frame = None
