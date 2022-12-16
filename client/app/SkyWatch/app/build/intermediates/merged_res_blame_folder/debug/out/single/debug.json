@@ -264,6 +264,10 @@
         "source": "com.moon.skywatch.app-pngs-41:/drawable-hdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "com.moon.skywatch.app-merged_res-46:/drawable_skywatch_.png.flat",
+        "source": "com.moon.skywatch.app-main-48:/drawable/skywatch_.png"
+    },
+    {
         "merged": "com.moon.skywatch.app-merged_res-46:/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "com.moon.skywatch.app-main-48:/mipmap-xxhdpi/ic_launcher.webp"
     },

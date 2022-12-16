@@ -489,7 +489,6 @@ public class NumberFragment extends Fragment {
         }
 
         vo.setImgParking1(bmp_parking1);
-        vo.setImgParking2(bmp_parking2);
         vo.setImgNumPlate(bmp_numPlate);
 
         return vo;

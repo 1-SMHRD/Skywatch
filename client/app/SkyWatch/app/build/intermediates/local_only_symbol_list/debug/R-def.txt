@@ -42,6 +42,7 @@ drawable no_image
 drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
+drawable skywatch_
 drawable smmarker
 drawable splash_name
 drawable up
