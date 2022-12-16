@@ -2676,6 +2676,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable download
 drawable drone
 drawable drone_nav_bar1
 drawable googleg_disabled_color_18
@@ -2785,12 +2786,14 @@ drawable position_button
 drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
+drawable skywatch_
 drawable smmarker
 drawable splash_name
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable up
+drawable upload
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3044,6 +3047,7 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id imageView5
 id imgCarParking1
 id imgNumPlate
 id immediateStop
@@ -3056,8 +3060,10 @@ id italic
 id item_touch_helper_previous_elevation
 id iv_droneCcw
 id iv_droneCw
+id iv_droneDown
 id iv_droneLand
 id iv_droneTakeOff
+id iv_droneUp
 id iv_droneView
 id joystick
 id jumpToEnd

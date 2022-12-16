@@ -90,6 +90,7 @@ class ServerSocket:
                     self.sendVideoThread.start()
                 else :
                     print("===" + msg + "===")
+                    self.droneCommend(msg)
                     
                     
                     

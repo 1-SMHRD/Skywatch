@@ -14,6 +14,7 @@ dimen nav_header_height
 dimen nav_header_vertical_spacing
 drawable carlist
 drawable crackdown
+drawable download
 drawable drone
 drawable drone_nav_bar1
 drawable ic_baseline_video_library_24
@@ -44,9 +45,11 @@ drawable position_button
 drawable right_btn_backgound
 drawable side_nav_bar
 drawable skyimage
+drawable skywatch_
 drawable smmarker
 drawable splash_name
 drawable up
+drawable upload
 id RecyclerView
 id action_settings
 id app_bar_nav2
@@ -76,12 +79,15 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id imageView5
 id imgCarParking1
 id imgNumPlate
 id iv_droneCcw
 id iv_droneCw
+id iv_droneDown
 id iv_droneLand
 id iv_droneTakeOff
+id iv_droneUp
 id iv_droneView
 id joystick
 id mapView

@@ -2675,6 +2675,7 @@ int drawable design_ic_visibility 0x7f070092
 int drawable design_ic_visibility_off 0x7f070093
 int drawable design_password_eye 0x7f070094
 int drawable design_snackbar_background 0x7f070095
+int drawable download 0x7f070109
 int drawable drone 0x7f070096
 int drawable drone_nav_bar1 0x7f070097
 int drawable googleg_disabled_color_18 0x7f070098
@@ -2784,12 +2785,14 @@ int drawable position_button 0x7f0700ff
 int drawable right_btn_backgound 0x7f070100
 int drawable side_nav_bar 0x7f070101
 int drawable skyimage 0x7f070102
+int drawable skywatch_ 0x7f07010a
 int drawable smmarker 0x7f070103
 int drawable splash_name 0x7f070104
 int drawable test_level_drawable 0x7f070105
 int drawable tooltip_frame_dark 0x7f070106
 int drawable tooltip_frame_light 0x7f070107
 int drawable up 0x7f070108
+int drawable upload 0x7f07010b
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -3043,6 +3046,7 @@ int id imageView 0x7f0800f9
 int id imageView2 0x7f0800fa
 int id imageView3 0x7f0800fb
 int id imageView4 0x7f0800fc
+int id imageView5 0x7f080228
 int id imgCarParking1 0x7f0800fd
 int id imgNumPlate 0x7f0800ff
 int id immediateStop 0x7f080100
@@ -3055,8 +3059,10 @@ int id italic 0x7f080106
 int id item_touch_helper_previous_elevation 0x7f080107
 int id iv_droneCcw 0x7f080108
 int id iv_droneCw 0x7f080109
+int id iv_droneDown 0x7f080229
 int id iv_droneLand 0x7f08010a
 int id iv_droneTakeOff 0x7f08010b
+int id iv_droneUp 0x7f08022a
 int id iv_droneView 0x7f08010c
 int id joystick 0x7f08010d
 int id jumpToEnd 0x7f08010e
