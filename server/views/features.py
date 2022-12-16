@@ -4,7 +4,7 @@ from socket import *
 import time
 import os
 import datetime
-from djitellopy import Tello
+from module.tello_module import Tello
 import cv2
 
 
@@ -50,7 +50,7 @@ def setInfo_car():
     imgdir_numPlate = "/drone_img/numPlate/" + "2022-12-03_15.09.00" + ".jpg"
     
     db_tbareatest = dbmodule.Database()
-    query_insert = f"insert into tb_area values ('{regulation_date}', '{regulation_time}', '{car_num}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
+    query_insert = f"insert into tb_area_test values ('{regulation_date}', '{regulation_time}', '{car_num}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
     db_tbareatest.execute(query_insert)
     db_tbareatest.commit()
     
@@ -74,12 +74,12 @@ def getDate_car():
     else :
         for i in range(len(row)):
             # print(type(i))
-            if row[i]['imgdir_parking1'] == None:
-                row[i]['imgdir_parking1'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking1")
-            if row[i]['imgdir_parking2'] == None:
-                row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
-                print("check imgdir_parking2")
+            if row[i]['imgdir_parking'] == None:
+                row[i]['imgdir_parking'] = "\drone_img\parking\\no_image.png"
+                print("check imgdir_parking")
+            # if row[i]['imgdir_parking2'] == None:
+            #     row[i]['imgdir_parking2'] = "\drone_img\parking\\no_image.png"
+            #     print("check imgdir_parking2")
             if row[i]['imgdir_numplate'] == None:
                 row[i]['imgdir_numplate'] = "\drone_img\parking\\no_image.png"
                 print("check img_dir_numplate")
@@ -96,7 +96,7 @@ def getNum_car():
     print("getCarNum: ", getCarNum)
     
     db_tbArea = dbmodule.Database()
-    sql = f"select * from tb_area where car_num = '{getCarNum}'"
+    sql = f"select * from tb_area_test where car_num = '{getCarNum}'"
     row = db_tbArea.executeAll(sql)
     
     print("row len", len(row))

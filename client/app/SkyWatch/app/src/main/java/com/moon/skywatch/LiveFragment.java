@@ -9,15 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+<<<<<<< HEAD
 import com.android.volley.RequestQueue;
 
+=======
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -59,12 +61,8 @@ public class LiveFragment extends Fragment {
     * 4. 이미지뷰에 적용
    * */
 
-    String ip = ((MainActivity)MainActivity.context_main).ip;
-    int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
-    int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
-    String url;
-
-    static RequestQueue requestQueue;
+    final String ip = "119.200.31.135";
+    final int port = 8089;
 
     // about socket
     private Handler mHandler;
@@ -79,15 +77,19 @@ public class LiveFragment extends Fragment {
     View view;
     ImageView iv_droneView;
     Bitmap bmp;
+<<<<<<< HEAD
     Button[] btn_drone;
     ImageView[] iv_drone;
 
     String commend;
+=======
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
 
     @Override
     public void onResume() {
         super.onResume();
 
+<<<<<<< HEAD
         /*
          * 0 - forward   /   takeoff
          * 1 - back      /   land
@@ -156,6 +158,8 @@ public class LiveFragment extends Fragment {
             });
         }
 
+=======
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
         // drone 실시간 영상 받아오기
         if(view != null){
             connect();
@@ -165,13 +169,15 @@ public class LiveFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
-        condition = true;
         mHandler = new Handler();
         iv_droneView = view.findViewById(R.id.iv_droneView);
+        condition = true;
 
-        return view;
+    return view;
     }
 
 
@@ -193,8 +199,7 @@ public class LiveFragment extends Fragment {
 
                 try{
                     // 소켓 선언
-                    socket = new Socket(ip, socket_port);
-                    // socket.connect(new InetSocketAddress(ip, port), timeout);
+                    socket = new Socket(ip, port);
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -217,8 +222,11 @@ public class LiveFragment extends Fragment {
                 // fragment를 종료하기 전까지 thread 열어두고 데이터 받기
                 while (condition) {
                     try {
+<<<<<<< HEAD
 
                         // socket.setSoTimeout(timeout);
+=======
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
                         // 이미지 길이 받기
                         int length = inStream.readInt();
                         Log.d("data length: ",  length + "---");
@@ -302,4 +310,8 @@ public class LiveFragment extends Fragment {
 
         return resbytes;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
 }

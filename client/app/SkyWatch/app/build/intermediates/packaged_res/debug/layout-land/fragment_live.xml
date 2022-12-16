@@ -18,27 +18,27 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_droneLeft"
+        android:id="@+id/button"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:background="@drawable/live_a"
         android:text="◀"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_droneBack"
-        app:layout_constraintEnd_toStartOf="@+id/btn_droneBack" />
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintEnd_toStartOf="@+id/button10" />
 
     <Button
-        android:id="@+id/btn_droneForward"
+        android:id="@+id/button8"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:background="@drawable/live_w"
         android:text="▲"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_droneLeft"
-        app:layout_constraintStart_toEndOf="@+id/btn_droneLeft" />
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/button" />
 
     <Button
-        android:id="@+id/btn_droneBack"
+        android:id="@+id/button10"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_marginStart="84dp"
@@ -50,30 +50,38 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_droneRight"
+        android:id="@+id/button9"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:background="@drawable/live_d"
         android:text="▶"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_droneBack"
-        app:layout_constraintStart_toEndOf="@+id/btn_droneForward"
-        app:layout_constraintTop_toBottomOf="@+id/btn_droneForward" />
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <ImageView
-        android:id="@+id/iv_droneCcw"
+        android:id="@+id/img_left"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/iv_droneDown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_droneUp"
+=======
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776"
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
         app:srcCompat="@drawable/ic_left" />
 
     <ImageView
-        android:id="@+id/iv_droneCw"
+        android:id="@+id/img_right"
         android:layout_width="100dp"
         android:layout_height="40dp"
+<<<<<<< HEAD
         android:layout_marginEnd="60dp"
         app:layout_constraintBottom_toTopOf="@+id/iv_droneDown"
         app:layout_constraintEnd_toStartOf="@+id/iv_droneCcw"
@@ -83,17 +91,28 @@
 
     <ImageView
         android:id="@+id/iv_droneDown"
+=======
+        android:layout_marginStart="488dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_left"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_right" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931"
         app:srcCompat="@drawable/ic_down" />
 
     <ImageView
+<<<<<<< HEAD
         android:id="@+id/iv_droneUp"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -102,6 +121,17 @@
         app:layout_constraintEnd_toEndOf="@+id/iv_droneDown"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/iv_droneDown"
+=======
+        android:id="@+id/imageView6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+>>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
         app:srcCompat="@drawable/ic_up" />
 
     <ImageView
