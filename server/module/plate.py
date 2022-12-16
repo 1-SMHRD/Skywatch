@@ -37,7 +37,7 @@ def yolo(img=None,vid=None):
     count = 0
 
     if vid != None:
-        cap = cv2.VideoCapture(F'{vid}')
+        cap = cv2.VideoCapture(f'{vid}')
         count = 0
         while cap.isOpened():
             # 이미지 읽어옴
@@ -163,14 +163,14 @@ def yolo(img=None,vid=None):
                         imgdir_numPlate = f"/drone_img/parking/{count}.jpg"
 
 
-                        regulation_area = str("abc abc")
+                        regulation_area = str("동명동")
 
                         # db_tbareatest = dbmodule.Database()
                         # query_insert = f"insert into tb_area_test values ('{regulation_date}', '{regulation_time}', '{str_list}', '{regulation_area}', '{imgdir_parking}', '{imgdir_numPlate})"
                         # db_tbareatest.execute(query_insert,)
                         cur = db.cursor()
-                        sql = "insert into tb_area_test(car_num,regulation_area,regulation_date,regulation_time,imgdir_parking1,imgdir_numPlate) values (%s,%s,%s,%s,%s,%s)"
-                        cur.execute(sql,(str_list,'지역',regulation_date,regulation_time,imgdir_parking,imgdir_numPlate))
+                        sql = "insert into tb_area(car_num,regulation_area,regulation_date,regulation_time,imgdir_parking,imgdir_numPlate) values (%s,%s,%s,%s,%s,%s)"
+                        cur.execute(sql,(str_list,regulation_area,regulation_date,regulation_time,imgdir_parking,imgdir_numPlate))
                         db.commit()
 
                     if cv2.waitKey(5) & 0xFF == ord('q'):
@@ -188,6 +188,6 @@ def yolo(img=None,vid=None):
 
 count = 0
 
-yolo(img="../drone_img/regulation_img/1.jpg")
+yolo(img="../drone_img/regulation_img/")
 
 count += 1

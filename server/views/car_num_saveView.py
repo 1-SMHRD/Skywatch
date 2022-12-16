@@ -17,7 +17,7 @@ car_num_saveView = Blueprint('car_num_saveView',__name__,url_prefix='/car_num_sa
 
 # 데이터베이스 테스트 완료
 maria = Database()
-query = "select * from tb_area where regulation_data = '2022-12-07'"
+query = "select * from tb_area where regulation_date = '2022-12-07'"
 row = maria.executeOne(query)
 
 
@@ -29,7 +29,7 @@ def car_saveView():
 def car_dateQuery():
     date = request.form['date']
     maria = Database()
-    query = f"select * from tb_area where regulation_data = '{date}'"
+    query = f"select * from tb_area where regulation_date = '{date}'"
     row = maria.executeAll(query)
     data_list = []
     for r in row:
