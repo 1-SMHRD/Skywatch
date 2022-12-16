@@ -16,17 +16,9 @@ car_num_saveView = Blueprint('car_num_saveView',__name__,url_prefix='/car_num_sa
 
 
 # 데이터베이스 테스트 완료
-# maria = Database()
-# query = "select * from tb_area where regulation_date = '2022-12-07'"
-# row = maria.executeOne(query)
-# print(row)
-# print(row['imgdir_parking1'])
-# print(row['imgdir_parking2'])
-# print(row['imgdir_numplate'])
-#
-# print(row['imgdir_parking1'][19:])
-# print(row['imgdir_parking1'][10:])
-# print(row['imgdir_numplate'][10:])
+maria = Database()
+query = "select * from tb_area where regulation_date = '2022-12-07'"
+row = maria.executeOne(query)
 
 
 @car_num_saveView.route('/saveView')
@@ -36,17 +28,14 @@ def car_saveView():
 @car_num_saveView.route('/dateQuery',methods = ["GET","POST"])
 def car_dateQuery():
     date = request.form['date']
-    print(date)
     maria = Database()
     query = f"select * from tb_area where regulation_date = '{date}'"
     row = maria.executeAll(query)
-    print(query)
-    print(row)
     data_list = []
     for r in row:
         print(r)
         data_dic = {
-            'parking': r['imgdir_parking2'][10:],
+            'parking': r['imgdir_parking'][10:],
             'numplate': r['imgdir_numplate'][10:]
         }
         data_list.append(data_dic)

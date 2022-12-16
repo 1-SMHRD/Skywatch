@@ -26,11 +26,15 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final ImageView imageView4;
 
+  @NonNull
+  public final ImageView imageView5;
+
   private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnOut,
-      @NonNull ImageView imageView4) {
+      @NonNull ImageView imageView4, @NonNull ImageView imageView5) {
     this.rootView = rootView;
     this.btnOut = btnOut;
     this.imageView4 = imageView4;
+    this.imageView5 = imageView5;
   }
 
   @Override
@@ -72,7 +76,13 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, btnOut, imageView4);
+      id = R.id.imageView5;
+      ImageView imageView5 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView5 == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((ConstraintLayout) rootView, btnOut, imageView4, imageView5);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

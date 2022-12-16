@@ -4,7 +4,7 @@ from views.main import main
 from views.login_views import logins
 from views.features import features
 from views.googleMap_api import google
-from djitellopy import Tello
+from module.tello_module import Tello
 from flask_googlemaps import GoogleMaps
 from views.car_num_saveView import car_num_saveView
 from socketclass import ServerSocket
@@ -35,7 +35,7 @@ app.register_blueprint(features)
 app.register_blueprint(google)
 app.register_blueprint(car_num_saveView)
 if __name__ == '__main__':
-    t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
+    t = threading.Thread(target=ServerSocket, args=("119.200.31.135", 8089))
     t.start()
     app.run(host="0.0.0.0")
 

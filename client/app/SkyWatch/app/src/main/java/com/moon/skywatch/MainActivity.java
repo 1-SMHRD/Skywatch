@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,12 +26,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Context context_main;
-
-    public static final String ip = "220.80.88.45";
-    public static final int flask_port = 5000;
-    public static final int socket_port = 8089;
-
+    String ip;
+    int port;
     String url;
 
     EditText edt_id, edt_pw;
@@ -65,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeRequest(String inputId, String inputPw) {
+        ip = "http://119.200.31.135";
+        port = 5000;
 
-        url = "http://" + ip + ":" + flask_port + "/singup/login_android";
+        url = ip + ":" + port + "/singup/login_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
