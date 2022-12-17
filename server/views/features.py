@@ -258,7 +258,7 @@ def video_feed():
 
 @features.route('/takeOff')
 def takeOff():
-    drone_terbang = tello
+    drone_terbang = video_camera
     drone_state = 'Drone Takeoff'
     if not drone_terbang.takeoff():
         print(drone_state)
@@ -267,7 +267,7 @@ def takeOff():
 
 @features.route('/Land')
 def Land():
-    drone_terbang = tello
+    drone_terbang = video_camera
     drone_state = 'Drone Landing'
     if not drone_terbang.land():
         print(drone_state)
@@ -276,7 +276,7 @@ def Land():
 
 @features.route('/Right')
 def Right():
-    drone_terbang = tello
+    drone_terbang = video_camera
     drone_state = 'Drone move right'
     if not drone_terbang.move_right(100):
         print(drone_state)
@@ -284,7 +284,7 @@ def Right():
     return render_template("area/features.html")
 @features.route('/Left')
 def Left():
-    drone_terbang = tello
+    drone_terbang = video_camera
     drone_state = 'Drone move left'
     if not drone_terbang.move_left(100):
         print(drone_state)
@@ -293,7 +293,7 @@ def Left():
 
 @features.route('/forward')
 def Forward():
-    drone_terbang = tello
+    drone_terbang = video_camera
     drone_state = 'Drone move forward'
     if not drone_terbang.move_forward(100):
         print(drone_state)
@@ -302,7 +302,7 @@ def Forward():
 
 @features.route('/back')
 def Back():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone move back'
     if not drone_terbange.move_back(100):
         print(drone_state)
@@ -312,7 +312,7 @@ def Back():
 
 @features.route('/cw')
 def Rotate_clockwise():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone rotate_clockwise'
     if not drone_terbange.rotate_clockwise(100):
         print(drone_state)
@@ -321,7 +321,7 @@ def Rotate_clockwise():
 
 @features.route('/ccw')
 def Rotate_counter_clockwise():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone rotate_counter_clockwise'
     if not drone_terbange.rotate_counter_clockwise(100):
         print(drone_state)
@@ -331,7 +331,7 @@ def Rotate_counter_clockwise():
 
 @features.route('/flip')
 def Flip():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone flip'
     if not drone_terbange.flip("l"):
         print(drone_state)
@@ -340,7 +340,7 @@ def Flip():
 
 @features.route('/flip_left')
 def Flip_left():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone move flip_left'
     if not drone_terbange.flip_left():
         print(drone_state)
@@ -350,7 +350,7 @@ def Flip_left():
 
 @features.route('/flip_right')
 def Flip_right():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone move flip_right'
     if not drone_terbange.flip_right():
         print(drone_state)
@@ -359,7 +359,7 @@ def Flip_right():
 
 @features.route('/flip_forward')
 def Flip_forward():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone move flip_forward'
     if not drone_terbange.flip_forward():
         print(drone_state)
@@ -367,7 +367,7 @@ def Flip_forward():
     return render_template("area/features.html")
 @features.route('/flip_back')
 def Flip_back():
-    drone_terbange = tello
+    drone_terbange = video_camera
     drone_state = 'Drone move flip_back'
     if not drone_terbange.flip_back():
         print(drone_state)
