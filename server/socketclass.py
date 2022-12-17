@@ -44,12 +44,10 @@ class ServerSocket:
     def __init__(self, ip, port):
         self.TCP_IP = ip
         self.TCP_PORT = port
+        self.drone = Tello()
         self.commend = ''
         self.socketOpen()
-        self.receiveThread = threading.Thread(target=self.receive)
-        self.receiveThread.start()
-        self.sendVideoThread = threading.Thread(target=self.sendVideo)
-        self.controlAutoThread = threading.Thread(target=Control_auto2.drone_control.move_A, args=(self.drone))
+        
         
     def socketClose(self):
         self.sock.close()
@@ -70,45 +68,54 @@ class ServerSocket:
         # accept() 함수에더 대기하다가 클라이어트가 접속하면 새로운 소켓을 리턴
         self.client_conn, self.addr = self.sock.accept()
         print(f"Server Socket [ TCP_IP: {self.TCP_IP}, TCP_PORT: {self.TCP_PORT} ] is connected with client")
+        
+        self.receiveThread = threading.Thread(target=self.receive)
+        self.sendVideoThread = threading.Thread(target=self.sendVideo)
+        self.autoMoveThread = threading.Thread(target=Control_auto2.drone_control)
+        self.receiveThread.start()
+        # self.receiveThread.join()
+        
              
     def receive(self):
-        self.drone = Tello()
-        self.drone.connect()
-        print(self.drone.get_battery())
-        self.drone.streamoff()
-        # self.drone.takeoff()
         
         try:
+            
             while True:
+                
+                if not self.drone.connect():
+                    print(self.drone.get_battery())
+
                 # 이미지전송과 라이브전송을 구분하기 위한 변수
                 # 첫 2byte는 쓰레기값이 들어있다.
                 getMsg = bytearray(self.client_conn.recv(1024))[2:]
                 msg = getMsg.decode("utf-8")
                 print(len(msg), msg)
                 
-                if msg == "/image":
-                    print("sendImage()")
-                    self.sendImage()
-                elif msg == "/drone":
-                    print("sendVideo()")
-                    self.sendVideoThread.start()
-                elif msg == "/sendArea":
-                    print("/sendArea")
-                    self.controlAutoThread.start()
-                else :
-                    print("===" + msg + "===")
-                    self.commend = msg
-                    
-                    
+                if len(msg) != 0:
+                    if msg == "/image":
+                        print("sendImage()")
+                        self.sendImage()
+                    elif msg == "/drone":
+                        print("sendVideo()")
+                        if not self.drone.streamoff():
+                            print("drone stream off()")
+                            
+                        self.sendVideoThread.start()
+                        # self.sendVideoThread.join()
+                        
+                    elif msg == "/sendArea":
+                        print("/sendArea")
+                        self.autoMoveThread.start()
+                    else :
+                        print("===" + msg + "===")
+                        self.commend = msg
                     
         except Exception as e:
             print(e)
+            self.drone.streamoff()
             self.socketClose()
             time.sleep(0.1)
             self.socketOpen()
-            self.receiveThread = threading.Thread(target=self.receive)
-            self.receiveThread.start()
-            self.sendVideoThread = threading.Thread(target=self.sendVideo)
             
 
     def sendVideo(self):
@@ -177,13 +184,11 @@ class ServerSocket:
                 cnt += 1
         except Exception as e:
             print(e)
+            self.drone.streamoff()
             self.socketClose()
             time.sleep(0.1)
             self.socketOpen()
-            self.receiveThread = threading.Thread(target=self.receive)
-            self.receiveThread.start()
-            self.sendVideoThread = threading.Thread(target=self.sendVideo)
-        
+            
         self.client_conn.close()
             
     def sendImage(self):
@@ -214,6 +219,3 @@ class ServerSocket:
         self.socketClose()
         time.sleep(0.01)
         self.socketOpen()
-        self.receiveThread = threading.Thread(target=self.receive)
-        self.receiveThread.start()
-        self.sendVideoThread = threading.Thread(target=self.sendVideo)
