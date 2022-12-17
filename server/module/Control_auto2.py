@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
-from djitellopy import tello
+from djitellopy import Tello
 from time import sleep
 import cv2
 from keras.models import load_model
@@ -27,7 +27,8 @@ class drone_control:
 
         # 학습된 모델 불러오기 (VGG + Dense 확장)
         #(Tr 0:1 - 1272:528, Val 92:40, Te 106:31)
-        self.loaded_model = load_model('CNN_VGG_Vol9.h5')
+        self.loaded_model = load_model('./module/CNN_VGG_Vol9.h5')
+        self.move_A()
 
 
     def cap_cnn(self, img, cap_time):
@@ -123,8 +124,12 @@ class drone_control:
         return(patrol_area)
 
     #A 구역 정찰 움직임
-    def move_A(self, drone):
-        self.drone = drone
+    def move_A(self):
+        
+        self.drone = Tello()
+        
+        if not self.drone.connect():
+            print(self.drone.get_battery())
 
         print(self.drone.get_battery())
         # self.drone.connect()
