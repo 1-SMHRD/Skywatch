@@ -54,16 +54,16 @@ id app_bar_nav2
 id btn_add
 id btn_carNum
 id btn_date
+id btn_droneBack
+id btn_droneForward
+id btn_droneLeft
+id btn_droneRight
 id btn_go
 id btn_login
 id btn_ok
 id btn_out
 id btn_sendArea
 id btn_setArea
-id button
-id button10
-id button8
-id button9
 id conlayout
 id drawer_layout
 id editTextDate
@@ -78,7 +78,6 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
-<<<<<<< HEAD
 id imgCarParking1
 id imgNumPlate
 id iv_droneCcw
@@ -87,13 +86,6 @@ id iv_droneDown
 id iv_droneLand
 id iv_droneTakeOff
 id iv_droneUp
-=======
-id imageView6
-id imgCarParking1
-id imgNumPlate
-id img_left
-id img_right
->>>>>>> 8a53db1200d462b51b190a6ef2347f831382004e
 id iv_droneView
 id joystick
 id mapView

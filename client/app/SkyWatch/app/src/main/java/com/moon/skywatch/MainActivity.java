@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void makeRequest(String inputId, String inputPw) {
 
-        url = ip + ":" + flask_port + "/singup/login_android";
+        url = "http://" + ip + ":" + flask_port + "/singup/login_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

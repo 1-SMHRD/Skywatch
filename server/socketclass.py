@@ -44,11 +44,11 @@ class ServerSocket:
     def __init__(self, ip, port):
         self.TCP_IP = ip
         self.TCP_PORT = port
+        self.commend = ''
         self.socketOpen()
         self.receiveThread = threading.Thread(target=self.receive)
         self.receiveThread.start()
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
-        self.droneCommendThread = threading.Thread(target=self.droneCommend)
         self.controlAutoThread = threading.Thread(target=Control_auto2.drone_control.move_A, args=(self.drone))
         
     def socketClose(self):
@@ -84,6 +84,7 @@ class ServerSocket:
                 # 첫 2byte는 쓰레기값이 들어있다.
                 getMsg = bytearray(self.client_conn.recv(1024))[2:]
                 msg = getMsg.decode("utf-8")
+                print(len(msg), msg)
                 
                 if msg == "/image":
                     print("sendImage()")
@@ -96,7 +97,7 @@ class ServerSocket:
                     self.controlAutoThread.start()
                 else :
                     print("===" + msg + "===")
-                    self.droneCommend(msg).start()
+                    self.commend = msg
                     
                     
                     
@@ -108,7 +109,6 @@ class ServerSocket:
             self.receiveThread = threading.Thread(target=self.receive)
             self.receiveThread.start()
             self.sendVideoThread = threading.Thread(target=self.sendVideo)
-            self.droneCommendThread = threading.Thread(target=self.droneCommend)
             
 
     def sendVideo(self):
@@ -144,6 +144,35 @@ class ServerSocket:
                 # print(f"send image {cnt} : {length}bytes")
                 
                 cv2.waitKey(33)
+                
+                if self.commend != '':
+                    print(self.commend)
+                    print(len(self.commend))
+                    
+                    if self.commend == "takeOff":
+                        self.drone.takeoff()
+                        # self.drone.send_rc_control(0, 0, 0, 0)
+                    elif self.commend == "land":
+                        self.drone.land()
+                    elif self.commend == "cw":
+                        self.drone.rotate_clockwise(90)
+                    elif self.commend == "ccw":
+                        self.drone.rotate_counter_clockwise(90)
+                    elif self.commend == "forward":
+                        self.drone.move_forward(30)
+                    elif self.commend == "back":
+                        self.drone.move_back(30)
+                    elif self.commend == "Left":
+                        self.drone.move_left(30)
+                    elif self.commend == "Right":
+                        self.drone.move_right(30)
+                    elif self.commend == "up":
+                        self.drone.move_up(30)
+                    elif self.commend == "down":
+                        self.drone.move_down(30)
+                    time.sleep(0.01)
+                    self.commend = ''
+                    
                 time.sleep(0.001)
                 cnt += 1
         except Exception as e:
@@ -154,7 +183,6 @@ class ServerSocket:
             self.receiveThread = threading.Thread(target=self.receive)
             self.receiveThread.start()
             self.sendVideoThread = threading.Thread(target=self.sendVideo)
-            self.droneCommendThread = threading.Thread(target=self.droneCommend)
         
         self.client_conn.close()
             
@@ -189,28 +217,3 @@ class ServerSocket:
         self.receiveThread = threading.Thread(target=self.receive)
         self.receiveThread.start()
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
-        self.droneCommendThread = threading.Thread(target=self.droneCommend)
-        
-    def droneCommend(self, commend):
-        
-        try :
-            
-            dict_commend = {
-                "takeOff" : self.drone.takeoff(),
-                "land" : self.drone.land(),
-                "cw" : self.drone.rotate_clockwise(90),
-                "ccw" : self.drone.rotate_counter_clockwise(90),
-                "forward" : self.drone.move_forward(30),
-                "back" : self.drone.move_back(30),
-                "Left" : self.drone.move_left(30),
-                "Right" : self.drone.move_right(30),
-                "up" : self.drone.move_up(10),
-                "down" : self.drone.move_down(10)
-            }
-            
-            dict_commend.get(commend, None)
-            time.sleep(1)
-        
-        except Exception as e:
-            print(e)
-            self.droneCommendThread = threading.Thread(target=self.droneCommend)
