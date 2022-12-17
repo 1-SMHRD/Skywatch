@@ -2,6 +2,7 @@
 {#{% extends "base.html" %}#}
 {#{%  block  content %}#}
 {% extends "login_main_base.html" %}
+
 {% block login_content %}
 <body>
     <article>
@@ -10,7 +11,7 @@
             <!-- sumbit누를시 requset.form 받아올 타입은 name 입니다. -->
             <form class="login_form" method="POST", action="{{url_for('singup.login_test')}}">
                 <input id="LOGIN_ID" class = "login_text" type="text" name="id" placeholder="아이디를 입력해주세요.">
-                <input  id="LOGIN_PW" class = "login_text" type="password" name="pw" placeholder="5자리이상 비밀번호를 입력해주세요.">
+                <input  id="LOGIN_PW" class = "login_text" type="password" name="pw" placeholder="4자리이상 비밀번호를 입력해주세요.">
                 <button id="LOGIN_BTN" class = "login_btn" type="submit">로그인</button>
                 {{ msg }}
                 {{ welcome }}
@@ -22,7 +23,7 @@
                 <div class="footer_inner">
                     <div class="footer_copy">
                         <span class="text">Copyright</span>
-                        <span class="corp">© SKYWATCH Corp.</span> <br>
+                        <span class="corp">© <b>SkyWatch</b> Corp.</span> <br>
                         <span class="text">All Rights Reserved.</span>
                     </div>
                 </div>

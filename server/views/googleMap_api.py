@@ -30,7 +30,7 @@ def googlemap():
         lat=35.149796202004325,
         lng=126.91992834014,
         language="ko",
-        style="height:600px;width:1100px;margin:0;",
+        style="height:600px;width:1050px;margin:0;",
         # collapsible=True, # 지도를 접을 수 있게 만든 변수
         # cluster=True, # 마커표시 수 지도 줌 아웃하면 자동적으로 숫자 나타남
         report_clickpos=True, # 클릭 포스 신고(보니까 클릭하면 post 날라옴)

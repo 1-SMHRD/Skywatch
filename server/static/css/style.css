@@ -1,10 +1,3 @@
-/*------------------------------------------------------------------
-Project:	Nantes - multi purpose one-page template
-Version:	1.0
-Last change:	18/02/2016 [...]
-Designed by:	MOOZ Themes / www.MOOZthemes.com
-Primary use:	One page
--------------------------------------------------------------------*/
 
 /* main font for menu. */
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900);
@@ -20,22 +13,34 @@ change these colors to change overlays
 	color: #C54A4A;
 }
 .mz-module:hover .ot-circle.color2 {
-	color: #6091DC;
+	color: #FCBE03;
 }
 .mz-module:hover .ot-circle.color3 {
 	color: #6EB377;
 }
 .mz-module:hover .ot-circle.color4 {
-	color: #FCBE03;
+	color: #5347ff;
 }
 
-/*--------------------
-1. General
---------------------*/
 
 body {
 	margin: 0px;
 	font-family: "Open Sans", Sans-serif;
+}
+
+/* 페이지설명 */
+.government_site{
+	background-color: #071831;
+	height: 40px;
+}
+
+.government{
+	position: relative;
+	text-align: center;
+	padding-top: 10px;
+
+	color: white;
+	font-size: 13px;
 }
 
 p {
@@ -44,29 +49,15 @@ p {
 	font-weight: 300;
 	line-height: 23px;
 	letter-spacing: 0.2px;
-	color: #444444;
+	color: #353535;
 }
 
-.dark-bg p {
-color: #B1B1B1;	
-}
-
-a:hover, a:focus, a:active, a.active {
-	color: #fec503;
-}
-a, a:hover, a:focus, a:active, a.active {
-	outline: 0;
-}
 
 .container-fluid {
     padding-right: 0;
     padding-left: 0;
 }
 
-::selection {
-	text-shadow: none;
-	background: #fed136;
-}
 
 @media (min-width: 768px) {
 	section {
@@ -74,49 +65,9 @@ a, a:hover, a:focus, a:active, a.active {
 	}
 }
 
-section {
-	padding: 70px 0;
-}
-
+/* 네비바 홈 피쳐 컨텍 */
 ul {
-	padding-left: 0;
-	padding-top: 10px;	
-}
-
-ul li {
-    list-style: none;
-    padding-bottom: 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 23px;
-    letter-spacing: 0.2px;
-    color: #000000;
-}
-
-section ul li:before {
-	font-family: FontAwesome;
-	font-weight: normal;
-	font-style: normal;
-	display: inline-block;
-	text-decoration: inherit;
-	content: "\f105";
-	padding-right: 7px;
-	color: #23AD21;
-}
-
-/*--------------------
-1.1 Reset bootstrap
---------------------*/
-
-.row-0-gutter {
-    margin-left: -13px;
-    margin-right: -13px;
-}
-
-.col-0-gutter {
-	padding-left: 0;
-	padding-right: 0;
+	padding-top: 28px;
 }
 
 /*--------------------
@@ -133,76 +84,21 @@ section ul li:before {
 	padding: 0px;
 	margin-left: 10px;
 }
-.navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:active,.navbar-default .navbar-brand.active {
-	color: #fec503
-}
-.navbar-default .navbar-collapse {
-	border-color: rgba(255,255,255,.02)
-}
-.navbar-default .navbar-toggle {
-	background-color: #fed136;
-	border-color: #fed136
-}
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: #fff
-}
-.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus {
-	background-color: #fed136
-}
+
 .navbar-default .nav li a {
 	font-family: "Open Sans",sans-serif;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: 600;
 	letter-spacing: 1px;
 	color: #444448;
 }
 .navbar-default .nav li a:hover,.navbar-default .nav li a:focus {
-	color: #fed136;
-	outline: 0
+	color: #000000;
+	font-size: 18px;
 }
 
-.navbar-default .navbar-nav>.active>a {
-	border-radius: 0;
-	color: #fff;
-	background-color: #fed136
-}
-.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus {
-	color: #fff;
-	background-color: #fec503
-}
 
-@media (min-width:768px) {
-	.navbar-default
-	{
-		background-color: rgba(255, 255, 255, 0.65);
-		padding: 5px 0;
-		-webkit-transition:padding .3s;
-		-moz-transition:padding .3s;
-		transition:padding .3s;
-		border:0
-	}
-	.navbar-default .navbar-brand {
-		font-size: 2em;
-		-webkit-transition:all .3s;
-		-moz-transition:all .3s;
-		transition:all .3s;
-		margin-top: 10px;
-	    margin-left: 10px;
-	}
-	.navbar-default .navbar-nav>.active>a {
-		border-radius: 3px
-	}
-	.navbar-default.navbar-shrink {
-		background-color: #FFFFFF;
-		border-bottom: 1px solid #828282;
-		padding: 5px 0;
-	}
-	.navbar-default.navbar-shrink .navbar-brand {
-		font-size: 1.5em;
-		margin-top: 10px;
-	}
-}
 
 /*--------------------
 3. Header
@@ -215,6 +111,7 @@ header {
 .owl-slider-item {
 	position: relative;
 	background-color: #000;
+	height: 850px;
 }
 .owl-slider-item img {
 	opacity: 0.7;
@@ -222,16 +119,15 @@ header {
 .owl-slider .owl-controls {
 	position: absolute;
 	left: 0;
-	top: 38%;
-	width: 100%;	
+	top: 45%;
+	width: 99.9%;	
 }
 
 .owl-slider .owl-controls .owl-nav [class*=owl-] {
 	padding: 30px 40px;
 	background: rgba(0, 0, 0, 0.26);
-	border-radius: 0;
 	margin: 0;
-	font-size: 30px;
+	font-size: 25px;
 	z-index: 1000;
 }
 
@@ -310,7 +206,7 @@ header {
 
 .section-title h2 {
 	font-size: 50px;
-	color: #B3B3BB;
+	color: #000000;
 	font-weight: 900;
 	letter-spacing: -0.6px;
 	position: relative;
@@ -332,7 +228,7 @@ header {
 }
 
 .dark-bg .section-title h2 {
-	color: #fff;
+	color: #000000;
 }
 
 
@@ -349,23 +245,24 @@ header {
 
 .mz-module {
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
+	align-items: center;
 }
 
 .mz-module-about {
-    border: 1px solid #E6E6EA;
+    border: 1px solid #8d8c8c;
     min-height: 280px;
-    padding: 20px;
-    background-color: #EFEFF1;
+    padding: 30px;
+    background-color: #f1f1f1;
 }
 
 .mz-module-about h3 {
-	font-weight: 500;
-	font-size: 19px;
+	font-weight: 600;
+	font-size: 20px;
 	/* text-transform: uppercase; */
 	color: #424242;
 	/* letter-spacing: 2px; */
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .dark-bg .mz-module-about h3 {
@@ -374,12 +271,12 @@ header {
 
 .mz-module-about p {
 	font-size: 15px;
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 22px;
-	color: #848484;
+	color: #474747;
 }
 .mz-module-button {
-	background-color: #B6B6C3;
+	background-color: #d1d1d1;
 	padding: 15px;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -399,13 +296,16 @@ header {
 	opacity: 1;
 }
 .mz-module-button:hover {
-	background-color: #1a1a1a;
+	background-color:#6091DC;
 	color: #fff;
 	text-decoration: none;
 }
 
 .mz-module-button {
-	color: rgb(0, 0, 0);
+	color: black;
+	padding: 16px;
+	text-decoration: none;
+	display: block;
 }
 
 .ot-circle {
@@ -422,9 +322,7 @@ header {
 	transition:all .3s;
 }
 
-/*--------------------
-4.2. Featured
---------------------*/
+
 
 .featured-item {
 	margin-bottom: 30px;
@@ -446,56 +344,42 @@ header {
 	margin-left: 85px;
 }
 .featured-text h4 {
-	color: #47474C;
+	color: #000000;
 	font-size: 17px;
 	font-weight: 700;
 }
 .featured-text p {
-	color: #747377;
+	color: #000000;
 	margin-top: 7px;
 	font-size: 13px;
 	line-height: 21px;
 	font-weight: 500;
 }
+#pp{
+	font-size: 18px;
+}
 
 /*--------------------
-4.2. Skills
+4.4. 소통연락 부분 백그라운드
 --------------------*/
 
-.section-text h3 {
-	margin: 0 0 30px;
-	font-weight: 800;
-	color: #5D5D5D;
-}
-
-.section-text h4 {
-    margin: 0 0 20px;
-    font-weight: 700;
-    font-size: 17px;
-}
-
-.dark-bg .section-text h3 {
-	color: #dfdfdf;
-}
-
-.dark-bg .section-text h4 {
-	color: #dfdfdf;
-}
-
-
-/*--------------------
-4.4. Dark Short section (counters, quote, etc)
---------------------*/
-
-.light-bg {
+.light-bg{
 	background-color: #f8f8f8;
 }
 
-.dark-bg {
-	background-color: #333231;	
-	color: #fff;
+.news-bg{
+	background-color: rgb(247, 242, 233);
 }
 
+.dark-bg{
+	background-color: #f8f8f8;
+	color: rgb(0, 0, 0);
+}
+
+.dark-bg p {
+	color: #000000;	
+}
+	
 .short-section {
 	border-top: 1px solid #5D5D5F;
 	border-bottom: 1px solid #5D5D5F;
@@ -518,27 +402,16 @@ header {
 }
 
 /*--------------------
-4.7. Contacts
+4.7. 소통/연락
 --------------------*/
-
-section#contact form {
-	margin-top: 15px;
-}
-section#contact.form-group {
-margin-bottom: 25px;
-}
 
 section#contact .form-group input, section#contact .form-group textarea {
 	padding: 15px;
-	border: 1px solid #fff;
+	border: 1px solid rgb(80, 80, 80);
 	border-radius: 0;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 	box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
 	font-size: 13px;
-}
-
-.contact h3 {
-	margin-bottom: 30px;
 }
 
 .contact p {
@@ -546,7 +419,7 @@ section#contact .form-group input, section#contact .form-group textarea {
 }
 
 .contact .day {
-	display: inline-block;
+	display: flex;
 	width: 80px;
 }
 
@@ -554,62 +427,12 @@ section#contact .form-group input, section#contact .form-group textarea {
 	margin-right: 5px;
 }
 
-/*--------------------
-5. Footer
---------------------*/
-
-footer {
-	padding: 30px;
-	background-color: rgb(255, 255, 255);	
-}
-
-#copyright{
-	color: #000;
-	font-size: 12px;
-	font-weight: bold;
+.section-text p{
+	font-weight:400
 }
 
 /*--------------------
-6. Modal
---------------------*/
-
-.modal-content {
-	border-radius: 0;	
-}
-.modal-header .close {
-	font-size: 30px;	
-}
-.modal-title {	
-	text-transform: uppercase;
-	font-size: 23px;
-}
-
-.modal-body {
-	padding: 0;
-}
-
-.modal-body p {
-	margin: 30px 20px;
-	color: #2D2D2D;		
-}
-
-.modal-works {
-font-size: 11px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	font-weight: 500;
-	color: #fff;
-	margin: 25px 20px;
-}
-
-.modal-works span {
-	background-color: #FED136;
-	margin-right: 15px;
-	padding: 5px 10px;
-}
-
-/*--------------------
-7. Components
+7. 정보공개 버튼 호버
 --------------------*/
 
 .btn-xl:hover, .btn-xl:focus, .btn-xl:active, .btn-xl.active, .open .dropdown-toggle.btn-xl {
@@ -619,24 +442,21 @@ font-size: 11px;
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active, .open .dropdown-toggle.btn {
-	color: #fff;
-	background-color: #dfdfdf;
+	color: rgb(0, 0, 0);
+	background-color:#6091DC;
 	border-color: #dfdfdf;
 }
 
 .btn {
 	display: inline-block;
 	padding: 8px 20px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
+	font-size: 15px;
+	font-weight: 500;
 	line-height: 1.42857143;
 	text-align: center;
-	white-space: nowrap;
 	vertical-align: middle;
 	-ms-touch-action: manipulation;
 	touch-action: manipulation;
-	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -644,53 +464,10 @@ font-size: 11px;
 	background-image: none;
 	border: 1px solid transparent;
 	border-radius: 0px;
-	background-color: #FCBE03;
+	background-color:#d6d3d3;
 }
 
-.btn-xl {
-color: #fff;
-    background-color: #FCBE03;
-    /* border-color: #726FB9; */
-    font-family: "Open Sans",sans-serif;
-    text-transform: uppercase;
-    font-weight: 800;
-    border-radius: 0;
-    letter-spacing: 2px;
-    font-size: 16px;
-    padding: 17px 45px;
-}
 
-/* Back to top button
----------------------------------- */
-#back-top {
-	position: fixed;
-	z-index: 1000;
-	bottom: 40px;
-	right: 50px;
-}
-#back-top a {
-	width: 60px;
-	height: 60px;
-	display: block;
-	text-align: center;
-	font: 11px/100% Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #FFFFFF;
-	background: #A9A9B1;
-	/* background color transition */
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
-}
-#back-top a:hover {
-	background: #fed136;
-}
-/* arrow icon (span tag) */
-#back-top i {
-	margin-top: 15px;
-	font-size: 28px;
-}
 
 @media only screen
 and (min-width : 320px)
@@ -713,14 +490,54 @@ and (max-width : 480px) {
 
 /* 지정 CSS list */
 
-#logo1{
-	font-weight: bold;
-	font-size: 45px;
-	color: #6091DC;
+.navbar-header{
+	padding-top: 10px;
+	padding-bottom: 5px;
 }
 
-#logo2{
-	font-weight: bold;
-	font-size: 25px;
-	color: #6091DC;
+
+/*--------------------
+지정 css의 Footer
+--------------------*/
+footer {
+	background-color: #3b3b3b;
+	height: 200px;
+}
+
+.copyright{
+	text-align: center;
+	color: rgb(202, 200, 200);
+	font-size: 13px;
+	font-weight:300;
+}
+
+/* 태극기 중심 이미지 */
+#copyImg{
+	display: flex;
+	list-style: none;
+	margin-left: 720px;
+}
+
+.footer_info_ul{
+	list-style: none;
+	text-align: center;
+}
+
+.footer_info_ul li{
+	display: inline-block;
+    font-size: 14px;
+	padding-top: 0px;
+	padding-bottom: 7px;
+}
+
+/* 영상정보처리기기 운영/관리방침 */
+#drone_operate{
+	color: #eed600;
+}
+
+
+.footer_info_ul li a {
+    display: block;
+    color: #aeaeae;
+    padding: 5px 10px;
 }

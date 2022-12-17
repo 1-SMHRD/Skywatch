@@ -6,7 +6,7 @@
         <div class="owl-slider owl-carousel">
             <div class="item">
                 <div class="owl-slider-item">
-                    <img src="/static/images/38743_77484_4727.jpg" class="img-responsive" alt="portfolio">
+                    <img src="/static/images/메인드론이미지.jpg" class="img-responsive" alt="portfolio">
                     <div class="intro-text">
                         <div class="intro-lead-in">Future Innovation Technologies</div>
                         <div class="intro-heading">Drone & Development Agency</div>
@@ -15,7 +15,7 @@
             </div>
             <div class="item">
                 <div class="owl-slider-item">
-                    <img src="/static/images/38743_77484_4727.jpg" class="img-responsive" alt="portfolio">
+                    <img src="/static/images/메인드론이미지2.jpg" class="img-responsive" alt="portfolio">
                     <div class="intro-text">
                         <div class="intro-lead-in">We are the number one</div>
                         <div class="intro-heading">Drone & Development Agency</div>
@@ -31,17 +31,18 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="section-title">
-                    <h2>Features</h2>
-                    <p> <strong>- Sky Watch -</strong> <br> <strong>Leader in innovative technologies in the future by utilizing drones.</strong></p>
+                    <h2>정보공개</h2>
+                    <p><b>Leader in innovative technologies in the future by utilizing drones.</b></p>
                 </div>
             </div>
         </div>
         <div class="row">
             <!-- features module -->
-            <div class="col-md-2 text-center">
+
+            <div class="col-md-3 text-center">
                 <div class="mz-module">
                     <div class="mz-module-about">
-                        <i class="fa fa-cogs color1 ot-circle"></i> <br>
+                        <i class="fa fa-cogs color1 ot-circle"></i> <br><br>
                         <h3>드론 관리 및 제어</h3>
                         <p>Drone Management and Control</p>
                     </div>
@@ -53,12 +54,12 @@
             </div>
 
 
-            <div class="col-md-2 text-center">
+            <div class="col-md-3 text-center">
                 <div class="mz-module">
                     <div class="mz-module-about">
-                        <i class="fa fa-photo color2 ot-circle"></i> <br>
+                        <i class="fa fa-photo color2 ot-circle"></i> <br><br>
                         <h3>단속 번호판 조회</h3>
-                        <p>Regulatory license plate check</p>
+                        <p>License plate check</p>
                     </div>
                     {% if session.get('loggedin') %}
                         <a href="{{ url_for('car_num_saveView.car_saveView') }}" class="mz-module-button">read more</a>
@@ -68,10 +69,10 @@
             </div>
 
 
-            <div class="col-md-2 text-center">
+            <div class="col-md-3 text-center">
                 <div class="mz-module">
                     <div class="mz-module-about">
-                        <i class="fa fa-camera-retro color3 ot-circle"></i> <br>
+                        <i class="fa fa-camera-retro color3 ot-circle"></i> <br><br>
                         <h3>실시간 영상</h3>
                         <p>Real-time video</p>
                     </div>
@@ -83,10 +84,10 @@
             </div>
 
 
-            <div class="col-md-2 text-center">
+            <div class="col-md-3 text-center">
                 <div class="mz-module">
                     <div class="mz-module-about">
-                        <i class="fa fa-map-marker color4 ot-circle"></i> <br>
+                        <i class="fa fa-map-marker color4 ot-circle"></i> <br><br>
                         <h3>단속구역 위치</h3>
                         <p>Location of the restriction area</p>
                     </div>
@@ -96,36 +97,27 @@
                     {% endif %}
                 </div>
             </div>
-
-
-            <div class="col-md-2 text-center">
-                <div class="mz-module">
-                    <div class="mz-module-about">
-                        <i class="fa fa-phone color5 ot-circle"></i> <br>
-                        <h3>긴급상황 신고</h3>
-                        <p>an emergency report</p>
-                    </div>
-                    <a href="#" class="mz-module-button">read more</a>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-2 text-center">
-                <div class="mz-module">
-                    <div class="mz-module-about">
-                        <i class="fa fa-phone color6 ot-circle"></i> <br>
-                        <h3>입력</h3>
-                        <p>-----</p>
-                    </div>
-                    <a href="#" class="mz-module-button">read more</a>
-                </div>
-            </div>
             <!-- end features module -->
         </div>
     </div>
     <!-- /.container -->
 </section>
+
+
+<!-- 드론소식 -->
+<section id="DroneNews" class="news-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title">
+                    <h2>Drone News</h2>
+                    <p><b>Leader in innovative technologies in the future by utilizing drones.</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section id="contact" class="dark-bg">
     <div class="container">
@@ -205,3 +197,30 @@
 
 {% endblock %}
 
+{% block footer %}
+<footer>
+    <div>
+        <ul class="footer_info_ul">
+            <li><a href=""><strong>개인정보처리방침</strong></a></li>
+            <li><a id="drone_operate" href="./4정보처리방침/정보처리.html"><strong>영상정보처리기기 운영·관리방침</strong></a></li>
+            <li><a href=""><strong>저작권보호정책</strong></a></li>
+            <li><a href=""><strong>이용안내</strong></a></li>
+            <li><a href=""><strong>홈페이지 오류신고</strong></a></li>
+        </ul>
+    </div>
+
+    <div class="copyright">
+        ⓒcopyright SkyWatch. 2022 drones SkyWatch. All Rights Reserved.
+    </div>
+
+    <div class="copyImg">
+        <ul id="copyImg">
+            <li><img id="copyImg1" src="static/images/산업통상자원부.png"></li>
+            <li><img id="copyImg2" src="static/images/경찰청.jpg"></li>
+            <li><img id="copyImg4" src="static/images/세종시.jpg"></li>
+            <li><img id="copyImg5" src="static/images/대한드론협회.jpg"></li>
+            <li><img id="copyImg5" src="static/images/한국교통안전공단.jpg"></li>
+        </ul>
+    </div>
+</footer>
+{% endblock %}

@@ -6,7 +6,7 @@ const loginBtn = document.getElementById('LOGIN_BTN');
 
 function color() {
     if((loginId.value.length>0)
-        && loginPw.value.length>=5){
+        && loginPw.value.length>=4){
         loginBtn.style.backgroundColor = "#0095F6";
         loginBtn.disabled = false;
     }else{
