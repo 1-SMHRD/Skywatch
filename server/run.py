@@ -35,15 +35,6 @@ app.register_blueprint(features)
 app.register_blueprint(google)
 app.register_blueprint(car_num_saveView)
 if __name__ == '__main__':
-    t = threading.Thread(target=ServerSocket, args=("119.200.31.135", 8089))
+    t = threading.Thread(target=ServerSocket, args=("220.80.88.45", 8089))
     t.start()
     app.run(host="0.0.0.0")
-
-    # 실시간 영상 버튼 누를시 뜨는 상태
-    global tello
-    tello = Tello()
-    if not tello.streamon():
-        print("비디오 시작할 준비 되지 않았습니다.")
-    else:
-        print("비디오 시작할 준비 합니다.")
-

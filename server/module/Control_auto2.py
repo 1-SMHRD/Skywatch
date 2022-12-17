@@ -17,13 +17,13 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 class drone_control:
     def __init__(self):
         #드론 캡쳐 데이터 경로
-        # self.dcap_dir = "./Skywatch/server/drone_img/parking/"
-        # self.save_cap = "./Skywatch/server/drone_img/parking/"
-        # self.num_cap = "./Skywatch/server/drone_img/numPlate/"
+        self.dcap_dir = "./Skywatch/server/drone_img/parking"
+        self.save_cap = "./Skywatch/server/drone_img/parking/cap_sector"
+        self.num_cap = "./Skywatch/server/drone_img/numPlate"
 
-        self.dcap_dir = "data/drone_img/parking"
-        self.save_cap = "data/drone_img/parking/d_sector"
-        self.num_cap = "data/drone_img/regulation_img" # 불법차량 캡쳐경로
+        # self.dcap_dir = "data/drone_img/parking"
+        # self.save_cap = "data/drone_img/parking/d_sector"
+        # self.num_cap = "data/drone_img/numPlate"
 
         # 학습된 모델 불러오기 (VGG + Dense 확장)
         #(Tr 0:1 - 1272:528, Val 92:40, Te 106:31)
@@ -125,6 +125,8 @@ class drone_control:
     #A 구역 정찰 움직임
     def move_A(self, drone):
         self.drone = drone
+
+        print(self.drone.get_battery())
         # self.drone.connect()
         # print(self.drone.get_battery())
         # self.drone.streamon()
@@ -137,43 +139,27 @@ class drone_control:
 
             # [left_right, front_back, up_down, clock_counter]
             # print('전진')
-            # drone.send_rc_control(0, 20, 0, 0)
-            # drone.move_forward()
-            # sleep(3)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.move_forward(40)
             sleep(2)
 
             print('좌행')
-            # drone.send_rc_control(-20, 0, 0, 0)
-            # sleep(6)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.move_left(160)
             sleep(2)
 
             print('전진')
-            # drone.send_rc_control(0, 20, 0, 0)
-            # sleep(5.5)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.move_forward(110)
             sleep(2)
 
             print('우회전')
-            # drone.send_rc_control(0, 0, 0, 30)
-            # sleep(5.5)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.rotate_clockwise(90)
             sleep(2)
 
             print('하강')
-            # drone.send_rc_control(0, 0, -20, 0)
-            # sleep(2)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.move_down(20)
             sleep(1)
 
@@ -306,10 +292,7 @@ class drone_control:
             self.drone.send_rc_control(0, 0, 0, 0)
             sleep(2)
             print('전진')
-            # drone.send_rc_control(0, 20, 0, 0)
-            # sleep(6)
-            # drone.send_rc_control(0, 0, 0, 0)
-            # sleep(2)
+
             self.drone.move_forward(200)
             sleep(2)
             print('착륙')
@@ -320,13 +303,15 @@ class drone_control:
             print(self.drone.get_battery())
             break
         self.drone.end()
+        
 
-drone = tello.Tello()
-drone.connect()
-print(drone.get_battery())
-drone.streamon()
+# 별도 테스트용
+# drone = tello.Tello()
+# drone.connect()
+# print(drone.get_battery())
+# drone.streamon()
 
-control = drone_control()
-control.move_A(drone)
+# control = drone_control()
+# control.move_A(drone)
 
 

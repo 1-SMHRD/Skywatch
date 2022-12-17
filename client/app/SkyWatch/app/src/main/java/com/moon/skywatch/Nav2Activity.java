@@ -58,6 +58,7 @@ public class Nav2Activity extends AppCompatActivity {
                 if (navDestination.getId() == R.id.nav_live){
                     // fragment_live LANDSCAPE(가로) 화면으로 고정
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                    getSupportActionBar().hide();
                 }
             }
         });

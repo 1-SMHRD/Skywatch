@@ -2,14 +2,18 @@ package com.moon.skywatch;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,8 +47,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -57,6 +66,18 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
     * 주차 구역은 무조건 4개의 포인트을 가진다.
     * 설정된 4곳의 위도 경도값을 서버에 전송
     * */
+
+    String ip = ((MainActivity)MainActivity.context_main).ip;
+    int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
+    int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
+    String url;
+
+    // about socket
+    private Handler mHandler;
+    private Socket socket;
+    private DataOutputStream outStream;
+    private DataInputStream inStream;
+    Thread checkUpdate;
 
     static RequestQueue requestQueue;
     private FragmentPositionBinding binding;
@@ -225,7 +246,8 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
                         jsonArray.put(jsonObject);
                     }
                     Log.d("jsonArray", jsonArray + "");
-                    makeRequest(jsonArray);
+                    // makeRequest(jsonArray);
+                    connect();
                 } else {
                     Toast.makeText(view.getContext(), "주차 구역 4곳을 설정해 주세요.", Toast.LENGTH_SHORT).show();
                 }
@@ -267,10 +289,8 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
     }
 
     public void makeRequest(JSONArray jsonArray) {
-        String ip = "http://119.200.31.135";
-        int port = 5000;
 
-        String url = ip + ":" + port + "/features/getArea_android";
+        String url = "http://" + ip + ":" + flask_port + "/features/getArea_android";
         Log.d("send Data", jsonArray + "");
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
@@ -312,4 +332,47 @@ public class PositionFragment extends Fragment implements OnMapReadyCallback{
         request.setShouldCache(false);
         requestQueue.add(request);
     }
+
+    void connect() {
+        Log.w("connect", "connecting...");
+
+        checkUpdate = new Thread(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void run() {
+
+                try{
+                    // 소켓 선언
+                    socket = new Socket(ip, socket_port);
+                    Log.w("서버 접속", "서버 접속 성공");
+                } catch (IOException e1) {
+                    Log.w("서버 접속 실패", "서버 접속 실패");
+                    e1.printStackTrace();
+                }
+
+                try {
+                    // 소켓 접속후 inputstream, ouputstream 받기
+                    outStream = new DataOutputStream(socket.getOutputStream());
+                    inStream = new DataInputStream(socket.getInputStream());
+                    // 드론 영상을 받기위한 문자열 전송
+                    outStream.writeUTF("/sendArea");
+                    // 버퍼 비워주기
+                    outStream.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.w("버퍼 생성 실패", "버퍼 생성 실패");
+                }
+
+                try {
+                    socket.close();
+                    Log.d("socket close", "socket close()");
+                    // connect();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        checkUpdate.start();
+    }
+
 }

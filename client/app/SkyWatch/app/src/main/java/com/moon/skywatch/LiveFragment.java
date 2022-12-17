@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -56,8 +57,10 @@ public class LiveFragment extends Fragment {
     * 4. 이미지뷰에 적용
    * */
 
-    final String ip = "119.200.31.135";
-    final int port = 8089;
+    String ip = ((MainActivity)MainActivity.context_main).ip;
+    int flask_port = ((MainActivity)MainActivity.context_main).flask_port;
+    int socket_port = ((MainActivity)MainActivity.context_main).socket_port;
+    String url;
 
     // about socket
     private Handler mHandler;
@@ -72,10 +75,80 @@ public class LiveFragment extends Fragment {
     View view;
     ImageView iv_droneView;
     Bitmap bmp;
+    Button[] btn_drone;
+    ImageView[] iv_drone;
+
+    String commend;
 
     @Override
     public void onResume() {
         super.onResume();
+
+        /*
+         * 0 - forward   /   takeoff
+         * 1 - back      /   land
+         * 2 - left      /   cw (clock wise)
+         * 3 - right     /   ccw (counter clock wise)
+         * */
+        btn_drone = new Button[]{view.findViewById(R.id.btn_droneForward), view.findViewById(R.id.btn_droneBack),
+                view.findViewById(R.id.btn_droneLeft), view.findViewById(R.id.btn_droneRight)};
+
+        iv_drone = new ImageView[]{view.findViewById(R.id.iv_droneUp), view.findViewById(R.id.iv_droneDown),
+                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw), view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand)};
+
+        Log.d("btn1", btn_drone[0] + "");
+
+        for (int i = 0; i < btn_drone.length; i++) {
+            final int temp = i;
+            btn_drone[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    switch (temp) {
+                        case 0:
+                            commend = "forward";
+                            break;
+                        case 1:
+                            commend = "back";
+                            break;
+                        case 2:
+                            commend = "Left";
+                            break;
+                        case 3:
+                            commend = "Right";
+                            break;
+                    }
+                }
+            });
+        }
+
+        for (int i = 0; i < iv_drone.length; i++) {
+            int temp = i;
+            iv_drone[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    switch (temp) {
+                        case 0:
+                            commend = "up";
+                            break;
+                        case 1:
+                            commend = "down";
+                            break;
+                        case 2:
+                            commend = "cw";
+                            break;
+                        case 3:
+                            commend = "ccw";
+                            break;
+                        case 4:
+                            commend = "takeOff";
+                            break;
+                        case 5:
+                            commend = "land";
+                            break;
+                    }
+                }
+            });
+        }
 
         // drone 실시간 영상 받아오기
         if(view != null){
@@ -85,8 +158,6 @@ public class LiveFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-
 
         view = inflater.inflate(R.layout.fragment_live, container, false);
 
@@ -107,6 +178,7 @@ public class LiveFragment extends Fragment {
 
     void connect() {
         Log.w("connect", "connecting...");
+        commend = null;
 
         checkUpdate = new Thread(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -115,7 +187,8 @@ public class LiveFragment extends Fragment {
 
                 try{
                     // 소켓 선언
-                    socket = new Socket(ip, port);
+                    socket = new Socket(ip, socket_port);
+
                     Log.w("서버 접속", "서버 접속 성공");
                 } catch (IOException e1) {
                     Log.w("서버 접속 실패", "서버 접속 실패");
@@ -138,6 +211,7 @@ public class LiveFragment extends Fragment {
                 // fragment를 종료하기 전까지 thread 열어두고 데이터 받기
                 while (condition) {
                     try {
+
                         // 이미지 길이 받기
                         int length = inStream.readInt();
                         Log.d("data length: ",  length + "---");
@@ -152,6 +226,13 @@ public class LiveFragment extends Fragment {
 
                         // Bitmap 저장
                         bmp = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+
+                        if (commend != null) {
+                            Log.d("commend", commend);
+                            outStream.writeUTF(commend);
+                            outStream.flush();
+                            commend = null;
+                        }
 
                     } catch (Exception e) {
                         Log.d("sdafas", "asdfsadf");
@@ -214,5 +295,4 @@ public class LiveFragment extends Fragment {
 
         return resbytes;
     }
-
 }
