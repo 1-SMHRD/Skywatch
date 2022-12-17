@@ -7,6 +7,7 @@ import sys
 import os
 from datetime import datetime
 from djitellopy import Tello
+from module import Control_auto2
 import threading
 
 """ 
@@ -47,6 +48,8 @@ class ServerSocket:
         self.receiveThread = threading.Thread(target=self.receive)
         self.receiveThread.start()
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
+        self.droneCommendThread = threading.Thread(target=self.droneCommend)
+        self.controlAutoThread = threading.Thread(target=Control_auto2.drone_control.move_A, args=(self.drone))
         
     def socketClose(self):
         self.sock.close()
@@ -88,9 +91,12 @@ class ServerSocket:
                 elif msg == "/drone":
                     print("sendVideo()")
                     self.sendVideoThread.start()
+                elif msg == "/sendArea":
+                    print("/sendArea")
+                    self.controlAutoThread.start()
                 else :
                     print("===" + msg + "===")
-                    # self.droneCommend(msg)
+                    self.droneCommend(msg).start()
                     
                     
                     
@@ -102,6 +108,7 @@ class ServerSocket:
             self.receiveThread = threading.Thread(target=self.receive)
             self.receiveThread.start()
             self.sendVideoThread = threading.Thread(target=self.sendVideo)
+            self.droneCommendThread = threading.Thread(target=self.droneCommend)
             
 
     def sendVideo(self):
@@ -147,6 +154,7 @@ class ServerSocket:
             self.receiveThread = threading.Thread(target=self.receive)
             self.receiveThread.start()
             self.sendVideoThread = threading.Thread(target=self.sendVideo)
+            self.droneCommendThread = threading.Thread(target=self.droneCommend)
         
         self.client_conn.close()
             
@@ -181,19 +189,28 @@ class ServerSocket:
         self.receiveThread = threading.Thread(target=self.receive)
         self.receiveThread.start()
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
+        self.droneCommendThread = threading.Thread(target=self.droneCommend)
         
     def droneCommend(self, commend):
-        dict_commend = {
-            "takeOff" : self.drone.takeoff(),
-            "land" : self.drone.land(),
-            "cw" : self.drone.rotate_clockwise(),
-            "ccw" : self.drone.rotate_counter_clockwise(),
-            "forward" : self.drone.move_forward(),
-            "back" : self.drone.move_back(),
-            "Left" : self.drone.move_left(),
-            "Right" : self.drone.move_right(),
-            "up" : self.drone.move_up(),
-            "down" : self.drone.move_down()
-        }
         
-        dict_commend.get(commend, None)
+        try :
+            
+            dict_commend = {
+                "takeOff" : self.drone.takeoff(),
+                "land" : self.drone.land(),
+                "cw" : self.drone.rotate_clockwise(90),
+                "ccw" : self.drone.rotate_counter_clockwise(90),
+                "forward" : self.drone.move_forward(30),
+                "back" : self.drone.move_back(30),
+                "Left" : self.drone.move_left(30),
+                "Right" : self.drone.move_right(30),
+                "up" : self.drone.move_up(10),
+                "down" : self.drone.move_down(10)
+            }
+            
+            dict_commend.get(commend, None)
+            time.sleep(1)
+        
+        except Exception as e:
+            print(e)
+            self.droneCommendThread = threading.Thread(target=self.droneCommend)
