@@ -130,4 +130,16 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_droneUp"
         app:srcCompat="@drawable/ic_left" />
 
+    <ImageView
+        android:id="@+id/iv_droneCap"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_droneLand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toEndOf="@+id/iv_droneLand"
+        app:layout_constraintTop_toTopOf="@+id/iv_droneLand"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -177,6 +177,9 @@ class ServerSocket:
                         self.drone.move_up(30)
                     elif self.commend == "down":
                         self.drone.move_down(30)
+                    elif self.commend == "capture":
+                        cv2.imwrite(os.getcwd() + "/drone_img/test_parking.png", frame)
+
                     time.sleep(0.01)
                     self.commend = ''
                     

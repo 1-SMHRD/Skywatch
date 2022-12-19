@@ -94,7 +94,7 @@ public class LiveFragment extends Fragment {
                 view.findViewById(R.id.btn_droneLeft), view.findViewById(R.id.btn_droneRight)};
 
         iv_drone = new ImageView[]{view.findViewById(R.id.iv_droneUp), view.findViewById(R.id.iv_droneDown),
-                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw), view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand)};
+                view.findViewById(R.id.iv_droneCw), view.findViewById(R.id.iv_droneCcw), view.findViewById(R.id.iv_droneTakeOff), view.findViewById(R.id.iv_droneLand), view.findViewById(R.id.iv_droneCap)};
 
         Log.d("btn1", btn_drone[0] + "");
 
@@ -144,6 +144,9 @@ public class LiveFragment extends Fragment {
                             break;
                         case 5:
                             commend = "land";
+                            break;
+                        case 6:
+                            commend = "capture";
                             break;
                     }
                 }
