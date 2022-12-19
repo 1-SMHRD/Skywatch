@@ -370,3 +370,11 @@ def Flip_back():
         print(drone_state)
         return render_template("area/features.html", drone_state=drone_state)
     return render_template("area/features.html")
+
+
+@features.route('/move_A')
+def drone_move_A():
+    drone_state = 'Drone move A'
+    Control_auto2.drone_control.move_A_flask(video_camera)
+    print(drone_state)
+    return render_template("area/features.html", drone_state=drone_state)
