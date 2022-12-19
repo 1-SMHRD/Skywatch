@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static Context context_main;
 
-    public static final String ip = "220.80.88.45";
+    public static final String ip = "10.0.2.2";
     public static final int flask_port = 5000;
     public static int socket_port = 8089;
 

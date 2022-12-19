@@ -260,7 +260,7 @@ public class NumberFragment extends Fragment {
     public void makeRequestDate(String sendDate) {
         check = 0;
 
-        String url = ip + ":" + flask_port + "/features/getDate_android";
+        String url = "http://" + ip + ":" + flask_port + "/features/getDate_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -312,7 +312,7 @@ public class NumberFragment extends Fragment {
     public void makeRequestCarNum(String carNum) {
         check = 0;
 
-        String url = ip + ":" + flask_port + "/features/getCarNum_android";
+        String url = "http://" + ip + ":" + flask_port + "/features/getCarNum_android";
 
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

@@ -71,7 +71,7 @@ class ServerSocket:
         
         self.receiveThread = threading.Thread(target=self.receive)
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
-        self.autoMoveThread = threading.Thread(target=Control_auto2.drone_control)
+        # self.autoMoveThread = threading.Thread(target=Control_auto2.drone_control)
         self.receiveThread.start()
         # self.receiveThread.join()
         
@@ -105,7 +105,8 @@ class ServerSocket:
                         
                     elif msg == "/sendArea":
                         print("/sendArea")
-                        self.autoMoveThread.start()
+                        Control_auto2.drone_control()
+                        # self.autoMoveThread.start()
                     else :
                         print("===" + msg + "===")
                         self.commend = msg
@@ -127,6 +128,7 @@ class ServerSocket:
         try:
             # while capture.isOpened():
             while True:
+                now = time.localtime()
                 # result, frame = capture.read()
                 frame = self.drone.get_frame_read().frame
                 frame = cv2.resize(frame, (1280, 720))
@@ -177,6 +179,11 @@ class ServerSocket:
                         self.drone.move_up(30)
                     elif self.commend == "down":
                         self.drone.move_down(30)
+                    elif self.commend == "capture":
+                        t_day = self.getDate(now)
+                        t_time = self.getTime(now)
+                        cv2.imwrite(os.getcwd() + f"/drone_img/{t_day}_{t_time}.png", frame)
+
                     time.sleep(0.01)
                     self.commend = ''
                     
@@ -219,3 +226,18 @@ class ServerSocket:
         self.socketClose()
         time.sleep(0.01)
         self.socketOpen()
+        
+    def getDate(self, now):
+        year = str(now.tm_year)
+        month = str(now.tm_mon)
+        day = str(now.tm_mday)
+        
+        if len(month) == 1:
+            month = '0' + month
+        if len(day) == 1:
+            day = '0' + day
+        
+        return (year + '-' + month + '-' + day)
+        
+    def getTime(self, now):
+        return (str(now.tm_hour) + '.' + str(now.tm_min) + '.' + str(now.tm_sec))
