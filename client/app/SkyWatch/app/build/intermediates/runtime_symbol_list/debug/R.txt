@@ -2560,6 +2560,7 @@ int dimen tooltip_precise_anchor_threshold 0x7f06026d
 int dimen tooltip_vertical_padding 0x7f06026e
 int dimen tooltip_y_offset_non_touch 0x7f06026f
 int dimen tooltip_y_offset_touch 0x7f060270
+int drawable aaaaa 0x7f07010a
 int drawable abc_ab_share_pack_mtrl_alpha 0x7f070023
 int drawable abc_action_bar_item_background_material 0x7f070024
 int drawable abc_btn_borderless_material 0x7f070025
@@ -3055,6 +3056,7 @@ int id invisible 0x7f080104
 int id inward 0x7f080105
 int id italic 0x7f080106
 int id item_touch_helper_previous_elevation 0x7f080107
+int id iv_droneCap 0x7f08022a
 int id iv_droneCcw 0x7f080108
 int id iv_droneCw 0x7f080109
 int id iv_droneDown 0x7f08010a

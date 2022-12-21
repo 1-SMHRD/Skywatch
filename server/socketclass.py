@@ -113,7 +113,7 @@ class ServerSocket:
                     
         except Exception as e:
             print(e)
-            self.drone.streamoff()
+            # self.drone.streamoff()
             self.socketClose()
             time.sleep(0.1)
             self.socketOpen()

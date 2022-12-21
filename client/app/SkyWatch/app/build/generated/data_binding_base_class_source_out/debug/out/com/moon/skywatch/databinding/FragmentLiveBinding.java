@@ -98,6 +98,22 @@ public final class FragmentLiveBinding implements ViewBinding {
    * </ul>
    */
   @Nullable
+  public final ImageView ivDroneCap;
+
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   */
+  @Nullable
   public final ImageView ivDroneCcw;
 
   /**
@@ -185,7 +201,8 @@ public final class FragmentLiveBinding implements ViewBinding {
 
   private FragmentLiveBinding(@NonNull ConstraintLayout rootView, @Nullable Button btnDroneBack,
       @Nullable Button btnDroneForward, @Nullable Button btnDroneLeft,
-      @Nullable Button btnDroneRight, @Nullable ImageView ivDroneCcw, @Nullable ImageView ivDroneCw,
+      @Nullable Button btnDroneRight, @Nullable ImageView ivDroneCap,
+      @Nullable ImageView ivDroneCcw, @Nullable ImageView ivDroneCw,
       @Nullable ImageView ivDroneDown, @Nullable ImageView ivDroneLand,
       @Nullable ImageView ivDroneTakeOff, @Nullable ImageView ivDroneUp,
       @NonNull ImageView ivDroneView) {
@@ -194,6 +211,7 @@ public final class FragmentLiveBinding implements ViewBinding {
     this.btnDroneForward = btnDroneForward;
     this.btnDroneLeft = btnDroneLeft;
     this.btnDroneRight = btnDroneRight;
+    this.ivDroneCap = ivDroneCap;
     this.ivDroneCcw = ivDroneCcw;
     this.ivDroneCw = ivDroneCw;
     this.ivDroneDown = ivDroneDown;
@@ -242,6 +260,9 @@ public final class FragmentLiveBinding implements ViewBinding {
       id = R.id.btn_droneRight;
       Button btnDroneRight = ViewBindings.findChildViewById(rootView, id);
 
+      id = R.id.iv_droneCap;
+      ImageView ivDroneCap = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.iv_droneCcw;
       ImageView ivDroneCcw = ViewBindings.findChildViewById(rootView, id);
 
@@ -267,7 +288,7 @@ public final class FragmentLiveBinding implements ViewBinding {
       }
 
       return new FragmentLiveBinding((ConstraintLayout) rootView, btnDroneBack, btnDroneForward,
-          btnDroneLeft, btnDroneRight, ivDroneCcw, ivDroneCw, ivDroneDown, ivDroneLand,
+          btnDroneLeft, btnDroneRight, ivDroneCap, ivDroneCcw, ivDroneCw, ivDroneDown, ivDroneLand,
           ivDroneTakeOff, ivDroneUp, ivDroneView);
     }
     String missingId = rootView.getResources().getResourceName(id);
