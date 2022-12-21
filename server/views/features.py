@@ -68,6 +68,7 @@ def getDate_car():
     
     print("row len", len(row))
     print(type(row))
+    print(row)
     
     if len(row) == 0:
         data = "none"

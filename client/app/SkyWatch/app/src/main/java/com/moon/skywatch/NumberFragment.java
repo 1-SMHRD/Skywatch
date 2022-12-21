@@ -323,6 +323,7 @@ public class NumberFragment extends Fragment {
                             Toast.makeText(view.getContext(), "검색 결과가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
                         } else {
                             getResponseData(response);
+                            Log.d("response", response);
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -408,6 +409,7 @@ public class NumberFragment extends Fragment {
                     inStream = new DataInputStream(socket.getInputStream());
                     outStream.writeUTF("/image");
                     outStream.flush();
+                    inStream.readInt();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.w("버퍼 생성 실패", "버퍼 생성 실패");
