@@ -71,51 +71,53 @@ class ServerSocket:
         self.client_conn, self.addr = self.sock.accept()
         print(f"Server Socket [ TCP_IP: {self.TCP_IP}, TCP_PORT: {self.TCP_PORT} ] is connected with client")
         
-        self.receive()
+        # self.receive()
         
-        # self.receiveThread = threading.Thread(target=self.receive)
+        self.receiveThread = threading.Thread(target=self.receive)
         self.sendVideoThread = threading.Thread(target=self.sendVideo)
         # self.autoMoveThread = threading.Thread(target=Control_auto2.drone_control)
-        # self.receiveThread.start()
+        self.receiveThread.start()
         # self.receiveThread.join()
         
              
     def receive(self):
         
         try:
-            if not self.drone.connect():
-                print(self.drone.get_battery())
-
-            # 이미지전송과 라이브전송을 구분하기 위한 변수
-            # 첫 2byte는 쓰레기값이 들어있다.
-            getMsg = bytearray(self.client_conn.recv(1024))[2:]
-            msg = getMsg.decode("utf-8")
-            print(len(msg), msg)
             
-            if len(msg) != 0:
-                if msg == "/image":
-                    print("sendImage()")
-                    self.sendImage()
-                elif msg == "/drone":
-                    print("sendVideo()")
-                    if not self.drone.streamoff():
-                        print("drone stream off()")
-                      
-                    self.sendVideo()  
-                    # self.sendVideoThread.start()
-                    # self.sendVideoThread.join()
-                    
-                elif msg == "/sendArea":
-                    print("/sendArea")
-                    # Control_auto2.drone_control()
-                    # self.autoMoveThread.start()
-                    time.sleep(1)
-                    self.socketClose()
-                    time.sleep(0.1)
-                    self.socketOpen()
-                else :
-                    print("===" + msg + "===")
-                    self.commend = msg
+            while True:
+                if not self.drone.connect():
+                    print(self.drone.get_battery())
+
+                # 이미지전송과 라이브전송을 구분하기 위한 변수
+                # 첫 2byte는 쓰레기값이 들어있다.
+                getMsg = bytearray(self.client_conn.recv(1024))[2:]
+                msg = getMsg.decode("utf-8")
+                print(len(msg), msg)
+                
+                if len(msg) != 0:
+                    if msg == "/image":
+                        print("sendImage()")
+                        self.sendImage()
+                    elif msg == "/drone":
+                        print("sendVideo()")
+                        if not self.drone.streamoff():
+                            print("drone stream off()")
+                        
+                        # self.sendVideo()  
+                        self.sendVideoThread.start()
+                        # self.sendVideoThread.join()
+                        
+                    elif msg == "/sendArea":
+                        print("/sendArea")
+                        Control_auto2.drone_control()
+                        # self.autoMoveThread.start()
+                        time.sleep(1)
+                        self.socketClose()
+                        time.sleep(0.1)
+                        self.socketOpen()
+                    else :
+                        print("===" + msg + "===")
+                        self.commend = msg
                     
         except Exception as e:
             print(e)
@@ -165,7 +167,8 @@ class ServerSocket:
                     print(len(self.commend))
                     
                     if self.commend == "takeOff":
-                        self.drone.takeoff()
+                        # self.drone.takeoff()
+                        print("takeoff")
                         # self.drone.send_rc_control(0, 0, 0, 0)
                     elif self.commend == "land":
                         self.drone.land()
