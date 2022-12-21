@@ -81,9 +81,6 @@ class ServerSocket:
         try:
             
             while True:
-                
-                if not self.drone.connect():
-                    print(self.drone.get_battery())
 
                 # 이미지전송과 라이브전송을 구분하기 위한 변수
                 # 첫 2byte는 쓰레기값이 들어있다.
@@ -96,6 +93,8 @@ class ServerSocket:
                         print("sendImage()")
                         self.sendImage()
                     elif msg == "/drone":
+                        if not self.drone.connect():
+                            print(self.drone.get_battery())
                         print("sendVideo()")
                         if not self.drone.streamoff():
                             print("drone stream off()")
